@@ -20,6 +20,8 @@
             --info-text: #16a085;
             --tips-bg: #fff3cd;
             --tips-border: #ffc107;
+            --ezomikuji-bg: #fdfefe;
+            --ezomikuji-border: #abebc6;
         }
 
         body {
@@ -164,6 +166,44 @@
             font-weight: bold;
         }
 
+        .ezo-tag {
+            background-color: #e74c3c;
+            color: #ffffff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.82rem;
+            font-weight: bold;
+            margin-left: 5px;
+            display: inline-block;
+        }
+
+        .ezomikuji-intro {
+            background-color: var(--info-bg);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .ezomikuji-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .ezomikuji-item {
+            background: #f8f9fa;
+            border: 1px solid #e2e8f0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 0.92rem;
+        }
+
+        .ezomikuji-item strong {
+            color: #2c3e50;
+        }
+
         a {
             color: #2980b9;
             text-decoration: none;
@@ -203,6 +243,9 @@
             }
             .day-content {
                 padding: 15px;
+            }
+            .ezomikuji-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -253,12 +296,12 @@
 
         <!-- Day 2 -->
         <div class="day-card">
-            <h3 class="day-title">Day 2：12/15 (二) 函館經典巡禮、溫泉神社與百萬夜景 <span class="arrow">▼</span></h3>
+            <h3 class="day-title">Day 2：12/15 (二) 飯店奢華早餐、函館經典巡禮與百萬夜景 <span class="arrow">▼</span></h3>
             <div class="day-content">
                 <ul>
-                    <li><strong>早晨：</strong><a href="https://www.google.com/maps/search/?api=1&query=函館朝市" target="_blank"><span class="highlight">函館朝市</span></a>（就在飯店旁，步行即達）。享用新鮮海鮮丼或體驗釣活烏賊。</li>
-                    <li><strong>上午（神社參拜）：</strong>參拜 <a href="https://www.google.com/maps/search/?api=1&query=函館湯倉神社" target="_blank"><span class="highlight">函館｜湯倉神社</span></a>（湯之川溫泉發祥地、開運祈福與撫摸神兔）。<br>
-                        　🚋 <em>路線資訊：從「函館站前」搭乘函館市電（往湯之川方向）至終點「湯之川」站（車程約30分鐘），出站步行約2分鐘即達。</em>
+                    <li><strong>早晨：</strong>享用 <span class="highlight">飯店奢華自助早餐</span>（Century Marina Hakodate 知名頂級海鮮 Buffet）。餐後可順道至飯店旁的 <a href="https://www.google.com/maps/search/?api=1&query=函館朝市" target="_blank"><span class="highlight">函館朝市</span></a> 散步逛街、體驗釣活烏賊或購買海味乾貨。</li>
+                    <li><strong>上午（神社參拜）：</strong>參拜 <a href="https://www.google.com/maps/search/?api=1&query=函館湯倉神社" target="_blank"><span class="highlight">函館｜湯倉神社</span></a>（湯之川溫泉發祥地、開運祈福與撫摸神兔）。<span class="ezo-tag">🦑 蝦夷神籤：イカすみくじ (烏賊籤)</span><br>
+                        　🚋 <em>路線資訊：從「函館站前」搭乘函館市電（往湯之川方向）至終點「湯之川」站（車程約30分鐘），出站步行約2分鐘即達。體驗趣味「釣烏賊神籤」！</em>
                     </li>
                     <li><strong>中午：</strong><a href="https://www.google.com/maps/search/?api=1&query=函館五稜郭公園" target="_blank"><span class="highlight">函館五稜郭公園</span></a>。購票登上「五稜郭塔」，俯瞰冬季限定的白雪星形堡壘。<br>
                         　🚋 <em>路線資訊：從「湯之川」搭乘函館市電（往函館站前方向）至「五稜郭公園前」站（車程約15分鐘），下車後步行約15分鐘可達五稜郭塔。</em>
@@ -281,10 +324,11 @@
 
         <!-- Day 3 -->
         <div class="day-card">
-            <h3 class="day-title">Day 3：12/16 (三) 鐵道北上、花手水神社與童話餅乾工廠 <span class="arrow">▼</span></h3>
+            <h3 class="day-title">Day 3：12/16 (三) 飯店早餐、鐵道北上與札幌花手水神社 <span class="arrow">▼</span></h3>
             <div class="day-content">
                 <ul>
-                    <li><strong>上午：</strong>搭乘 JR 特急列車（北斗號）從函館前往札幌（車程約 4 小時）。可於車上享用鐵路便當，欣賞內浦灣無敵海景與雪景。<br>
+                    <li><strong>早晨：</strong>於飯店悠閒享用 <span class="highlight">飯店奢華自助早餐</span>（享受全日本評比前列的百匯美食）。</li>
+                    <li><strong>上午：</strong>辦理退房手續後，搭乘 JR 特急列車（北斗號）從函館前往札幌（車程約 4 小時）。沿途欣賞內浦灣無敵海景與雪景。<br>
                         　🚆 <em>路線資訊：從「JR 函館站」搭乘 JR 特急北斗號直達「JR 札幌站」。</em>
                     </li>
                     <li><strong>下午（神社參拜）：</strong>參拜超人氣花手水名所 <a href="https://www.google.com/maps/search/?api=1&query=札幌諏訪神社" target="_blank"><span class="highlight">札幌諏訪神社</span></a>（美麗的季節花手水與戀愛/子孫繁榮祈願）。<br>
@@ -292,7 +336,7 @@
                     </li>
                     <li><strong>傍晚：</strong>前往 <a href="https://www.google.com/maps/search/?api=1&query=北海道白色戀人公園" target="_blank"><span
                             class="highlight">北海道白色戀人公園</span></a>。記得在園區內製作<strong>訂製磁鐵</strong>，使用合照留下專屬紀念。<br>
-                        　🚇 <em>路線資訊：從「北13條東」搭乘地下鐵東豐線至「大通站」，轉乘地下鐵東西線至終點「宮之澤站」，出站步行約7分鐘即可抵達。</em>
+                        0🚇 <em>路線資訊：從「北13條東」搭乘地下鐵東豐線至「大通站」，轉乘地下鐵東西線至終點「宮之澤站」，出站步行約7分鐘即可抵達。</em>
                     </li>
                     <li><strong>晚餐：</strong>札幌特色湯咖哩。寒冷的冬夜裡，推薦來一碗辛香濃郁、辣度可自由調整的湯咖哩暖胃（如 GARAKU 或 Suage+）。<br>
                         　🚇 <em>路線資訊：搭乘地下鐵東西線回「大通站」或「薄野站」周邊，多數名店皆在出站步行5-10分鐘內的商圈範圍。</em>
@@ -307,8 +351,8 @@
             <h3 class="day-title">Day 4：12/17 (四) 小樽漫步：總鎮守神社、海鮮、運河與復古商店街 <span class="arrow">▼</span></h3>
             <div class="day-content">
                 <ul>
-                    <li><strong>上午（神社參拜）：</strong>前往小樽總鎮守 <a href="https://www.google.com/maps/search/?api=1&query=小樽住吉神社" target="_blank"><span class="highlight">小樽住吉神社</span></a>。參拜坡道上的巨大鳥居與浪漫紅燈籠參道。<br>
-                        　🚆 <em>路線資訊：從 JR 札幌站搭乘 JR 快速 Airport 線（往小樽方向）至「JR 南小樽站」（車程約30分鐘），出站步行約8-10分鐘即達神社。</em>
+                    <li><strong>上午（神社參拜）：</strong>前往小樽總鎮守 <a href="https://www.google.com/maps/search/?api=1&query=小樽住吉神社" target="_blank"><span class="highlight">小樽住吉神社</span></a>。參拜坡道上的巨大鳥居與浪漫紅燈籠參道。<span class="ezo-tag">🐟 蝦夷神籤：日進月歩みくじ (鯡魚籤)</span><br>
+                        　🚆 <em>路線資訊：從 JR 札幌站搭乘 JR 快速 Airport 線（往小樽方向）至「JR 南小樽站」（車程約30分鐘），出站步行約8-10分鐘即達神社。體驗「釣鯡魚神籤」！</em>
                     </li>
                     <li><strong>中午（海鮮午餐）：</strong>前往 <a href="https://www.google.com/maps/search/?api=1&query=小樽三角市場" target="_blank"><span class="highlight">小樽三角市場</span></a> 品嚐新鮮豪邁的帝王蟹或海膽海鮮丼。<br>
                         　🚆/🚶 <em>路線資訊：從住吉神社步行約15分鐘（或從 JR 南小樽站搭乘 JR 1站至 JR 小樽站），出小樽站左轉步行1分鐘即達三角市場。</em>
@@ -335,8 +379,8 @@
             <div class="day-content">
                 <ul>
                     <li><strong>全天：</strong><span
-                            class="highlight">富良野、美瑛冬季一日遊（旅行團）</span>。冬季雪地自駕風險高，報名從札幌出發的一日巴士團最輕鬆。行程通常包含美瑛白鬚瀑布、青池，以及富良野的精靈露臺。<br>
-                        　🚌 <em>路線資訊：參加當地一日遊，通常於 JR 札幌車站北口或大通公園周邊集合上車，全程搭乘觀光巴士專車接駁。</em>
+                            class="highlight">富良野、美瑛冬季一日遊（旅行團）</span>。冬季雪地自駕風險高，報名從札幌出發的一日巴士團最輕鬆。行程通常包含美瑛白鬚瀑布、青池，以及富良野的精靈露臺。<span class="ezo-tag">🌽 美瑛神社：富諸来しみくじ (玉米籤)</span><br>
+                        　🚌 <em>路線資訊：參加當地一日遊，通常於 JR 札幌車站北口或大通公園周邊集合上車，全程搭乘觀光巴士專車接駁。（若一日團包含美瑛神社可順道收集用烤肉鉗夾的玉米籤！）</em>
                     </li>
                     <li><strong>晚上：</strong>跟團返回札幌市區，可前往 <a href="https://www.google.com/maps/search/?api=1&query=狸小路商店街" target="_blank"><span class="highlight">狸小路商店街</span></a> 簡單購物或吃碗札幌味噌拉麵。<br>
                         　🚶 <em>路線資訊：旅行團解散地點多在札幌站或大通站附近，步行幾分鐘或轉乘地下鐵至「大通站/薄野站」即可抵達狸小路商店街。</em>
@@ -366,19 +410,47 @@
             <h3 class="day-title">⛩️ 特色神社與稍遠神社大眾交通攻略 (彈性景點) <span class="arrow">▼</span></h3>
             <div class="day-content">
                 <ul>
-                    <li><strong>江別｜<a href="https://www.google.com/maps/search/?api=1&query=錦山天滿宮" target="_blank"><span class="highlight">錦山天滿宮</span></a>：</strong>學業與解災祈願，紅磚與花手水名所。<br>
+                    <li><strong>江別｜<a href="https://www.google.com/maps/search/?api=1&query=錦山天滿宮" target="_blank"><span class="highlight">錦山天滿宮</span></a>：</strong>學業與解災祈願，紅磚與花手水名所。<span class="ezo-tag">🏭 幸路みくじ (紅磚筒倉籤)</span><br>
                         　🚆 <em>大眾交通路線：從「JR 札幌站」搭乘 JR 函館本線（區間快速/普通車往江別方向）至「JR 野幌站」（車程約20分鐘），出站後步行約10分鐘即可抵達。適合排在 Day 3 下午或 Day 6 早上。</em>
                     </li>
-                    <li><strong>苫小牧｜<a href="https://www.google.com/maps/search/?api=1&query=樽前山神社" target="_blank"><span class="highlight">樽前山神社</span></a>：</strong>膽振總鎮守，歷史悠久且境內壯觀。<br>
-                        　🚆/🚌 <em>大眾交通路線：從「JR 札幌站」搭乘 JR 特急 (Hokuto/Suzuran) 至「JR 苫小牧站」（車程約45分鐘），轉乘道南巴士（錦岡線）至「神社前」站下車即達，或搭乘計程車約10分鐘。此地點鄰近新千歲機場，適合 Day 6 前往機場前順遊。</em>
+                    <li><strong>苫小牧｜<a href="https://www.google.com/maps/search/?api=1&query=樽前山神社" target="_blank"><span class="highlight">樽前山神社</span></a>：</strong>膽振總鎮守，歷史悠久且境內壯觀。<span class="ezo-tag">🐚 一念発起みくじ (北寄貝籤)</span><br>
+                        0🚆/🚌 <em>大眾交通路線：從「JR 札幌站」搭乘 JR 特急 (Hokuto/Suzuran) 至「JR 苫小牧站」（車程約45分鐘），轉乘道南巴士（錦岡線）至「神社前」站下車即達，或搭乘計程車約10分鐘。此地點鄰近新千歲機場，適合 Day 6 前往機場前順遊。</em>
                     </li>
-                    <li><strong>鹿部｜<a href="https://www.google.com/maps/search/?api=1&query=鹿部稻荷神社" target="_blank"><span class="highlight">鹿部稻荷神社</span></a>：</strong>海邊溫泉鄉神社。<br>
+                    <li><strong>鹿部｜<a href="https://www.google.com/maps/search/?api=1&query=鹿部稻荷神社" target="_blank"><span class="highlight">鹿部稻荷神社</span></a>：</strong>海邊溫泉鄉神社。<span class="ezo-tag">🐟 多楽呼みくじ (鱈魚子籤)</span><br>
                         　🚆/🚌 <em>大眾交通路線：從「JR 函館站」搭乘 JR 函館本線（砂原支線）至「JR 鹿部站」，轉乘函館巴士（往鹿部溫泉方向）至「鹿部役場前」下車步行即達。可排在 Day 2 的延伸郊區行程。</em>
                     </li>
-                    <li><strong>岩內｜<a href="https://www.google.com/maps/search/?api=1&query=岩內神社" target="_blank"><span class="highlight">岩內神社</span></a>：</strong>開拓歷史神社，俯瞰港灣。<br>
+                    <li><strong>岩內｜<a href="https://www.google.com/maps/search/?api=1&query=岩內神社" target="_blank"><span class="highlight">岩內神社</span></a>：</strong>開拓歷史神社，俯瞰港灣。<span class="ezo-tag">🐟 たら福みくじ (明太魚籤)</span><br>
                         　🚌 <em>大眾交通路線：從「JR 小樽站」前巴士總站搭乘北海道中央巴士「岩內線 (Iwanai Line)」直達「岩內總站 (Iwanai Terminal)」（車程約1.5小時），下車後步行約15分鐘即達。可排在 Day 4 小樽行程的深度延伸。</em>
                     </li>
                 </ul>
+            </div>
+        </div>
+
+        <!-- 蝦夷神籤專題卡片 -->
+        <div class="day-card">
+            <h3 class="day-title">⛩️ 北海道限定「蝦夷神籤 (えぞみくじ)」集籤地圖攻略 <span class="arrow">▼</span></h3>
+            <div class="day-content">
+                <div class="ezomikuji-intro">
+                    💡 <strong>什麼是蝦夷神籤（えぞみくじ）？</strong><br>
+                    「蝦夷」為北海道之古稱。這系列神籤是由根室金刀比羅神社發起，結合北海道傳統工藝「張り子（和紙中空玩偶）」製成在地名產小模型，內部裝有以<strong>北海道方言</strong>撰寫的吉祥詩籤。抽籤方式極具童趣（如使用小型釣竿釣魚、烤肉鉗夾玉米或水網撈），且命名皆運用台詞雙關語，是造訪北海道神社必收集的超萌限定守護品！
+                </div>
+                <div class="ezomikuji-grid">
+                    <div class="ezomikuji-item">🦑 <strong>函館｜湯倉神社</strong><br>イカすみくじ (烏賊) / 釣竿釣</div>
+                    <div class="ezomikuji-item">🐟 <strong>小樽｜住吉神社</strong><br>日進月歩みくじ (鯡魚) / 釣竿釣</div>
+                    <div class="ezomikuji-item">🏭 <strong>江別｜錦山天滿宮</strong><br>幸路みくじ (紅磚筒倉)</div>
+                    <div class="ezomikuji-item">🐚 <strong>苫小牧｜樽前山神社</strong><br>一念発起みくじ (北寄貝)</div>
+                    <div class="ezomikuji-item">🌽 <strong>美瑛｜美瑛神社</strong><br>富諸来しみくじ (玉米) / 烤肉鉗夾</div>
+                    <div class="ezomikuji-item">🌾 <strong>旭川｜旭川神社</strong><br>福よ米米みくじ (米俵)</div>
+                    <div class="ezomikuji-item">🐟 <strong>鹿部｜鹿部稻荷神社</strong><br>多楽呼みくじ (鱈魚子)</div>
+                    <div class="ezomikuji-item">🐟 <strong>岩內｜岩內神社</strong><br>たら福みくじ (明太魚)</div>
+                    <div class="ezomikuji-item">🦀 <strong>稚內｜北門神社</strong><br>いカニもいいみくじ (毛蟹)</div>
+                    <div class="ezomikuji-item">👼 <strong>網走｜網走神社</strong><br>福が来るよねみくじ (流冰天使)</div>
+                    <div class="ezomikuji-item">🧅 <strong>北見｜北見神社</strong><br>福多招みくじ (洋蔥)</div>
+                    <div class="ezomikuji-item">🥔 <strong>浦幌｜浦幌/乳神神社</strong><br>やるなら今じゃがみくじ (馬鈴薯)</div>
+                    <div class="ezomikuji-item">🐟 <strong>根室｜金刀比羅神社</strong><br>福ざんまいみくじ (秋刀魚)</div>
+                    <div class="ezomikuji-item">🦪 <strong>厚岸｜厚岸神社</strong><br>幸牡蠣あつめみくじ (牡蠣)</div>
+                    <div class="ezomikuji-item">🐟 <strong>帶廣｜帶廣神社</strong><br>魔鮭福鱒みくじ (鮭魚) / 釣竿釣</div>
+                </div>
             </div>
         </div>
 
