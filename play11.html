@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐶 宜蘭礁溪員山頭城 3天2夜 寵物友善夢幻之旅</title>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --accent-color: #4caf50;
+            --accent-hover: #388e3c;
+            --bg-color: #f4f8f5;
+            --card-bg: #ffffff;
+            --card-header-bg: #e8f5e9;
+            --card-header-hover: #c8e6c9;
+            --text-color: #2c3e50;
+            --highlight-color: #e65100;
+            --info-bg: #e0f2f1;
+            --info-text: #00695c;
+            --tips-bg: #fff8e1;
+            --tips-border: #ffb300;
+            --pet-tag-bg: #ff7043;
+            --pet-tag-text: #ffffff;
+        }
+
+        body {
+            font-family: '微軟正黑體', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.75;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        h2 {
+            color: var(--accent-hover);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 12px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.92rem;
+            font-weight: bold;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .trip-summary {
+            background-color: var(--info-bg);
+            padding: 18px 22px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--info-text);
+        }
+
+        .trip-summary p {
+            margin: 6px 0;
+            font-weight: 500;
+            color: var(--info-text);
+            font-size: 0.98rem;
+        }
+
+        .day-card {
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            background: #fafbfc;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .day-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .day-title {
+            background-color: var(--card-header-bg);
+            padding: 16px 22px;
+            margin: 0;
+            font-size: 1.18rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .day-title:hover {
+            background-color: var(--card-header-hover);
+        }
+
+        .day-title span.arrow {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            color: #558b2f;
+        }
+
+        .day-content {
+            padding: 22px;
+            display: none;
+            border-top: 1px solid #e1e8ed;
+            background-color: #ffffff;
+        }
+
+        ul, ol {
+            padding-left: 22px;
+            margin: 6px 0;
+        }
+
+        li {
+            margin-bottom: 16px;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--highlight-color);
+            font-weight: bold;
+        }
+
+        .pet-tag {
+            background-color: var(--pet-tag-bg);
+            color: var(--pet-tag-text);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 6px;
+            display: inline-block;
+        }
+
+        .spot-tag {
+            background-color: #29b6f6;
+            color: #ffffff;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 6px;
+            display: inline-block;
+        }
+
+        .time-badge {
+            background-color: #eceff1;
+            color: #37474f;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-right: 6px;
+        }
+
+        .route-info {
+            display: block;
+            margin-top: 6px;
+            padding-left: 12px;
+            border-left: 3px solid #b0bec5;
+            color: #546e7a;
+            font-size: 0.93rem;
+            font-style: normal;
+        }
+
+        .dinner-option {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 16px 18px;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s ease;
+        }
+
+        .dinner-option:hover {
+            border-color: var(--accent-color);
+        }
+
+        .dinner-option h4 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #2e7d32;
+            font-size: 1.05rem;
+        }
+
+        a {
+            color: #1565c0;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .tips {
+            background-color: var(--tips-bg);
+            border-left: 5px solid var(--tips-border);
+            padding: 18px 22px;
+            margin-top: 30px;
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+
+        .tips strong {
+            color: #e65100;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 18px;
+            }
+            h1 {
+                font-size: 1.4rem;
+            }
+            .day-title {
+                font-size: 1.05rem;
+                padding: 14px 16px;
+            }
+            .day-content {
+                padding: 16px;
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🐶 宜蘭礁溪員山頭城 3天2夜 寵物友善夢幻之旅 🌿</h1>
+
+        <!-- 頂部控制按鈕 -->
+        <div class="controls">
+            <button id="btn-expand-all" class="btn">展開全部</button>
+            <button id="btn-collapse-all" class="btn">收合全部</button>
+        </div>
+
+        <!-- 旅程總覽 -->
+        <div class="trip-summary">
+            <p>🐾 <strong>成員特色：</strong>機車輕裝遊宜蘭、帶瑪爾濟斯毛孩同行度假</p>
+            <p>🏡 <strong>住宿地點：</strong><a href="https://www.google.com/maps/search/?api=1&query=有朋會館" target="_blank"><span class="highlight">員山有朋會館</span></a>（清水模建築、自然藝術氛圍大自然民宿）</p>
+            <p>🛵 <strong>交通方式：</strong>台鐵火車 + 礁溪租機車雙人雙載</p>
+        </div>
+
+        <!-- Day 1 -->
+        <div class="day-card">
+            <h3 class="day-title">🗓️ Day 1：火車抵達 ➔ 民宿放行李 ➔ 輕裝橘之鄉 ➔ 空ㄟ百萬夜景 <span class="arrow">▼</span></h3>
+            <div class="day-content">
+                <ul>
+                    <li>
+                        <span class="time-badge">10:42</span><strong>抵達礁溪火車站 ➔ 租機車</strong><br>
+                        出站後前往機車行牽車。<br>
+                        <span class="route-info">💡 <em>貼心提醒：租車時請特別注意腳踏板空間，需放得下毛孩的提袋或背包喔！</em></span>
+                    </li>
+                    <li>
+                        <span class="time-badge">11:15</span><strong>午餐：礁溪市區小吃（如：<a href="https://www.google.com/maps/search/?api=1&query=礁溪+正常鮮肉小籠包" target="_blank"><span class="highlight">正常鮮肉小籠包</span></a>）</strong><span class="pet-tag">🐶 寵物友善</span><br>
+                        在地超人氣美味小吃，多為開放式戶外/半戶外座位，機車直接停在旁邊，帶著瑪爾濟斯用餐非常方便自在。
+                    </li>
+                    <li>
+                        <span class="time-badge">12:20</span><strong>騎車前往民宿</strong><br>
+                        從礁溪市區騎車至員山鄉的「有朋會館」，沿途路況良好，車程大約 25–30 分鐘。
+                    </li>
+                    <li>
+                        <span class="time-badge">13:00</span>📍 <strong>抵達 <a href="https://www.google.com/maps/search/?api=1&query=有朋會館" target="_blank"><span class="highlight">有朋會館</span></a> 寄放行李</strong> <span class="spot-tag">核心步驟</span><br>
+                        先把沉重的大型行李卸在櫃檯，換上最輕便的隨身裝備。讓小瑪爾濟斯下車活動散步、喝水尿尿，放鬆搭車與騎車的緊張感。
+                    </li>
+                    <li>
+                        <span class="time-badge">14:00</span><strong><a href="https://www.google.com/maps/search/?api=1&query=橘之鄉蜜餞形象館" target="_blank"><span class="highlight">橘之鄉蜜餞形象館</span></a></strong><span class="pet-tag">🐶 寵物友善</span><br>
+                        距離民宿非常近！園區綠意盎然，有巨大的巨人桌椅可以拍可愛網美照，部分半戶外區寵物友善，非常適合帶狗狗散步拍照。
+                    </li>
+                    <li>
+                        <span class="time-badge">16:30</span><strong>騎車前往空ㄟ山下接駁站</strong><br>
+                        導航至礁溪白石腳路（白雲一路交叉口附近）的 <a href="https://www.google.com/maps/search/?api=1&query=空ㄟ農場停車場" target="_blank"><span class="highlight">空ㄟ農場專屬免費停車場</span></a> 停放機車。
+                    </li>
+                    <li>
+                        <span class="time-badge">17:15</span>📍 <strong><a href="https://www.google.com/maps/search/?api=1&query=空ㄟ農場" target="_blank"><span class="highlight">空ㄟ農場</span></a>（看黃昏與百萬夜景）</strong><span class="pet-tag">🐶 寵物友善</span><br>
+                        一邊享用招牌手作窯烤披薩，一邊俯瞰整片礁溪萬家燈火的百萬夜景，氣氛非常浪漫。<br>
+                        <span class="route-info">⚠️ <em>交通注意：不能自行騎車上山（山路狹窄危險）。請在接駁站搭乘店家的免費接駁車上山，狗狗牽好繩或放提袋即可一起搭乘。</em></span>
+                    </li>
+                    <li>
+                        <span class="time-badge">20:00</span><strong>下山與返程</strong><br>
+                        搭乘免費接駁車下山，騎機車返回 <span class="highlight">有朋會館</span> 正式辦理入住、洗澡與享受靜謐夜晚。
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card">
+            <h3 class="day-title">🗓️ Day 2：山林漫步 ➔ 在地小吃 ➔ 湖畔絕美茶屋 ➔ 晚餐浪漫三選一 <span class="arrow">▼</span></h3>
+            <div class="day-content">
+                <ul>
+                    <li>
+                        <span class="time-badge">09:30</span><strong>有朋會館享用精緻早餐</strong><br>
+                        在民宿內悠閒享用晨間餐點，享受清水模建築與大自然包圍的藝術美感與芬多精。
+                    </li>
+                    <li>
+                        <span class="time-badge">10:30</span><strong><a href="https://www.google.com/maps/search/?api=1&query=望龍埤" target="_blank"><span class="highlight">望龍埤（軟埤仔）漫步</span></a></strong><span class="pet-tag">🐶 寵物友善</span><br>
+                        位於員山鄉的唯美湖泊，是著名的偶像劇拍攝景點。帶瑪爾濟斯漫步九曲橋與環湖步道，享受山光水色。
+                    </li>
+                    <li>
+                        <span class="time-badge">12:30</span><strong>午餐：員山魚丸米粉街</strong><span class="pet-tag">🐶 寵物友善</span><br>
+                        <a href="https://www.google.com/maps/search/?api=1&query=員山魚丸米粉街" target="_blank"><span class="highlight">員山路一帶</span></a> 有許多傳統美味老店，多為半開放式座位，帶狗用餐零壓力。
+                    </li>
+                    <li>
+                        <span class="time-badge">14:30</span>📍 <strong><a href="https://www.google.com/maps/search/?api=1&query=龍潭湖風景區" target="_blank"><span class="highlight">龍潭湖風景區</span></a> ➔ <a href="https://www.google.com/maps/search/?api=1&query=Herbelle+Tea+湖畔茶屋" target="_blank"><span class="highlight">Herbelle Tea 湖畔茶屋</span></a></strong><span class="pet-tag">🐶 寵物友善</span><br>
+                        先帶狗狗在龍潭湖的大草皮跑跑放電，接著走進茶屋享受湖景第一排的玻璃屋悠閒下午茶。<br>
+                        <span class="route-info">🐾 <em>寵物規範：可繫牽繩或放置於寵物推車/提袋內一同入座。</em></span>
+                    </li>
+                    <li>
+                        <span class="time-badge">17:00</span><strong>返回有朋會館休息 / 精簡裝備</strong><br>
+                        可以先回民宿放空、幫毛孩梳洗整理，再輕裝出門吃晚餐；或是下午茶結束後直接前往餐廳。
+                    </li>
+                    <li>
+                        <span class="time-badge">18:30</span>📍 <strong>第二天晚餐口袋名單（當天依心情三選一）</strong>
+                        
+                        <div class="dinner-option">
+                            <h4>🍴 選項 A【<a href="https://www.google.com/maps/search/?api=1&query=CM+CAFE小餐館+宜蘭" target="_blank">CM CAFÉ小餐館</a>】<span class="pet-tag">質感西式簡餐 ＋ 提供寵物餐</span></h4>
+                            <p><strong>特色：</strong>義大利麵、燉飯與手作甜點。店內會貼心提供寵物專用椅墊讓狗狗上椅，更有專為毛孩製作的蔬菜雞肉/豚肉丸鮮食！</p>
+                            <p>📍 <strong>位置：</strong>宜蘭市區（距離龍潭湖茶屋約 12-15 分鐘車程）。</p>
+                        </div>
+
+                        <div class="dinner-option">
+                            <h4>🍴 選項 B【<a href="https://www.google.com/maps/search/?api=1&query=HJ+手作定食+員山" target="_blank">HJ 手作定食</a>】<span class="pet-tag">精緻中式定食 ＋ 冷氣開放</span></h4>
+                            <p><strong>特色：</strong>現點現做的高評價中式定食（激推香辣口水雞、蒜香奶油牛），白飯可免費續加，CP 值極高。狗狗置於提袋或推車內即可入店。</p>
+                            <p>📍 <strong>位置：</strong>員山鄉員山路（回有朋會館的路途上順路經過）。</p>
+                        </div>
+
+                        <div class="dinner-option">
+                            <h4>🍴 選項 C【<a href="https://www.google.com/maps/search/?api=1&query=老媽媽手工醬油火鍋+豆腐乳烤雞" target="_blank">老媽媽手工醬油火鍋 / 豆腐乳烤雞</a>】<span class="pet-tag">在地台式野趣 ＋ 離民宿最近</span></h4>
+                            <p><strong>特色：</strong>主打外皮金黃酥脆的「豆腐乳烤雞」與全雞菇鍋。屬於大棚戶外半開放式空間，帶狗用餐完全無壓力，吃完騎車 5-7 分鐘內即可回到民宿。</p>
+                            <p>📍 <strong>位置：</strong>員山鄉枕山村。</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="time-badge">20:30</span><strong>返回 <span class="highlight">有朋會館</span> 享受悠閒放鬆的宜蘭夜晚。</strong>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+            <h3 class="day-title">🗓️ Day 3：頭城老街吃冰 ➔ 蔚藍海景看龜山島 ➔ 火車從容賦歸 <span class="arrow">▼</span></h3>
+            <div class="day-content">
+                <ul>
+                    <li>
+                        <span class="time-badge">08:30</span><strong>民宿享用早餐、打包行李</strong><br>
+                        悠閒享用早餐，將行李收納打包完畢。
+                    </li>
+                    <li>
+                        <span class="time-badge">10:00</span>📍 <strong>辦理 Check-out 退房</strong><br>
+                        告別有朋會館，將行李妥善固定上機車，往頭城方向出發（車程約 25 分鐘）。
+                    </li>
+                    <li>
+                        <span class="time-badge">10:45</span><strong><a href="https://www.google.com/maps/search/?api=1&query=頭城老街" target="_blank"><span class="highlight">頭城老街</span></a> 散步 & <a href="https://www.google.com/maps/search/?api=1&query=阿宗芋冰城" target="_blank"><span class="highlight">阿宗芋冰城</span></a></strong><span class="pet-tag">🐶 寵物友善</span><br>
+                        漫步古色古香的老街小巷，接著到阿宗芋冰城買份傳統古早味叭噗冰，坐在騎樓和狗狗一起吹風消暑。
+                    </li>
+                    <li>
+                        <span class="time-badge">12:00</span><strong>外澳沙灘 & 海景餐廳午餐（如：<a href="https://www.google.com/maps/search/?api=1&query=九號咖啡外澳館" target="_blank"><span class="highlight">九號咖啡外澳館</span></a>）</strong><span class="pet-tag">🐶 寵物友善</span><br>
+                        前往外澳海邊，挑選海景第一排的寵物友善咖啡廳，邊吃午餐邊透過大面落地窗遠眺正前方的龜山島美景。<br>
+                        <span class="route-info">🌊 <em>餐後體驗：可帶毛孩在沙灘外圍的木棧道吹海風、拍下最美的海景與龜山島合照。</em></span>
+                    </li>
+                    <li>
+                        <span class="time-badge">14:00</span><strong>啟程返回礁溪市區</strong><br>
+                        沿台9線騎機車返回礁溪市區（車程大約 15–20 分鐘）。
+                    </li>
+                    <li>
+                        <span class="time-badge">14:25</span>📍 <strong>礁溪火車站周邊還機車</strong><br>
+                        歸還機車、拿回行李。車站周邊有許多知名名產店（如奕順軒等），可快速採買宜蘭伴手禮。
+                    </li>
+                    <li>
+                        <span class="time-badge">15:09</span><strong>搭乘火車，帶著滿滿的回憶快樂賦歸！</strong>🚆✨
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 寵物友善行程小叮嚀 -->
+        <div class="tips">
+            <strong>💡 毛孩同行貼心小叮嚀：</strong><br>
+            1. <strong>機車腳踏板空間：</strong>租車時請務必確認機車腳踏板能平放毛孩的寵物背包或提袋。<br>
+            2. <strong>空ㄟ農場接駁車：</strong>搭乘免費接駁車上山時，請將狗狗繫好牽繩或置於提袋內。<br>
+            3. <strong>隨身寵物用品：</strong>建議隨身攜帶撿便袋、水碗、濕紙巾與禮貌帶，讓毛孩在各景點都能舒適禮貌遊玩。<br>
+            4. <strong>天氣與沙灘保暖：</strong>宜蘭海邊與山區風較大，請注意毛孩與自身的防風保暖。
+        </div>
+
+    </div>
+
+    <script>
+        // 使用 jQuery 製作行程摺疊與展開效果
+        $(document).ready(function () {
+            // 預設展開第一天的行程
+            $(".day-card:first .day-content").show();
+            $(".day-card:first .day-title .arrow").text("▲");
+
+            // 點擊標題時展開或收合內容
+            $(".day-title").click(function () {
+                var content = $(this).next(".day-content");
+                var arrow = $(this).find(".arrow");
+
+                content.slideToggle(300);
+                if (arrow.text() === "▼") {
+                    arrow.text("▲");
+                } else {
+                    arrow.text("▼");
+                }
+            });
+
+            // 全部展開按鈕
+            $("#btn-expand-all").click(function () {
+                $(".day-content").slideDown(300);
+                $(".day-title .arrow").text("▲");
+            });
+
+            // 全部收合按鈕
+            $("#btn-collapse-all").click(function () {
+                $(".day-content").slideUp(300);
+                $(".day-title .arrow").text("▼");
+            });
+        });
+    </script>
+
+</body>
+
+</html>
