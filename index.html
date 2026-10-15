@@ -267,6 +267,333 @@
             border-radius: 10px;
             margin-left: 8px;
             font-weight: normal;
+        /* 優惠券與注意事項專屬樣式 */
+        .btn-secondary {
+            background-color: #576574;
+            color: #ffffff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-secondary:hover {
+            background-color: #222f3e;
+            text-decoration: none;
+        }
+
+        /* 注意事項相簿與卡片 */
+        .notice-section-intro {
+            background: #fff8e7;
+            border-left: 4px solid #f39c12;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            color: #795548;
+        }
+        .notice-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 25px;
+        }
+        .notice-img-card {
+            background: #ffffff;
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .notice-img-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border-color: var(--accent-color);
+        }
+        .notice-img-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+        .notice-img-card .img-caption {
+            font-size: 0.86rem;
+            color: #2c3e50;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+        .notice-img-card .img-hint {
+            font-size: 0.75rem;
+            color: #7f8c8d;
+            margin-top: 2px;
+        }
+
+        .notice-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 14px;
+        }
+        .notice-item-box {
+            background: #ffffff;
+            border-radius: 10px;
+            border-left: 5px solid var(--accent-color);
+            padding: 14px 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            border-top: 1px solid #edf2f7;
+            border-right: 1px solid #edf2f7;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .notice-item-box.warn {
+            border-left-color: #e74c3c;
+        }
+        .notice-item-box.tip {
+            border-left-color: #f39c12;
+        }
+        .notice-item-box.money {
+            border-left-color: #27ae60;
+        }
+        .notice-item-box.snow {
+            border-left-color: #0984e3;
+        }
+        .notice-item-box h4 {
+            margin: 0 0 6px 0;
+            font-size: 0.98rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .notice-item-box p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* 優惠券分類與卡片 */
+        .coupon-intro-bar {
+            background: #eef7fe;
+            border-left: 4px solid #3498db;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+            color: #2c3e50;
+        }
+        .coupon-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #dcdde1;
+        }
+        .filter-btn {
+            background: #f1f2f6;
+            color: #4b6584;
+            border: 1px solid #ced6e0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-color);
+            color: #ffffff;
+            border-color: var(--accent-color);
+        }
+        .coupon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+        }
+        .coupon-card {
+            background: #ffffff;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: relative;
+        }
+        .coupon-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-color: #3498db;
+        }
+        .coupon-card-header {
+            padding: 10px 14px;
+            background: #f8fafc;
+            border-bottom: 1px solid #f1f2f6;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .coupon-store-title {
+            font-size: 0.96rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        .coupon-cat-badge {
+            font-size: 0.72rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: #e2e8f0;
+            color: #475569;
+            font-weight: normal;
+        }
+        .coupon-img-wrapper {
+            position: relative;
+            background: #f7f9fa;
+            cursor: pointer;
+            overflow: hidden;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #f1f2f6;
+        }
+        .coupon-img-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        .coupon-img-wrapper:hover img {
+            transform: scale(1.04);
+        }
+        .coupon-zoom-overlay {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(44, 62, 80, 0.85);
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .coupon-card-body {
+            padding: 12px 14px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .coupon-discount-text {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .coupon-desc {
+            font-size: 0.84rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .coupon-footer-info {
+            font-size: 0.78rem;
+            color: #7f8c8d;
+            border-top: 1px dashed #edf2f7;
+            padding-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-view-barcode {
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px;
+            background: #e74c3c;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            text-align: center;
+        }
+        .btn-view-barcode:hover {
+            background: #c0392b;
+            transform: translateY(-1px);
+        }
+
+        /* 圖片放大檢視 Lightbox / Modal 樣式 */
+        .img-modal {
+            display: none;
+            position: fixed;
+            z-index: 99999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.88);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 15px;
+            box-sizing: border-box;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content-wrapper {
+            position: relative;
+            max-width: 95vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .img-modal img {
+            max-width: 100%;
+            max-height: 78vh;
+            border-radius: 8px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+            object-fit: contain;
+            background: #ffffff;
+        }
+        .modal-title {
+            color: #ffffff;
+            margin-top: 10px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        .modal-hint {
+            color: #bdc3c7;
+            font-size: 0.82rem;
+            margin-top: 3px;
+        }
+        .close-modal-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+            padding: 4px;
+        }
+        .close-modal-btn:hover {
+            color: #f39c12;
         }
 
         @media (max-width: 600px) {
@@ -289,6 +616,18 @@
             .ezomikuji-grid {
                 grid-template-columns: 1fr;
             }
+            .notice-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .notice-list-grid {
+                grid-template-columns: 1fr;
+            }
+            .coupon-grid {
+                grid-template-columns: 1fr;
+            }
+            .controls {
+                flex-wrap: wrap;
+            }
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -303,6 +642,8 @@
         <div class="controls">
             <button id="btn-expand-all" class="btn">展開全部</button>
             <button id="btn-collapse-all" class="btn">收合全部</button>
+            <a href="#sec-notices" id="btn-nav-notices" class="btn btn-secondary">📌 實用技巧＆注意事項</a>
+            <a href="#sec-coupons" id="btn-nav-coupons" class="btn btn-secondary">🎟️ 專屬購物優惠券</a>
         </div>
 
         <h2>✈️ 航班資訊</h2>
@@ -457,7 +798,7 @@
                         　🚶 <em>路線資訊：沿著運河走到淺草橋後，轉入堺町通順著走到底（約散步15-20分鐘），盡頭即是童話十字路口及音樂盒堂。</em>
                     </li>
                     <li><strong>下午茶：</strong>逛累了就到十字路口旁的 <a href="https://www.google.com/maps/search/?api=1&query=小樽+銀之鐘" target="_blank"><span class="highlight">小樽 銀之鐘（銀の鐘）</span></a> 點份下午茶，享用完畢後可將特色咖啡杯洗淨帶回家作紀念。</li>
-                    <li><strong>傍晚：</strong>回到小樽運河欣賞63座瓦斯燈點亮後的浪漫夜景。若體力充裕，也可選擇搭巴士上 <a href="https://www.google.com/maps/search/?api=1&query=小樽天狗山" target="_blank"><span class="highlight">小樽天狗山</span></a>（《First Love初戀》取景地）欣賞璀璨夜景，隨後搭車返回札幌。<br>
+                    <li><strong>傍晚：</strong>回到小樽運河欣賞63座瓦斯燈點亮後的浪漫夜景（💡 <em>避坑技巧：白天常爆滿，傍晚點燈至入夜人潮適中、雪景最美最出片！</em>）。若體力充裕，也可選擇搭巴士上 <a href="https://www.google.com/maps/search/?api=1&query=小樽天狗山" target="_blank"><span class="highlight">小樽天狗山</span></a>（《First Love初戀》取景地）欣賞璀璨夜景，隨後搭車返回札幌。<br>
                         　🚌 <em>路線資訊：從小樽站前巴士總站3號站牌搭乘北海道中央巴士「天狗山線（9號）」直達終點，車程約17分鐘即達天狗山纜車站。</em>
                     </li>
                     <li><strong>💡 親子替代方案：</strong>若喜歡看動物，可將行程替換為 <a href="https://www.google.com/maps/search/?api=1&query=小樽水族館" target="_blank"><span class="highlight">小樽水族館</span></a>（從小樽站前搭乘中央巴士「水族館線」約25分鐘，觀看冬季超人氣的「雪中企鵝散步」）。</li>
@@ -476,7 +817,7 @@
                         　🚌 <em>路線資訊：參加當地一日遊，通常於 JR 札幌車站北口或大通公園周邊集合上車，全程搭乘觀光巴士專車接駁。（若一日團包含美瑛神社可順道收集用烤肉鉗夾的玉米籤！）</em>
                     </li>
                     <li><strong>晚上：</strong>跟團返回札幌市區，可前往 <a href="https://www.google.com/maps/search/?api=1&query=狸小路商店街" target="_blank"><span class="highlight">狸小路商店街</span></a> 簡單購物或吃碗札幌味噌拉麵。<br>
-                        　🚶 <em>路線資訊：旅行團解散地點多在札幌站或大通站附近，步行幾分鐘或轉乘地下鐵至「大通站/薄野站」即可抵達狸小路商店街。</em>
+                        　🚶 <em>路線資訊：旅行團解散地點多在札幌站或大通站附近，步行幾分鐘或轉乘地下鐵至「大通站/薄野站」即可抵達狸小路商店街。（🛍️ 採購藥妝、零食伴手禮請記得出示下方【<a href="#sec-coupons">專屬購物優惠券</a>】享免稅與額外折扣！）</em>
                     </li>
                     <li><strong>住宿：</strong>札幌市區。</li>
                 </ul>
@@ -547,23 +888,542 @@
             </div>
         </div>
 
+        
+        <!-- 📌 北海道旅遊 12 大注意事項與避坑指南 -->
+        <div class="day-card" id="sec-notices">
+            <h3 class="day-title">📌 北海道旅遊 12 大實用技巧與避坑指南 <span class="arrow">▼</span></h3>
+            <div class="day-content">
+                <div class="notice-section-intro">
+                    💡 <strong>出發前必看精選攻略：</strong>以下為造訪北海道非常實用的經驗總結，涵蓋交通票券、冬季防滑、景點最佳拍照時段、購物退稅避坑等重要提醒。點擊下方縮圖可【放大檢視原圖說明】。
+                </div>
+
+                <!-- 原圖畫廊相簿 -->
+                <div class="notice-gallery">
+                    <div class="notice-img-card" data-src="img/1792034817349.jpg" data-title="旅遊技巧 1-2：JR PASS與狸小路採買避坑">
+                        <img src="img/1792034817349.jpg" alt="旅遊小技巧 北海道篇 1-2" loading="lazy">
+                        <div class="img-caption">📌 技巧 1~2：交通與購物</div>
+                        <div class="img-hint">🔍 點擊放大閱讀原圖</div>
+                    </div>
+                    <div class="notice-img-card" data-src="img/1792034826930.jpg" data-title="旅遊技巧 3-5：優惠券、小樽運河與白色戀人">
+                        <img src="img/1792034826930.jpg" alt="旅遊小技巧 北海道篇 3-5" loading="lazy">
+                        <div class="img-caption">📌 技巧 3~5：景點與優惠</div>
+                        <div class="img-hint">🔍 點擊放大閱讀原圖</div>
+                    </div>
+                    <div class="notice-img-card" data-src="img/1792034835819.jpg" data-title="旅遊技巧 6-9：函館夜景、退稅時間、防滑雪靴與步調">
+                        <img src="img/1792034835819.jpg" alt="旅遊小技巧 北海道篇 6-9" loading="lazy">
+                        <div class="img-caption">📌 技巧 6~9：夜景/退稅/穿著</div>
+                        <div class="img-hint">🔍 點擊放大閱讀原圖</div>
+                    </div>
+                    <div class="notice-img-card" data-src="img/1792034846577.jpg" data-title="旅遊技巧 10-12：海鮮食堂、垃圾袋與日幣現金">
+                        <img src="img/1792034846577.jpg" alt="旅遊小技巧 北海道篇 10-12" loading="lazy">
+                        <div class="img-caption">📌 技巧 10~12：美食與隨身準備</div>
+                        <div class="img-hint">🔍 點擊放大閱讀原圖</div>
+                    </div>
+                </div>
+
+                <!-- 12 大重點條列式卡片整理 -->
+                <div class="notice-list-grid">
+                    <div class="notice-item-box warn">
+                        <h4>🚫 1. 不要盲目買 JR PASS</h4>
+                        <p>很多觀光客直接買昂貴的全區 JR PASS！北海道景點分散，若主要在函館、札幌、小樽市區移動，單買「JR 北斗號」等指定席車票更省錢划算。只有長程跑多個跨縣市大景點才需考慮周遊券。</p>
+                    </div>
+                    <div class="notice-item-box tip">
+                        <h4>🛍️ 2. 狸小路商店街別瘋狂購物</h4>
+                        <p>狸小路觀光客爆滿，部分藥妝與熱門伴手禮標價偏高！想要平價採買囤貨，推薦改至札幌車站周邊的大型量販百貨（BicCamera、大丸）或在地連鎖超市，品項更齊全、折扣往往更大。</p>
+                    </div>
+                    <div class="notice-item-box money">
+                        <h4>🎫 3. 出發前用好遊客專屬優惠券</h4>
+                        <p>札幌市區、新千歲機場、當地百貨、唐吉訶德、BicCamera 等皆有外國遊客優惠券（全日本門店通用）。出發前存入手機相簿，結帳時主動出示掃碼，買雪具、伴手禮、藥妝超級划算！</p>
+                    </div>
+                    <div class="notice-item-box tip">
+                        <h4>📸 4. 小樽運河別白天擠人潮</h4>
+                        <p>白天常有大量旅行團團客，拍照背景全是人潮。最佳造訪時間為「傍晚至夜晚」，63 座古董煤氣瓦斯燈點亮，襯托積雪小樽運河與百年倉庫，氣氛浪漫極為夢幻，拍照超上相！</p>
+                    </div>
+                    <div class="notice-item-box tip">
+                        <h4>🏰 5. 白色戀人公園別只免費逛</h4>
+                        <p>戶外免費區遊客繁雜且亮點有限。若想拍美照（如唯美歐風玻璃屋、童話工廠見學走廊），購票進入「付費園區」才是精華重點，裝潢細緻好拍，還有限定款甜點與伴手禮！</p>
+                    </div>
+                    <div class="notice-item-box warn">
+                        <h4>🌫️ 6. 函館夜景看天氣再出門</h4>
+                        <p>秋冬與多雲季節函館山頂極易起大霧，山上容易白茫茫一片什麼都看不到。出發前務必查看氣象與即時影像；若天氣不理想，建議可改逛札幌電視塔或市區夜景，穩定不踩雷。</p>
+                    </div>
+                    <div class="notice-item-box money">
+                        <h4>🕒 7. 百貨退稅黃金時間：下午 3 點</h4>
+                        <p>各大百貨免稅櫃台在下午 5 點後或打烊前常大排長龍。最佳避坑時間為「下午 3 點左右」前往辦理，人潮最少，幾分鐘內即可快速搞定退稅。</p>
+                    </div>
+                    <div class="notice-item-box snow">
+                        <h4>❄️ 8. 冬天絕對不要穿一般平底雪靴</h4>
+                        <p>北海道冬季路面常見透明透明的「黑冰薄凍」，一般平底鞋或無防滑抓地設計的流行雪靴極為濕滑危險！務必穿著具深紋路防滑橡膠大底的雪靴，或在便利商店加購隨身防滑冰爪套。</p>
+                    </div>
+                    <div class="notice-item-box warn">
+                        <h4>🗺️ 9. 不要一天硬衝多個城市</h4>
+                        <p>北海道超級遼闊！札幌、小樽、登別、洞爺湖彼此距離遙遠，跨城雪地移動極耗體力與時間。一天安排一個重點區域剛剛好，放慢腳步深度感受雪國魅力才是旅行精髓。</p>
+                    </div>
+                    <div class="notice-item-box tip">
+                        <h4>🦀 10. 海鮮料理別只吃觀光大街店</h4>
+                        <p>想吃鮮甜毛蟹、海膽與霸氣帝王蟹，避開觀光大街上專做遊客生意的高價門店。走進在地傳統市場（如函館朝市、小樽三角市場）或巷弄家庭食堂，海味更新鮮且價格實惠很多。</p>
+                    </div>
+                    <div class="notice-item-box tip">
+                        <h4>🗑️ 11. 日本街頭幾乎沒有垃圾桶</h4>
+                        <p>日本公共街道幾乎不設置垃圾桶。出門時請隨身自備小垃圾袋收納面紙或食品包裝，切勿隨意丟棄，返回飯店或利用便利商店的分類垃圾桶丟棄。</p>
+                    </div>
+                    <div class="notice-item-box money">
+                        <h4>💴 12. 隨身務必備足日幣現金</h4>
+                        <p>北海道鄉村郊區景點、傳統溫泉旅館、神社御守販售處、在地拉麵小吃攤大多「只收現金」無法刷卡或行動支付。身上請備妥充裕的日幣現鈔以防不時之需。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🎟️ 訪日旅客購物必備！免稅店＆百貨超值優惠券專區 -->
+        <div class="day-card" id="sec-coupons">
+            <h3 class="day-title">🎟️ 訪日旅客專屬購物優惠券 (出示手機條碼享免稅＋折抵) <span class="arrow">▼</span></h3>
+            <div class="day-content">
+                <div class="coupon-intro-bar">
+                    🎉 <strong>使用說明：</strong>結帳前主動向收銀員出示手機中的優惠券條碼畫面，搭配外國護照，即可同時享有「免稅 10% + 額外 3%～8% 折扣」！<br>
+                    💡 <strong>小提醒：</strong>點擊各卡片圖片或「出示 / 放大條碼」按鈕可【全螢幕放大】；手機長按圖片亦可儲存至相簿。
+                </div>
+
+                <!-- 分類過濾按鈕（jQuery 切換） -->
+                <div class="coupon-filter-bar">
+                    <button class="filter-btn active" data-filter="all">全部優惠券 (14)</button>
+                    <button class="filter-btn" data-filter="electric">🔌 電器量販 (4)</button>
+                    <button class="filter-btn" data-filter="drug">💊 藥妝美妝 (4)</button>
+                    <button class="filter-btn" data-filter="dept">🏬 百貨名店 (3)</button>
+                    <button class="filter-btn" data-filter="other">✈️ 運動＆機場免稅 (3)</button>
+                </div>
+
+                <!-- 優惠券卡片網格 -->
+                <div class="coupon-grid">
+
+                    <!-- 1. BicCamera / KOJIMA -->
+                    <div class="coupon-card" data-category="electric">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">BicCamera / KOJIMA</span>
+                            <span class="coupon-cat-badge">電器量販</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792034962262.jpg" data-title="BicCamera / KOJIMA 免稅優惠券">
+                            <img src="img/1792034962262.jpg" alt="BicCamera 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">免稅 10% + 最高 7% OFF</div>
+                                <div class="coupon-desc">
+                                    • 相機/手錶/家電/玩具：<strong>再享 7% OFF</strong><br>
+                                    • 藥品/化妝品/日用品：<strong>再享 5% OFF</strong><br>
+                                    • 日本清酒（獺祭八海山除外）：<strong>再享 3% OFF</strong>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>有效期限：至 2026/12/31</span>
+                                    <span>全日本適用</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792034962262.jpg" data-title="BicCamera / KOJIMA 免稅優惠券">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. 山田電機 YAMADA DENKI -->
+                    <div class="coupon-card" data-category="electric">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">山田電機 YAMADA</span>
+                            <span class="coupon-cat-badge">電器量販</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792034884015.jpg" data-title="山田電機 YAMADA 免稅優惠券">
+                            <img src="img/1792034884015.jpg" alt="山田電機 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">免稅 10% + 7% OFF</div>
+                                <div class="coupon-desc">
+                                    日本超大型連鎖電器商場！購買生活家電、吹風機、保溫杯、刮鬍刀等商品，出示條碼享免稅再折 7%。
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>有效期限：至 2027/03/31</span>
+                                    <span>全日本門市</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792034884015.jpg" data-title="山田電機 YAMADA 免稅優惠券">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. EDION 愛電王 -->
+                    <div class="coupon-card" data-category="electric">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">EDION 愛電王</span>
+                            <span class="coupon-cat-badge">電器量販</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792034951170.jpg" data-title="EDION 愛電王 免稅優惠券">
+                            <img src="img/1792034951170.jpg" alt="EDION 愛電王 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">免稅 10% + 7% 或 5% OFF</div>
+                                <div class="coupon-desc">
+                                    • 家電/相機/手錶：<strong>折 7% OFF</strong><br>
+                                    • 食品/藥品/化妝品：<strong>折 5% OFF</strong><br>
+                                    結帳時請務必出示條碼①與②讓店員掃描。
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>有效期限：至 2027/12/31</span>
+                                    <span>東証一部上市</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792034951170.jpg" data-title="EDION 愛電王 免稅優惠券">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. LAOX 秋葉原總店 -->
+                    <div class="coupon-card" data-category="electric">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">LAOX 秋葉原總店</span>
+                            <span class="coupon-cat-badge">綜合免稅</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792035045578.jpg" data-title="LAOX 特別優惠券 5% OFF">
+                            <img src="img/1792035045578.jpg" alt="LAOX 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">特別優惠 5% 折扣</div>
+                                <div class="coupon-desc">
+                                    LAOX 專屬免稅折扣券，購買生活家電、模型動漫、日本伴手禮出示此券享 5% 優惠（部分指定商品除外）。
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>有效期限：至 2027/06/30</span>
+                                    <span>秋葉原總店</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792035045578.jpg" data-title="LAOX 特別優惠券 5% OFF">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. SUGI 杉藥局 -->
+                    <div class="coupon-card" data-category="drug">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">SUGI 杉藥局 (スギ薬局)</span>
+                            <span class="coupon-cat-badge">連鎖藥妝</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792034865178.jpg" data-title="SUGI 杉藥局 專屬優惠券 (最高18% OFF)">
+                            <img src="img/1792034865178.jpg" alt="SUGI 杉藥局 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">免稅 10% + 最高 8% OFF</div>
+                                <div class="coupon-desc">
+                                    日本全國 800 家免稅店通用：<br>
+                                    • 滿 1 萬~3 萬日圓：<strong>折 4% OFF</strong><br>
+                                    • 滿 3 萬~5 萬日圓：<strong>折 6% OFF</strong><br>
+                                    • 滿 5 萬日圓以上：<strong>折 8% OFF (最高享 18% OFF)</strong>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>有效期限：至 2027/02/28</span>
+                                    <span>800家店通用</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792034865178.jpg" data-title="SUGI 杉藥局 專屬優惠券">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. 尚都樂客 Sundrug -->
+                    <div class="coupon-card" data-category="drug">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">尚都樂客 (Sundrug)</span>
+                            <span class="coupon-cat-badge">連鎖藥妝</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792034973288.jpg" data-title="尚都樂客 Sundrug 免稅優惠券 (最高17% OFF)">
+                            <img src="img/1792034973288.jpg" alt="尚都樂客 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">免稅最大 17% OFF</div>
+                                <div class="coupon-desc">
+                                    超人氣平價藥妝店，出示條碼享折抵：<br>
+                                    • 未稅滿 1 萬~3 萬日圓：<strong>3% OFF (9.7折)</strong><br>
+                                    • 未稅滿 3 萬~5 萬日圓：<strong>5% OFF (9.5折)</strong><br>
+                                    • 未稅滿 5 萬日圓以上：<strong>7% OFF (9.3折)</strong>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>有效期限：至 2026/12/31</span>
+                                    <span>サンドラッグ</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792034973288.jpg" data-title="尚都樂客 Sundrug 免稅優惠券">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. KoKuMiN 國民藥妝店 -->
+                    <div class="coupon-card" data-category="drug">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">KoKuMiN 國民藥妝店</span>
+                            <span class="coupon-cat-badge">連鎖藥妝</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792034985122.jpg" data-title="KoKuMiN 國民藥妝店 優待識別優惠券">
+                            <img src="img/1792034985122.jpg" alt="KoKuMiN 國民藥妝店 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">免稅 10% + 5%~8% OFF</div>
+                                <div class="coupon-desc">
+                                    優待識別代號：<strong style="color:#d63031;">JY20</strong><br>
+                                    • 店內購物滿 1 萬~3 萬日圓：<strong>5% OFF</strong><br>
+                                    • 店內購物滿 3 萬日圓以上：<strong>8% OFF</strong><br>
+                                    結帳前出示條碼讓店員讀取鑑定券。
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>優待識別碼：JY20</span>
+                                    <span>全日本免稅店</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792034985122.jpg" data-title="KoKuMiN 國民藥妝店 優惠券">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. 唐吉訶德 DONKI -->
+                    <div class="coupon-card" data-category="drug">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">唐吉訶德 (驚安之殿堂)</span>
+                            <span class="coupon-cat-badge">綜合百貨/藥妝</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792034927714.jpg" data-title="唐吉訶德 5%~7% 優惠券領取步驟與條碼">
+                            <img src="img/1792034927714.jpg" alt="唐吉訶德 優惠券指南" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">免稅 10% + 5%~7% 折扣</div>
+                                <div class="coupon-desc">
+                                    • 不含稅滿 10,000 日圓：<strong>折 5%</strong><br>
+                                    • 不含稅滿 30,000 日圓：<strong>折 7%</strong><br>
+                                    💡 掃描圖中二維碼點擊 Discount Coupon 即可生成動態條碼出示，不影響免稅退稅！
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>深夜營業 / 伴手禮齊全</span>
+                                    <span>動態條碼</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792034927714.jpg" data-title="唐吉訶德 優惠券領取步驟">📱 查看掃碼步驟與條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 9. 大丸百貨 / 松坂屋百貨 -->
+                    <div class="coupon-card" data-category="dept">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">大丸百貨 / 松坂屋百貨</span>
+                            <span class="coupon-cat-badge">名牌百貨</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792034938112.jpg" data-title="大丸百貨 松坂屋百貨 購物優惠券 5% OFF + 美食券">
+                            <img src="img/1792034938112.jpg" alt="大丸百貨 松坂屋百貨 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">退稅 + 5% OFF + 贈美食券</div>
+                                <div class="coupon-desc">
+                                    JR 札幌站直通「大丸札幌店」完美適用！單筆滿 3,000 日圓(含稅)即可享 5% 折扣，購物及退稅時出示護照與此條碼。
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>有效期限：至 2027/08/31</span>
+                                    <span>札幌站旁大丸適用</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792034938112.jpg" data-title="大丸百貨 松坂屋百貨 購物優惠券">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10. 京王百貨店 新宿店 -->
+                    <div class="coupon-card" data-category="dept">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">京王百貨店 (新宿店)</span>
+                            <span class="coupon-cat-badge">名牌百貨</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792035030869.jpg" data-title="京王百貨店 新宿店 訪日旅客尊享 95折優惠券">
+                            <img src="img/1792035030869.jpg" alt="京王百貨店 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">訪日旅客尊享 95折 (5% OFF)</div>
+                                <div class="coupon-desc">
+                                    優待番號：<strong>【76 - 232】</strong><br>
+                                    單次結帳滿 3,000 日圓(未稅)即可使用優惠券，結帳前向收銀台出示畫面即可折抵。
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>有效期限：至 2027/03/31</span>
+                                    <span>新宿店專用</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792035030869.jpg" data-title="京王百貨店 95折優惠券">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 11. 近鐵百貨 -->
+                    <div class="coupon-card" data-category="dept">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">近鐵百貨 (Kintetsu)</span>
+                            <span class="coupon-cat-badge">名牌百貨</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792035055281.jpg" data-title="近鐵百貨 顧客優惠券 95折">
+                            <img src="img/1792035055281.jpg" alt="近鐵百貨 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">95折優惠 (代碼 Z114-14)</div>
+                                <div class="coupon-desc">
+                                    單次購物滿 2,000 日圓(不含稅)以上，原價享 95 折優惠！購物時出示享折扣，退稅時亦請務必出示此券。
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>有效期限：至 2027/02/28</span>
+                                    <span>優惠代號 Z114-14</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792035055281.jpg" data-title="近鐵百貨 顧客優惠券 95折">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 12. Alpen Group 運動休閒名店 -->
+                    <div class="coupon-card" data-category="other">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">Alpen Group 運動用品</span>
+                            <span class="coupon-cat-badge">滑雪＆運動</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792034912556.jpg" data-title="Alpen Group 日本最大運動店 5% OFF">
+                            <img src="img/1792034912556.jpg" alt="Alpen Group 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">免稅 + 額外 5% OFF</div>
+                                <div class="coupon-desc">
+                                    日本最大體育用品集團！包含 SPORTS DEPO、GOLF5、Alpen Outdoors，採購滑雪服、防寒雪靴、戶外裝備滿 5,000 日圓免稅再折 5%。
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>有效期限：至 2027/06/30</span>
+                                    <span>促銷碼 20000682</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792034912556.jpg" data-title="Alpen Group 免稅 5% OFF 優惠券">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 13. ANA DUTY FREE SHOP - 羽田機場 -->
+                    <div class="coupon-card" data-category="other">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">ANA 免稅店 (羽田機場)</span>
+                            <span class="coupon-cat-badge">機場免稅</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792034995877.jpg" data-title="ANA DUTY FREE SHOP 羽田機場優惠券 5% OFF">
+                            <img src="img/1792034995877.jpg" alt="ANA 羽田機場免稅店 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">菸、酒、化妝品 5% OFF</div>
+                                <div class="coupon-desc">
+                                    條碼代號：6600-8503<br>
+                                    適用門店：羽田機場第3航站樓（出境審查後右轉109號登機口對面）及第2航站樓門市。出境採購必備！
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>有效期限：至 2027/03/31</span>
+                                    <span>附登機門位置圖</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792034995877.jpg" data-title="ANA 羽田機場免稅店 5% 優惠券">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 14. ANA DUTY FREE SHOP - 成田機場 -->
+                    <div class="coupon-card" data-category="other">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">ANA 免稅店 (成田機場)</span>
+                            <span class="coupon-cat-badge">機場免稅</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="img/1792035008261.jpg" data-title="ANA DUTY FREE SHOP 成田機場優惠券 5% OFF">
+                            <img src="img/1792035008261.jpg" alt="ANA 成田機場免稅店 優惠券" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div>
+                                <div class="coupon-discount-text">菸、酒、化妝品 5% OFF</div>
+                                <div class="coupon-desc">
+                                    條碼代號：6600-8503<br>
+                                    適用門店：成田機場第1航廈南翼出境審查後「左轉第二家店」及第4衛星樓42號登機口旁。
+                                </div>
+                            </div>
+                            <div>
+                                <div class="coupon-footer-info">
+                                    <span>有效期限：至 2027/03/31</span>
+                                    <span>附登機門位置圖</span>
+                                </div>
+                                <button class="btn-view-barcode" data-src="img/1792035008261.jpg" data-title="ANA 成田機場免稅店 5% 優惠券">📱 出示 / 放大條碼</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
         <div class="tips">
             <strong>💡 行程小叮嚀：</strong><br>
             1. 交通票券：建議單買函館到札幌的「北斗號」指定席車票即可，不一定要買 JR Pass。<br>
             2. 冬季穿著：務必準備一雙防滑、防水的雪靴，以免在結冰路面滑倒。<br>
-            3. 一日團預訂：富良野/美瑛點燈一日團極熱門，建議出發前1-2個月提早線上預訂。
+            3. 一日團預訂：富良野/美瑛點燈一日團極熱門，建議出發前1-2個月提早線上預訂。<br>
+            4. 購物免稅：採購伴手禮或藥妝可直接出示本頁面<strong>【訪日旅客專屬購物優惠券】</strong>，結帳前出示手機條碼享最高 18% 折扣！
         </div>
 
     </div>
 
+    <!-- 圖片放大檢視 Lightbox / 條碼出示 Modal -->
+    <div id="image-modal" class="img-modal">
+        <div class="modal-content-wrapper">
+            <button class="close-modal-btn" id="close-modal" title="關閉">&times;</button>
+            <img id="modal-img" src="" alt="放大條碼或說明圖">
+            <div id="modal-title" class="modal-title"></div>
+            <div class="modal-hint">💡 結帳時請將手機螢幕亮度調高出示條碼，或長按圖片儲存至相簿</div>
+        </div>
+    </div>
+
     <script>
-        // 使用 jQuery 製作行程摺疊與展開效果
+        // 使用 jQuery 製作行程摺疊、分類篩選與圖片放大 Lightbox
         $(document).ready(function () {
             // 預設展開第一天的行程
             $(".day-card:first .day-content").show();
             $(".day-card:first .day-title .arrow").text("▲");
 
-            // 點擊標題時展開或收合內容
+            // 點擊卡片標題時展開或收合內容
             $(".day-title").click(function () {
                 var content = $(this).next(".day-content");
                 var arrow = $(this).find(".arrow");
@@ -586,6 +1446,93 @@
             $("#btn-collapse-all").click(function () {
                 $(".day-content").slideUp(300);
                 $(".day-title .arrow").text("▼");
+            });
+
+            // 快捷導航按鈕：點擊自動展開目標卡片並平滑滾動到目標位置
+            $("#btn-nav-notices").click(function (e) {
+                e.preventDefault();
+                var targetCard = $("#sec-notices");
+                var content = targetCard.find(".day-content");
+                var arrow = targetCard.find(".day-title .arrow");
+
+                content.slideDown(300);
+                arrow.text("▲");
+                $("html, body").animate({
+                    scrollTop: targetCard.offset().top - 20
+                }, 500);
+            });
+
+            $("#btn-nav-coupons").click(function (e) {
+                e.preventDefault();
+                var targetCard = $("#sec-coupons");
+                var content = targetCard.find(".day-content");
+                var arrow = targetCard.find(".day-title .arrow");
+
+                content.slideDown(300);
+                arrow.text("▲");
+                $("html, body").animate({
+                    scrollTop: targetCard.offset().top - 20
+                }, 500);
+            });
+
+            // 優惠券類別 Filter 篩選切換 (jQuery 動畫)
+            $(".filter-btn").click(function () {
+                $(".filter-btn").removeClass("active");
+                $(this).addClass("active");
+                var filter = $(this).data("filter");
+
+                if (filter === "all") {
+                    $(".coupon-card").stop(true, true).fadeIn(250);
+                } else {
+                    $(".coupon-card").stop(true, true).hide();
+                    $(".coupon-card[data-category='" + filter + "']").stop(true, true).fadeIn(250);
+                }
+            });
+
+            // 圖片放大 Lightbox Modal 控制
+            function openImageModal(imgSrc, title) {
+                $("#modal-img").attr("src", imgSrc);
+                $("#modal-title").text(title || "條碼放大檢視");
+                $("#image-modal").css("display", "flex").hide().fadeIn(200);
+                $("body").css("overflow", "hidden"); // 防止背景滾動
+            }
+
+            function closeImageModal() {
+                $("#image-modal").fadeOut(200, function () {
+                    $(this).css("display", "none");
+                    $("#modal-img").attr("src", "");
+                    $("body").css("overflow", "auto");
+                });
+            }
+
+            // 點擊注意事項圖、優惠券圖、或「出示條碼」按鈕時開啟 Modal
+            $(document).on("click", ".notice-img-card, .coupon-img-wrapper, .btn-view-barcode", function (e) {
+                e.stopPropagation();
+                var src = $(this).data("src");
+                var title = $(this).data("title");
+                if (!src) {
+                    var img = $(this).find("img");
+                    src = img.attr("src");
+                    title = img.attr("alt");
+                }
+                openImageModal(src, title);
+            });
+
+            // 關閉 Modal：點擊關閉按鈕、點擊遮罩背景、按鍵盤 ESC 鍵
+            $("#close-modal").click(function () {
+                closeImageModal();
+            });
+
+            $("#image-modal").click(function (e) {
+                if ($(e.target).is("#image-modal") || $(e.target).hasClass("modal-content-wrapper")) {
+                    closeImageModal();
+                }
+            });
+
+            $(document).keydown(function (e) {
+                if (e.key === "Escape" && $("#image-modal").is(":visible")) {
+                    closeImageModal();
+                }
             });
         });
     </script>
