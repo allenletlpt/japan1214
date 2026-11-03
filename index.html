@@ -656,6 +656,252 @@
             transform: translateY(1px);
         }
 
+        /* 💴 日本退稅完整攻略專屬樣式 */
+        .tax-sub-title {
+            font-size: 1.08rem;
+            color: var(--primary-color);
+            margin: 24px 0 12px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tax-flow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tax-flow-step {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 12px 10px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .tax-flow-step .step-num {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        .tax-flow-step .step-icon {
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .tax-flow-step .step-label {
+            font-size: 0.86rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        .tax-prep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+        .tax-prep-box {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-top: 4px solid var(--accent-color);
+            border-radius: 10px;
+            padding: 15px 18px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .tax-prep-box.prep-warn {
+            border-top-color: #e74c3c;
+            background: #fffdf9;
+        }
+        .tax-prep-box h4 {
+            margin: 0 0 10px 0;
+            color: var(--primary-color);
+            font-size: 0.98rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tax-prep-box ul {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 0.88rem;
+            color: #444;
+        }
+        .tax-prep-box li {
+            margin-bottom: 6px;
+        }
+        .tax-platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .tax-platform-card {
+            background: #ffffff;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+        }
+        .tax-platform-header {
+            padding: 12px 16px;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tax-platform-header.jprefund {
+            background: linear-gradient(135deg, #c0392b, #2c3e50);
+        }
+        .tax-platform-header.jtaxrefund {
+            background: linear-gradient(135deg, #1e3799, #0984e3);
+        }
+        .tax-platform-header.globalblue {
+            background: linear-gradient(135deg, #0a3d62, #38ada9);
+        }
+        .tax-platform-badge {
+            font-size: 0.74rem;
+            background: rgba(255,255,255,0.22);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: normal;
+        }
+        .tax-platform-body {
+            padding: 15px 16px;
+            font-size: 0.88rem;
+            color: #444;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .tax-platform-body ol, .tax-platform-body ul {
+            padding-left: 18px;
+            margin: 8px 0;
+        }
+        .tax-platform-body li {
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+        .tax-platform-note {
+            background: #f8fafc;
+            border-left: 3px solid #e74c3c;
+            padding: 8px 10px;
+            border-radius: 4px;
+            font-size: 0.82rem;
+            margin-top: 10px;
+            color: #333;
+        }
+        .tax-fee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+        .tax-fee-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .tax-fee-card .store-type {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+        .tax-fee-card .fee-badge {
+            display: inline-block;
+            font-size: 0.78rem;
+            padding: 2px 10px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .tax-fee-card.fee-free .fee-badge {
+            background: #d4edda;
+            color: #155724;
+        }
+        .tax-fee-card.fee-pct .fee-badge {
+            background: #cce5ff;
+            color: #004085;
+        }
+        .tax-fee-card.fee-fixed .fee-badge {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .tax-fee-card .refund-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 4px 0;
+        }
+        .tax-fee-card.fee-free .refund-amount { color: #27ae60; }
+        .tax-fee-card.fee-pct .refund-amount { color: #2980b9; }
+        .tax-fee-card.fee-fixed .refund-amount { color: #e74c3c; }
+
+        .tax-checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+        .tax-check-item {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 0.88rem;
+            color: #2c3e50;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            user-select: none;
+            transition: all 0.2s;
+        }
+        .tax-check-item:hover {
+            border-color: var(--accent-color);
+            background: #f0f7ff;
+        }
+        .tax-check-item.is-checked {
+            background: #e8f8f5;
+            border-color: #27ae60;
+            color: #1e8449;
+            text-decoration: line-through;
+        }
+        .tax-check-box {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #e74c3c;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: #ffffff;
+            background: #e74c3c;
+            flex-shrink: 0;
+        }
+        .tax-check-item.is-checked .tax-check-box {
+            background: #27ae60;
+            border-color: #27ae60;
+        }
+
         @media (max-width: 600px) {
             body {
                 padding: 10px;
@@ -682,6 +928,9 @@
             .coupon-grid {
                 grid-template-columns: 1fr;
             }
+            .tax-flow-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .controls {
                 flex-wrap: wrap;
             }
@@ -701,6 +950,7 @@
             <button id="btn-collapse-all" class="btn">收合全部</button>
             <a href="#sec-notices" id="btn-nav-notices" class="btn btn-secondary">📌 實用技巧＆注意事項</a>
             <a href="#sec-coupons" id="btn-nav-coupons" class="btn btn-secondary">🎟️ 專屬購物優惠券</a>
+            <a href="#sec-taxrefund" id="btn-nav-taxrefund" class="btn btn-secondary">💴 日本退稅完整攻略</a>
         </div>
 
         <h2>✈️ 航班資訊</h2>
@@ -1019,11 +1269,11 @@
 
                 <!-- 分類過濾按鈕（jQuery 切換） -->
                 <div class="coupon-filter-bar">
-                    <button class="filter-btn active" data-filter="all">全部優惠券 (14)</button>
+                    <button class="filter-btn active" data-filter="all">全部優惠券 (12)</button>
                     <button class="filter-btn" data-filter="electric">🔌 電器量販 (4)</button>
                     <button class="filter-btn" data-filter="drug">💊 藥妝美妝 (4)</button>
                     <button class="filter-btn" data-filter="dept">🏬 百貨名店 (3)</button>
-                    <button class="filter-btn" data-filter="other">✈️ 運動＆機場免稅 (3)</button>
+                    <button class="filter-btn" data-filter="other">⛷️ 運動＆滑雪 (1)</button>
                 </div>
 
                 <!-- 優惠券卡片網格 -->
@@ -1369,63 +1619,394 @@
                         </div>
                     </div>
 
-                    <!-- 13. ANA DUTY FREE SHOP - 羽田機場 -->
-                    <div class="coupon-card" data-category="other">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">ANA 免稅店 (羽田機場)</span>
-                            <span class="coupon-cat-badge">機場免稅</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792034995877.jpg" data-title="ANA DUTY FREE SHOP 羽田機場優惠券 5% OFF">
-                            <img src="img/1792034995877.jpg" alt="ANA 羽田機場免稅店 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">菸、酒、化妝品 5% OFF</div>
-                                <div class="coupon-desc">
-                                    條碼代號：6600-8503<br>
-                                    適用門店：羽田機場第3航站樓（出境審查後右轉109號登機口對面）及第2航站樓門市。出境採購必備！
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>有效期限：至 2027/03/31</span>
-                                    <span>附登機門位置圖</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792034995877.jpg" data-title="ANA 羽田機場免稅店 5% 優惠券">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 14. ANA DUTY FREE SHOP - 成田機場 -->
-                    <div class="coupon-card" data-category="other">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">ANA 免稅店 (成田機場)</span>
-                            <span class="coupon-cat-badge">機場免稅</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792035008261.jpg" data-title="ANA DUTY FREE SHOP 成田機場優惠券 5% OFF">
-                            <img src="img/1792035008261.jpg" alt="ANA 成田機場免稅店 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">菸、酒、化妝品 5% OFF</div>
-                                <div class="coupon-desc">
-                                    條碼代號：6600-8503<br>
-                                    適用門店：成田機場第1航廈南翼出境審查後「左轉第二家店」及第4衛星樓42號登機口旁。
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>有效期限：至 2027/03/31</span>
-                                    <span>附登機門位置圖</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792035008261.jpg" data-title="ANA 成田機場免稅店 5% 優惠券">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
+            </div>
+        </div>
+
+        <!-- 💴 2026 日本退稅新制完整攻略 (J-TaxRefund / JPrefund / Global Blue) -->
+        <div class="day-card" id="sec-taxrefund">
+            <h3 class="day-title">💴 日本退稅完整圖文攻略 (J-TaxRefund / JPrefund / Global Blue) <span class="arrow">▼</span></h3>
+            <div class="day-content">
+                <div class="coupon-intro-bar">
+                    💡 <strong>2026 日本退稅新制必看：</strong>日本退稅採<strong>「店內結帳先付含稅價 ➔ 取得退稅 QR Code / 序號 ➔ 線上平台登記 ➔ 機場出境海關確認（托運前）➔ 退還稅款」</strong>機制！<br>
+                    ⚠️ <strong>核心鐵則：</strong>不能自己選退稅公司（店家用哪家就去哪家平台登記）；結帳後<strong>務必當場拍下「退稅專用 QR Code 與 Transaction ID 序號」</strong>，不要只拍一般消費收據！
+                </div>
+
+                <!-- 1. 六大核心步驟流程 -->
+                <h4 class="tax-sub-title">🔄 一、日本退稅 6 大核心流程總覽</h4>
+                <div class="tax-flow-steps">
+                    <div class="tax-flow-step">
+                        <span class="step-num">1</span>
+                        <span class="step-icon">👤</span>
+                        <div class="step-label">註冊平台帳號</div>
+                        <div style="font-size:0.76rem;color:#64748b;margin-top:3px;">填護照＆英文地址</div>
+                    </div>
+                    <div class="tax-flow-step">
+                        <span class="step-num">2</span>
+                        <span class="step-icon">🛒</span>
+                        <div class="step-label">合作店家購物</div>
+                        <div style="font-size:0.76rem;color:#64748b;margin-top:3px;">出示護照付含稅價</div>
+                    </div>
+                    <div class="tax-flow-step">
+                        <span class="step-num">3</span>
+                        <span class="step-icon">📸</span>
+                        <div class="step-label">拍下 QR / 序號</div>
+                        <div style="font-size:0.76rem;color:#e74c3c;font-weight:bold;margin-top:3px;">當場立刻拍照保存</div>
+                    </div>
+                    <div class="tax-flow-step">
+                        <span class="step-num">4</span>
+                        <span class="step-icon">💻</span>
+                        <div class="step-label">線上完成登記</div>
+                        <div style="font-size:0.76rem;color:#64748b;margin-top:3px;">掃碼或輸入序號</div>
+                    </div>
+                    <div class="tax-flow-step">
+                        <span class="step-num">5</span>
+                        <span class="step-icon">🛂</span>
+                        <div class="step-label">出境海關確認</div>
+                        <div style="font-size:0.76rem;color:#e74c3c;font-weight:bold;margin-top:3px;">托運前刷護照查驗</div>
+                    </div>
+                    <div class="tax-flow-step">
+                        <span class="step-num">6</span>
+                        <span class="step-icon">🪙</span>
+                        <div class="step-label">等待退款完成</div>
+                        <div style="font-size:0.76rem;color:#64748b;margin-top:3px;">退回信用卡或帳戶</div>
+                    </div>
+                </div>
+
+                <!-- 2. 出發前先準備 -->
+                <h4 class="tax-sub-title">📋 二、出發前先準備（先把資料備好，現場快很多！）</h4>
+                <div class="tax-prep-grid">
+                    <div class="tax-prep-box">
+                        <h4>✅ 5 大必備資料</h4>
+                        <ul>
+                            <li><strong>護照：</strong>依護照上的英文姓名填寫。</li>
+                            <li><strong>可收信的 Email：</strong>各大退稅平台註冊與收驗證信皆需要。</li>
+                            <li><strong>台灣英文地址：</strong>註冊時必填（可用右方中華郵政工具查詢）。</li>
+                            <li><strong>智慧型手機：</strong>需可拍照保存單據、可掃描 QR Code。</li>
+                            <li><strong>網路連線：</strong>建議先在台灣或飯店 Wi-Fi 環境下完成註冊。</li>
+                        </ul>
+                    </div>
+                    <div class="tax-prep-box prep-warn">
+                        <h4>📮 英文地址怎麼找 ＆ 2 大行前重點</h4>
+                        <ul>
+                            <li><strong>英文地址快查：</strong>前往 <a href="https://www.post.gov.tw/post/internet/Postal/index.jsp?ID=207" target="_blank"><strong>中華郵政「中文地址英譯」 (post.gov.tw)</strong></a>，依查詢結果複製貼上即可。</li>
+                            <li><strong>重點 ①：</strong><span class="highlight">J-TaxRefund 比較特別</span>，註冊後<strong>「登入 ID」會寄到你的 Email</strong>，請務必確認信箱收得到信並另存 ID！</li>
+                            <li><strong>重點 ②：</strong><strong>JPrefund</strong> 與 <strong>J-TaxRefund</strong> 都需要先註冊帳號，強烈建議<strong>出國前或第一天在飯店先註冊好</strong>，買完登記最順暢。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. 三大退稅平台完整操作指南 -->
+                <h4 class="tax-sub-title">🏢 三、日本 3 大退稅平台操作重點比較</h4>
+                <div class="tax-platform-grid">
+                    <!-- JPrefund -->
+                    <div class="tax-platform-card">
+                        <div class="tax-platform-header jprefund">
+                            <span>🔴 JPrefund</span>
+                            <span class="tax-platform-badge">常見藥妝/服飾/連鎖店</span>
+                        </div>
+                        <div class="tax-platform-body">
+                            <div>
+                                <p style="margin:0 0 8px 0;">🌐 <strong>官方網站：</strong><a href="https://jprefund.com" target="_blank"><strong>jprefund.com</strong></a></p>
+                                <strong>📌 操作 6 步驟：</strong>
+                                <ol>
+                                    <li>打開 <a href="https://jprefund.com" target="_blank">jprefund.com</a></li>
+                                    <li>用 Email 註冊並完成信箱驗證</li>
+                                    <li>建立登入密碼</li>
+                                    <li>填寫護照資料與英文地址</li>
+                                    <li>買完後進入<strong>「免稅購買記錄」</strong></li>
+                                    <li>看到<strong>「待處理」</strong>項目後，依指示掃碼或輸入序號完成登記</li>
+                                </ol>
+                            </div>
+                            <div class="tax-platform-note">
+                                🔍 <strong>看畫面找重點：</strong><br>
+                                • 櫃台/自助機畫面會顯示 <code>Transaction ID</code> 與 <code>QR Code</code>（請當場拍照！）<br>
+                                • 平台內確認：<strong>待處理</strong>狀態、<strong>Refund Amount（退款金額）</strong>、<strong>請於出境時接受海關確認</strong>。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- J-TaxRefund -->
+                    <div class="tax-platform-card">
+                        <div class="tax-platform-header jtaxrefund">
+                            <span>🔵 J-TaxRefund</span>
+                            <span class="tax-platform-badge">Outlet/運動品牌/百貨</span>
+                        </div>
+                        <div class="tax-platform-body">
+                            <div>
+                                <p style="margin:0 0 8px 0;">🌐 <strong>官方網站：</strong><a href="https://j-taxrefund.com" target="_blank"><strong>j-taxrefund.com</strong></a></p>
+                                <strong>📌 操作 6 步驟：</strong>
+                                <ol>
+                                    <li>打開 <a href="https://j-taxrefund.com" target="_blank">j-taxrefund.com</a></li>
+                                    <li>用 Email 註冊帳號</li>
+                                    <li><span class="highlight">到信箱收「登入 ID」</span>（收不到請查垃圾郵件）</li>
+                                    <li>使用<strong>「登入 ID ＋ 密碼」</strong>登入平台</li>
+                                    <li>填寫護照資料與英文地址</li>
+                                    <li>買完後掃描紙本單據上的<strong>官方 QR Code</strong>，回平台查看「免稅適用金額」與「待退稅」清單</li>
+                                </ol>
+                            </div>
+                            <div class="tax-platform-note">
+                                ⚠️ <strong>一定要記得：</strong><br>
+                                • 最特別之處：<strong>不是用 Email 登入，而是用信箱收到的「登入 ID」登入！</strong>建議把登入 ID 截圖或記事本存起來。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Global Blue -->
+                    <div class="tax-platform-card">
+                        <div class="tax-platform-header globalblue">
+                            <span>🌐 Global Blue</span>
+                            <span class="tax-platform-badge">大丸/友都八喜/高島屋/三越</span>
+                        </div>
+                        <div class="tax-platform-body">
+                            <div>
+                                <p style="margin:0 0 8px 0;">📱 <strong>專用 App：</strong><code>Global Blue – Shop Tax Free</code>（英/日文）</p>
+                                <strong>📌 操作 4 步驟：</strong>
+                                <ol>
+                                    <li><strong>結帳出示護照，付含稅價：</strong>同店同日未稅滿 ¥5,000；無紙本退稅單，店家直接將購買紀錄上傳系統。</li>
+                                    <li><strong>登記退款方式：</strong>掃店家給的 QR Code 或 Email 連結填卡號，或使用 App 綁定。</li>
+                                    <li><strong>出境前到海關 KIOSK 刷護照：</strong><span class="highlight">行李托運前</span>、購買 90 天內、<strong>商品帶在身上</strong>（一筆交易少一件，整筆不退！）。</li>
+                                    <li><strong>等退款：</strong>退至信用卡/簽帳卡/電子錢包（最單純免額外費用）。</li>
+                                </ol>
+                            </div>
+                            <div class="tax-platform-note" style="border-left-color:#0984e3;">
+                                🏢 <strong>札幌實用特報（市區領現金）：</strong><br>
+                                <strong>友都八喜（Yodobashi 札幌店等 11 家門市）</strong>支援市區領現！連在別家 Global Blue 加盟店（如<strong>大丸札幌店</strong>）買的也能帶<strong>商品、收據、護照</strong>去辦（需壓信用卡擔保，建議直接退信用卡最划算單純）。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 結帳後現場必做 & 兩種登記方式 -->
+                <h4 class="tax-sub-title">📸 四、結帳後現場必做 4 件事 ＆ 兩種完成登記方式</h4>
+                <div class="tax-prep-grid">
+                    <div class="tax-prep-box prep-warn">
+                        <h4>🚨 買完當下一定要先做這 4 件事！</h4>
+                        <ul>
+                            <li>✔️ <strong>當場拍清楚退稅 QR Code：</strong>無論是櫃台螢幕顯示（JPrefund）或紙本退稅單據（J-TaxRefund）。</li>
+                            <li>✔️ <strong>把 Transaction ID / 交易序號一起拍下：</strong>萬一 QR Code 反光或模糊，還能手動輸入序號補救。</li>
+                            <li>✔️ <strong>若當下沒空掃，先保存照片：</strong>回飯店或搭車時再打開平台補登記即可。</li>
+                            <li>❌ <strong>千萬不要只拍一般消費收據：</strong>一般收據無法用來退稅，重點是<strong>退稅平台給的 QR Code / 序號</strong>！</li>
+                        </ul>
+                    </div>
+                    <div class="tax-prep-box">
+                        <h4>📲 怎麼完成登記？（JPrefund 的單去 JPrefund；J-TaxRefund 去 J-TaxRefund）</h4>
+                        <ul>
+                            <li><strong>方式 A｜掃描 QR Code：</strong>① 打開對應平台 ➔ ② 掃描官方 QR Code ➔ ③ 核對店家、金額、退稅額 ➔ ④ 送出後查看狀態。</li>
+                            <li><strong>方式 B｜手動輸入序號：</strong>① 找到單據/畫面上的 Transaction ID 序號 ➔ ② 在平台輸入 ➔ ③ 核對資料 ➔ ④ 完成登記。</li>
+                            <li><strong>🔍 登記後看什麼？</strong>確認交易已出現、退款金額合理、狀態顯示<strong>「待處理 / 待退稅 / 已確認」</strong>（出境前顯示待處理屬正常狀態！）。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 5. 退稅手續費實算比較 -->
+                <h4 class="tax-sub-title">🧮 五、退稅手續費怎麼算？實算比一比（以購買含稅 ¥11,000 / 未稅 ¥10,000 為例）</h4>
+                <p style="font-size:0.88rem;color:#555;margin:0 0 12px 0;">
+                    💡 日本消費稅分為<strong>「一般商品 10%」</strong>與<strong>「食品/輕減稅率 8%」</strong>。各通路退稅手續費規定不同，出境海關確認後，退稅款會<strong>退還給原付款人</strong>：
+                </p>
+                <div class="tax-fee-grid">
+                    <div class="tax-fee-card fee-free">
+                        <div class="store-type">🟢 唐吉訶德、Bic Camera</div>
+                        <span class="fee-badge">免手續費（稅額全退）</span>
+                        <div style="font-size:0.82rem;color:#666;">買含稅 ¥11,000 預計退回</div>
+                        <div class="refund-amount">¥1,000</div>
+                        <div style="font-size:0.78rem;color:#7f8c8d;">10% 稅額全數退還最划算！</div>
+                    </div>
+                    <div class="tax-fee-card fee-pct">
+                        <div class="store-type">🔵 大丸、高島屋等百貨</div>
+                        <span class="fee-badge">扣 1.55% 退稅手續費</span>
+                        <div style="font-size:0.82rem;color:#666;">買含稅 ¥11,000 預計退回</div>
+                        <div class="refund-amount">¥845</div>
+                        <div style="font-size:0.78rem;color:#7f8c8d;">可搭配本頁大丸 5% 優惠券補血！</div>
+                    </div>
+                    <div class="tax-fee-card fee-fixed">
+                        <div class="store-type">🔴 3COINS 等定額店家</div>
+                        <span class="fee-badge">單筆固定扣 ¥320</span>
+                        <div style="font-size:0.82rem;color:#666;">買含稅 ¥11,000 預計退回</div>
+                        <div class="refund-amount">¥680</div>
+                        <div style="font-size:0.78rem;color:#7f8c8d;">適合集中單筆大額結帳較划算</div>
+                    </div>
+                </div>
+
+                <!-- 6. 出境前懶人檢查表 (互動可打勾) -->
+                <h4 class="tax-sub-title">☑️ 六、出境前懶人檢查表（點擊項目可打勾確認，避免漏掉！）</h4>
+                <div class="tax-checklist-grid">
+                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>1. 已完成 JPrefund / J-TaxRefund 平台註冊</span></div>
+                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>2. 護照資料（英文姓名/號碼）填寫正確</span></div>
+                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>3. 台灣英文地址已填好（中華郵政英譯）</span></div>
+                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>4. 註冊之 Email 測試可正常收信</span></div>
+                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>5. J-TaxRefund 的「登入 ID」已另外保存</span></div>
+                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>6. 每筆交易的退稅 QR Code / 序號都拍下了</span></div>
+                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>7. 所有單據皆已在「對應平台」完成登記</span></div>
+                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>8. 去機場出境前已再次登入確認各筆狀態</span></div>
+                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>9. 護照、免稅商品、單據保留在身直到過海關</span></div>
+                </div>
+
+                <!-- 7. 10張退稅教學圖文懶人包原圖瀏覽 (點擊放大) -->
+                <h4 class="tax-sub-title">📱 七、日本退稅完整圖文懶人包（共 10 張，點擊圖片可全螢幕放大檢視）</h4>
+                <div class="coupon-grid">
+                    <!-- 01.jpg -->
+                    <div class="coupon-card">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">01. 日本退稅教學總覽</span>
+                            <span class="coupon-cat-badge">封面總覽 (1/8)</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="taxfund/01.jpg" data-title="01. 日本退稅教學：J-TaxRefund / JPrefund 完整圖文流程">
+                            <img src="taxfund/01.jpg" alt="01. 日本退稅教學總覽" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div class="coupon-desc">J-TaxRefund 與 JPrefund 櫃台畫面、紙本單據、手機登記紀錄對照與 6 步驟流程圖。</div>
+                            <button class="btn-view-barcode" data-src="taxfund/01.jpg" data-title="01. 日本退稅教學：J-TaxRefund / JPrefund 完整圖文流程">🔍 放大檢視教學圖</button>
+                        </div>
+                    </div>
+
+                    <!-- 02.jpg -->
+                    <div class="coupon-card">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">02. 出發前先準備</span>
+                            <span class="coupon-cat-badge">行前準備 (2/8)</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="taxfund/02.jpg" data-title="02. 出發前先準備：5大必備資料與英文地址查詢">
+                            <img src="taxfund/02.jpg" alt="02. 出發前先準備" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div class="coupon-desc">必備護照、Email、中華郵政中文地址英譯查詢方式，以及兩大平台註冊行前提醒。</div>
+                            <button class="btn-view-barcode" data-src="taxfund/02.jpg" data-title="02. 出發前先準備：5大必備資料與英文地址查詢">🔍 放大檢視教學圖</button>
+                        </div>
+                    </div>
+
+                    <!-- 03.jpg -->
+                    <div class="coupon-card">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">03. 兩家共同流程</span>
+                            <span class="coupon-cat-badge">共同流程 (3/8)</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="taxfund/03.jpg" data-title="03. 兩家共同流程：8步驟與3大重點提醒">
+                            <img src="taxfund/03.jpg" alt="03. 兩家共同流程" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div class="coupon-desc">從註冊帳號、店內辦理免稅、拍下 QR/序號、線上登記到海關確認的 8 大步驟詳解。</div>
+                            <button class="btn-view-barcode" data-src="taxfund/03.jpg" data-title="03. 兩家共同流程：8步驟與3大重點提醒">🔍 放大檢視教學圖</button>
+                        </div>
+                    </div>
+
+                    <!-- 04.jpg -->
+                    <div class="coupon-card">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">04. JPrefund 操作重點</span>
+                            <span class="coupon-cat-badge">JPrefund (4/8)</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="taxfund/04.jpg" data-title="04. JPrefund 操作重點 (jprefund.com)">
+                            <img src="taxfund/04.jpg" alt="04. JPrefund 操作重點" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div class="coupon-desc">打開 jprefund.com 註冊驗證、建立密碼、查看「免稅購買記錄」與待處理項目教學。</div>
+                            <button class="btn-view-barcode" data-src="taxfund/04.jpg" data-title="04. JPrefund 操作重點 (jprefund.com)">🔍 放大檢視教學圖</button>
+                        </div>
+                    </div>
+
+                    <!-- 05.jpg -->
+                    <div class="coupon-card">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">05. J-TaxRefund 操作重點</span>
+                            <span class="coupon-cat-badge">J-TaxRefund (5/8)</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="taxfund/05.jpg" data-title="05. J-TaxRefund 操作重點：登入 ID 會寄到 Email">
+                            <img src="taxfund/05.jpg" alt="05. J-TaxRefund 操作重點" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div class="coupon-desc">打開 j-taxrefund.com 註冊、到信箱收「登入 ID」、以 ID+密碼登入查看免稅紀錄清單。</div>
+                            <button class="btn-view-barcode" data-src="taxfund/05.jpg" data-title="05. J-TaxRefund 操作重點：登入 ID 會寄到 Email">🔍 放大檢視教學圖</button>
+                        </div>
+                    </div>
+
+                    <!-- 06.jpg -->
+                    <div class="coupon-card">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">06. 買完後必做這件事</span>
+                            <span class="coupon-cat-badge">拍照保存 (6/8)</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="taxfund/06.jpg" data-title="06. 買完後一定要先做這件事：拍清楚退稅 QR Code 與序號">
+                            <img src="taxfund/06.jpg" alt="06. 買完後必做這件事" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div class="coupon-desc">辨識櫃台自助機畫面與紙本單據上的官方 QR Code 及 Transaction ID，當場拍照防遺失。</div>
+                            <button class="btn-view-barcode" data-src="taxfund/06.jpg" data-title="06. 買完後一定要先做這件事：拍清楚退稅 QR Code 與序號">🔍 放大檢視教學圖</button>
+                        </div>
+                    </div>
+
+                    <!-- 07.jpg -->
+                    <div class="coupon-card">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">07. 怎麼完成退稅登記</span>
+                            <span class="coupon-cat-badge">登記教學 (7/8)</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="taxfund/07.jpg" data-title="07. 怎麼完成登記：方式 A 掃描 QR Code vs 方式 B 手動輸入序號">
+                            <img src="taxfund/07.jpg" alt="07. 怎麼完成退稅登記" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div class="coupon-desc">詳解「方式 A 掃描 QR Code」與「方式 B 手動輸入序號」，以及登記後必看 4 大核對重點。</div>
+                            <button class="btn-view-barcode" data-src="taxfund/07.jpg" data-title="07. 怎麼完成登記：方式 A 掃描 QR Code vs 方式 B 手動輸入序號">🔍 放大檢視教學圖</button>
+                        </div>
+                    </div>
+
+                    <!-- 08.jpg -->
+                    <div class="coupon-card">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">08. 出境前懶人檢查表</span>
+                            <span class="coupon-cat-badge">檢查表＆FAQ (8/8)</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="taxfund/08.jpg" data-title="08. 出境前懶人檢查表與常見問題 FAQ">
+                            <img src="taxfund/08.jpg" alt="08. 出境前懶人檢查表" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div class="coupon-desc">離境前最後 9 項確認清單與常見問題 FAQ（護照、商品、單據務必保留到離境過海關）。</div>
+                            <button class="btn-view-barcode" data-src="taxfund/08.jpg" data-title="08. 出境前懶人檢查表與常見問題 FAQ">🔍 放大檢視教學圖</button>
+                        </div>
+                    </div>
+
+                    <!-- 09.jpg -->
+                    <div class="coupon-card">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">09. 退稅手續費實算對照</span>
+                            <span class="coupon-cat-badge">加碼 +1</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="taxfund/09.jpg" data-title="09. 退稅不用自己算：各免稅店手續費與 ¥11,000 實退金額比較">
+                            <img src="taxfund/09.jpg" alt="09. 退稅手續費實算對照" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div class="coupon-desc">同樣買 ¥11,000：唐吉訶德/BicCamera 實退 ¥1,000、百貨扣 1.55% 退 ¥845、3COINS 退 ¥680。</div>
+                            <button class="btn-view-barcode" data-src="taxfund/09.jpg" data-title="09. 退稅不用自己算：各免稅店手續費與 ¥11,000 實退金額比較">🔍 放大檢視教學圖</button>
+                        </div>
+                    </div>
+
+                    <!-- 10.jpg -->
+                    <div class="coupon-card">
+                        <div class="coupon-card-header">
+                            <span class="coupon-store-title">10. Global Blue 怎麼退</span>
+                            <span class="coupon-cat-badge">加碼 +2</span>
+                        </div>
+                        <div class="coupon-img-wrapper" data-src="taxfund/10.jpg" data-title="10. Global Blue 怎麼退：大丸松坂屋/友都八喜/高島屋退稅指南">
+                            <img src="taxfund/10.jpg" alt="10. Global Blue 怎麼退" loading="lazy">
+                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
+                        </div>
+                        <div class="coupon-card-body">
+                            <div class="coupon-desc">百貨最常遇到的 Global Blue 4 步驟、海關 KIOSK 刷護照規定，以及友都八喜札幌店市區領現情報。</div>
+                            <button class="btn-view-barcode" data-src="taxfund/10.jpg" data-title="10. Global Blue 怎麼退：大丸松坂屋/友都八喜/高島屋退稅指南">🔍 放大檢視教學圖</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -1434,7 +2015,8 @@
             1. 交通票券：建議單買函館到札幌的「北斗號」指定席車票即可，不一定要買 JR Pass。<br>
             2. 冬季穿著：務必準備一雙防滑、防水的雪靴，以免在結冰路面滑倒。<br>
             3. 一日團預訂：富良野/美瑛點燈一日團極熱門，建議出發前1-2個月提早線上預訂。<br>
-            4. 購物免稅：採購伴手禮或藥妝可直接出示本頁面<strong>【訪日旅客專屬購物優惠券】</strong>，結帳前出示手機條碼享最高 18% 折扣！
+            4. 購物免稅：採購伴手禮或藥妝可直接出示本頁面<strong>【<a href="#sec-coupons">訪日旅客專屬購物優惠券</a>】</strong>，結帳前出示手機條碼享最高 18% 折扣！<br>
+            5. 日本退稅：結帳後務必拍下退稅 QR Code 與序號，並參考<strong>【<a href="#sec-taxrefund">日本退稅完整圖文攻略</a>】</strong>於出境托運前完成線上登記與海關確認！
         </div>
 
     </div>
@@ -1449,7 +2031,7 @@
                 <button type="button" class="barcode-modal-close-btn" id="close-modal" title="關閉視窗">&times;</button>
             </div>
             <div class="barcode-modal-tip">
-                💡 <strong>結帳秘訣：</strong>請將手機螢幕調至最亮，上下滑動可查看不同條碼；<strong>點擊圖片可再切換 150% 超大放大模式</strong>！
+                💡 <strong>檢視秘訣：</strong>結帳掃碼請將手機螢幕調至最亮，上下滑動可查看完整內容；<strong>點擊圖片可再切換 150% 超大放大模式</strong>！
             </div>
             <div class="barcode-img-scroll-container">
                 <img id="modal-img" src="" alt="優惠券條碼大圖">
@@ -1506,7 +2088,7 @@
                 }, 500);
             });
 
-            $("#btn-nav-coupons").click(function (e) {
+            $("#btn-nav-coupons, a[href='#sec-coupons']").click(function (e) {
                 e.preventDefault();
                 var targetCard = $("#sec-coupons");
                 var content = targetCard.find(".day-content");
@@ -1519,17 +2101,35 @@
                 }, 500);
             });
 
-            // 優惠券類別 Filter 篩選切換 (jQuery 動畫)
+            $("#btn-nav-taxrefund, a[href='#sec-taxrefund']").click(function (e) {
+                e.preventDefault();
+                var targetCard = $("#sec-taxrefund");
+                var content = targetCard.find(".day-content");
+                var arrow = targetCard.find(".day-title .arrow");
+
+                content.slideDown(300);
+                arrow.text("▲");
+                $("html, body").animate({
+                    scrollTop: targetCard.offset().top - 20
+                }, 500);
+            });
+
+            // 出境前懶人檢查表點擊打勾切換
+            $(".tax-check-item").click(function () {
+                $(this).toggleClass("is-checked");
+            });
+
+            // 優惠券類別 Filter 篩選切換 (jQuery 動畫，限定於優惠券區塊內)
             $(".filter-btn").click(function () {
                 $(".filter-btn").removeClass("active");
                 $(this).addClass("active");
                 var filter = $(this).data("filter");
 
                 if (filter === "all") {
-                    $(".coupon-card").stop(true, true).fadeIn(250);
+                    $("#sec-coupons .coupon-card").stop(true, true).fadeIn(250);
                 } else {
-                    $(".coupon-card").stop(true, true).hide();
-                    $(".coupon-card[data-category='" + filter + "']").stop(true, true).fadeIn(250);
+                    $("#sec-coupons .coupon-card").stop(true, true).hide();
+                    $("#sec-coupons .coupon-card[data-category='" + filter + "']").stop(true, true).fadeIn(250);
                 }
             });
 
