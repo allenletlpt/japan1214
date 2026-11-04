@@ -3,2205 +3,1788 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1e3c72">
     <title>2026 北海道六天五夜浪漫雪國之旅</title>
     <style>
+        /* ===== 基本設定（手機優先 Mobile First） ===== */
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --accent-hover: #2980b9;
-            --bg-color: #f4f9f9;
-            --card-bg: #ffffff;
-            --card-header-bg: #ecf0f1;
-            --card-header-hover: #dfe6e9;
-            --text-color: #333333;
-            --highlight-color: #e74c3c;
-            --info-bg: #e8f6f3;
-            --info-text: #16a085;
-            --tips-bg: #fff3cd;
-            --tips-border: #ffc107;
-            --ezomikuji-bg: #fdfefe;
-            --ezomikuji-border: #abebc6;
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --accent-dark: #2980b9;
+            --red: #e74c3c;
+            --green: #27ae60;
+            --orange: #f39c12;
+            --bg: #eef3f7;
+            --card: #ffffff;
+            --line: #e2e8f0;
+            --muted: #64748b;
+            --text: #333333;
+            --nav-h: 60px;
+        }
+
+        * { box-sizing: border-box; }
+
+        html {
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            font-family: '微軟正黑體', 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: '微軟正黑體', 'PingFang TC', 'Noto Sans TC', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.7;
+            font-size: 15px;
             margin: 0;
-            padding: 20px;
+            padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 10px);
         }
 
-        .container {
-            max-width: 850px;
+        a { color: var(--accent-dark); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        code { background: #eef2f7; padding: 0 5px; border-radius: 4px; font-size: .85em; }
+
+        .wrap {
+            max-width: 860px;
             margin: 0 auto;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            padding: 0 12px 20px;
         }
 
-        h1 {
+        .hl { color: var(--red); font-weight: bold; }
+
+        /* ===== 頁首 Hero ===== */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72, #2a5298 60%, #3498db);
+            color: #fff;
+            padding: 22px 16px 16px;
+            margin: 0 -12px 12px;
+            border-radius: 0 0 22px 22px;
             text-align: center;
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--accent-color);
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-            font-size: 1.8rem;
         }
+        .hero h1 { margin: 0; font-size: 1.32rem; line-height: 1.4; letter-spacing: .5px; }
+        .hero .sub { font-size: .82rem; opacity: .9; margin-top: 4px; }
 
-        h2 {
-            color: var(--accent-hover);
-            border-left: 5px solid var(--accent-color);
-            padding-left: 12px;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: bold;
-            transition: background-color 0.2s ease, transform 0.1s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-1px);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .flight-info {
-            background-color: var(--info-bg);
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            border-left: 4px solid var(--info-text);
-        }
-
-        .flight-info p {
-            margin: 6px 0;
-            font-weight: bold;
-            color: var(--info-text);
-            font-size: 0.98rem;
-        }
-
-        .day-card {
-            border: 1px solid #e1e8ed;
-            border-radius: 10px;
-            margin-bottom: 16px;
-            background: #fafbfc;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .day-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-        }
-
-        .day-title {
-            background-color: var(--card-header-bg);
-            padding: 16px 20px;
-            margin: 0;
-            font-size: 1.15rem;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-        }
-
-        .day-title:hover {
-            background-color: var(--card-header-hover);
-        }
-
-        .day-title span.arrow {
-            font-size: 0.9rem;
-            transition: transform 0.3s ease;
-            color: #7f8c8d;
-        }
-
-        .day-content {
-            padding: 20px;
-            display: none;
-            border-top: 1px solid #e1e8ed;
-            background-color: #ffffff;
-        }
-
-        ul {
-            padding-left: 20px;
-            margin: 5px 0;
-        }
-
-        li {
-            margin-bottom: 14px;
-        }
-
-        li:last-child {
-            margin-bottom: 0;
-        }
-
-        .highlight {
-            color: var(--highlight-color);
-            font-weight: bold;
-        }
-
-        .ezo-tag {
-            background-color: #e74c3c;
-            color: #ffffff;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.82rem;
-            font-weight: bold;
-            margin-left: 5px;
-            display: inline-block;
-        }
-
-        .ezomikuji-intro {
-            background-color: var(--info-bg);
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-
-        .ezomikuji-grid {
+        .flight-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 14px;
+            text-align: left;
+        }
+        .flight {
+            background: rgba(255, 255, 255, .14);
+            border: 1px solid rgba(255, 255, 255, .25);
+            border-radius: 12px;
+            padding: 9px 10px;
+            font-size: .76rem;
+            line-height: 1.5;
+        }
+        .flight .lbl { font-weight: bold; font-size: .82rem; }
+        .flight .time { font-size: 1rem; font-weight: bold; margin: 2px 0; }
+
+        /* ===== 行程總覽 Day Chips（可橫向滑動） ===== */
+        .chips {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 2px 2px 8px;
+            margin: 0 -12px;
+            padding-left: 12px;
+            padding-right: 12px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .chips::-webkit-scrollbar { display: none; }
+        .chip {
+            flex: 0 0 auto;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 6px 12px;
+            text-align: center;
+            line-height: 1.3;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+            color: var(--primary);
+            cursor: pointer;
+        }
+        .chip b { display: block; font-size: .9rem; color: var(--accent-dark); }
+        .chip span { font-size: .72rem; color: var(--muted); }
+        .chip:hover { text-decoration: none; border-color: var(--accent); }
+
+        /* ===== 區塊標題 ===== */
+        .section {
+            margin-top: 20px;
+        }
+        .section-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin: 0 2px 10px;
+        }
+        .section-head h2 {
+            margin: 0;
+            font-size: 1.12rem;
+            color: var(--primary);
+            border-left: 5px solid var(--accent);
+            padding-left: 10px;
+            line-height: 1.35;
+        }
+        .mini-btns { display: flex; gap: 6px; flex-shrink: 0; }
+        .mini-btns button {
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--accent-dark);
+            font-size: .76rem;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-family: inherit;
         }
 
-        .ezomikuji-item {
-            background: #f8f9fa;
-            border: 1px solid #e2e8f0;
-            padding: 12px 15px;
-            border-radius: 8px;
-            font-size: 0.92rem;
+        /* ===== 摺疊卡片 ===== */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .card-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 12px;
+            cursor: pointer;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .card-head:active { background: #f5f8fb; }
+        .badge {
+            flex: 0 0 auto;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--accent);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+            line-height: 1.1;
+        }
+        .badge small { font-size: .6rem; font-weight: normal; opacity: .9; }
+        .badge.emoji { background: #fdf2e9; font-size: 1.35rem; }
+        .card-title { flex: 1; min-width: 0; }
+        .card-title .t { font-weight: bold; color: var(--primary); font-size: .98rem; line-height: 1.4; }
+        .card-title .d { font-size: .76rem; color: var(--muted); line-height: 1.4; margin-top: 1px; }
+        .arrow {
+            flex: 0 0 auto;
+            color: #94a3b8;
+            font-size: .75rem;
+            transition: transform .3s;
+        }
+        .card.open > .card-head .arrow { transform: rotate(180deg); }
+        .card-body {
+            display: none;
+            padding: 4px 14px 14px;
+            border-top: 1px solid var(--line);
         }
 
-        .ezomikuji-item strong {
-            color: #2c3e50;
+        /* ===== 時間軸行程 ===== */
+        .tl {
+            position: relative;
+            margin-top: 12px;
+            padding-left: 18px;
         }
-
-        a {
-            color: #2980b9;
-            text-decoration: none;
+        .tl::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: #dbe7f3;
         }
-
-        a:hover {
-            text-decoration: underline;
+        .tl-item { position: relative; padding-bottom: 16px; }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: -18px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--accent);
         }
-
-        em {
-            color: #555;
-            font-style: normal;
+        .tl-time {
+            display: inline-block;
+            font-size: .72rem;
+            font-weight: bold;
+            color: var(--accent-dark);
+            background: #e6f1fb;
+            padding: 0 8px;
+            border-radius: 10px;
+            line-height: 1.7;
         }
-
-        .tips {
-            background-color: var(--tips-bg);
-            border-left: 5px solid var(--tips-border);
-            padding: 18px 20px;
-            margin-top: 30px;
+        .tl-title { font-weight: bold; color: var(--primary); margin-top: 3px; line-height: 1.5; }
+        .tl-title a { color: var(--red); }
+        .tl-item p { margin: 3px 0 0; font-size: .9rem; }
+        .route {
+            margin-top: 6px;
+            background: #f6f8fa;
+            border-left: 3px solid #a5b4c4;
             border-radius: 6px;
+            padding: 6px 9px;
+            font-size: .82rem;
+            color: #555;
+            line-height: 1.6;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--red);
+            color: #fff;
+            font-size: .72rem;
+            padding: 0 8px;
+            border-radius: 10px;
+            margin-top: 5px;
             line-height: 1.8;
         }
-
-        .spot-info-box {
-            background-color: #f0f7ff;
-            border-left: 4px solid var(--accent-color);
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-
-        .spot-info-box p {
-            margin: 6px 0;
-            font-size: 0.95rem;
-        }
-
-        .spot-station {
-            background: #ffffff;
-            border: 1px solid #e1e8ed;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-
-        .spot-station h4 {
-            margin-top: 0;
-            margin-bottom: 8px;
-            color: #2c3e50;
-            font-size: 1.05rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .spot-tag {
-            background-color: #3498db;
-            color: #ffffff;
-            font-size: 0.75rem;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: 8px;
-            font-weight: normal;
-        }
-
-        /* 優惠券與注意事項專屬樣式 */
-        .btn-secondary {
-            background-color: #576574;
-            color: #ffffff;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .btn-secondary:hover {
-            background-color: #222f3e;
-            text-decoration: none;
-        }
-
-        /* 注意事項重點卡片 */
-        .notice-section-intro {
+        .tip-box {
+            margin-top: 8px;
             background: #fff8e7;
-            border-left: 4px solid #f39c12;
-            padding: 14px 18px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-            color: #795548;
-            line-height: 1.6;
-        }
-
-        .notice-list-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 14px;
-        }
-        .notice-item-box {
-            background: #ffffff;
-            border-radius: 10px;
-            border-left: 5px solid var(--accent-color);
-            padding: 14px 16px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-            border-top: 1px solid #edf2f7;
-            border-right: 1px solid #edf2f7;
-            border-bottom: 1px solid #edf2f7;
-        }
-        .notice-item-box.warn {
-            border-left-color: #e74c3c;
-        }
-        .notice-item-box.tip {
-            border-left-color: #f39c12;
-        }
-        .notice-item-box.money {
-            border-left-color: #27ae60;
-        }
-        .notice-item-box.snow {
-            border-left-color: #0984e3;
-        }
-        .notice-item-box h4 {
-            margin: 0 0 6px 0;
-            font-size: 0.98rem;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .notice-item-box p {
-            margin: 0;
-            font-size: 0.88rem;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        /* 優惠券分類與卡片 */
-        .coupon-intro-bar {
-            background: #eef7fe;
-            border-left: 4px solid #3498db;
-            padding: 12px 16px;
+            border-left: 3px solid var(--orange);
             border-radius: 6px;
-            margin-bottom: 18px;
-            font-size: 0.95rem;
-            color: #2c3e50;
+            padding: 7px 10px;
+            font-size: .84rem;
+            color: #6d5a2b;
         }
-        .coupon-filter-bar {
+        .stay {
+            margin-top: 14px;
+            background: #f0f7ff;
+            border: 1px solid #d6e8fa;
+            border-radius: 10px;
+            padding: 10px 12px;
+            font-size: .85rem;
+            line-height: 1.75;
+        }
+        .stay .name { font-weight: bold; color: var(--primary); font-size: .92rem; }
+
+        /* ===== 原生 details 子摺疊 ===== */
+        details.sub {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            margin-top: 12px;
+            background: #fff;
+            overflow: hidden;
+        }
+        details.sub > summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 10px 12px;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: .92rem;
             display: flex;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
             gap: 8px;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 1px dashed #dcdde1;
+            background: #f8fafc;
+            -webkit-tap-highlight-color: transparent;
         }
+        details.sub > summary::-webkit-details-marker { display: none; }
+        details.sub > summary::after {
+            content: '▼';
+            font-size: .68rem;
+            color: #94a3b8;
+            transition: transform .25s;
+            flex-shrink: 0;
+        }
+        details.sub[open] > summary::after { transform: rotate(180deg); }
+        details.sub[open] > summary { border-bottom: 1px solid var(--line); }
+        .sub-body { padding: 10px 12px 12px; font-size: .87rem; }
+        .sub-body h4 { margin: 12px 0 4px; font-size: .9rem; color: var(--primary); }
+        .sub-body h4:first-child { margin-top: 0; }
+        .sub-body p { margin: 4px 0; }
+        .sub-body ul, .sub-body ol { padding-left: 18px; margin: 4px 0; }
+        .sub-body li { margin-bottom: 4px; }
+
+        /* ===== 神社 ===== */
+        .shrine {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--line);
+        }
+        .shrine:last-child { border-bottom: 0; padding-bottom: 0; }
+        .shrine .name { font-weight: bold; color: var(--primary); }
+        .shrine .name a { color: var(--red); }
+        .shrine p { margin: 2px 0 0; font-size: .87rem; }
+        .shrine .when { font-size: .76rem; color: var(--green); font-weight: bold; margin-top: 4px; }
+
+        .intro {
+            background: #e8f6f3;
+            border-radius: 10px;
+            padding: 10px 12px;
+            font-size: .86rem;
+            margin-top: 10px;
+            line-height: 1.7;
+        }
+        .mikuji-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .mikuji {
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 8px 10px;
+            font-size: .78rem;
+            line-height: 1.45;
+            position: relative;
+        }
+        .mikuji b { display: block; color: var(--primary); font-size: .84rem; margin-bottom: 2px; }
+        .mikuji.on { background: #fff4f2; border-color: #f5b7b1; }
+        .mikuji.on::after {
+            content: '行程內';
+            position: absolute;
+            top: -7px;
+            right: 6px;
+            background: var(--red);
+            color: #fff;
+            font-size: .62rem;
+            padding: 0 6px;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        /* ===== 注意事項 ===== */
+        .group-title {
+            font-size: .95rem;
+            color: var(--primary);
+            margin: 16px 2px 8px;
+            font-weight: bold;
+        }
+        .group-title:first-child { margin-top: 0; }
+        .notice-list { display: grid; grid-template-columns: 1fr; gap: 8px; }
+        .notice {
+            display: flex;
+            gap: 10px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--accent);
+            border-radius: 10px;
+            padding: 10px 12px;
+        }
+        .notice.warn { border-left-color: var(--red); }
+        .notice.tip { border-left-color: var(--orange); }
+        .notice.money { border-left-color: var(--green); }
+        .notice.snow { border-left-color: #0984e3; }
+        .notice .ic { font-size: 1.3rem; line-height: 1.3; flex-shrink: 0; }
+        .notice h4 { margin: 0 0 2px; font-size: .92rem; color: var(--primary); line-height: 1.45; }
+        .notice p { margin: 0; font-size: .84rem; color: #555; line-height: 1.6; }
+
+        /* ===== 優惠券（手機版為精簡橫式卡片） ===== */
+        .info-bar {
+            background: #eef7fe;
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: .85rem;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        .info-bar.red { background: #fff4f2; border-left-color: var(--red); }
+        .filter-bar {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            margin: 0 -12px 10px;
+            padding: 2px 12px 6px;
+            scrollbar-width: none;
+        }
+        .filter-bar::-webkit-scrollbar { display: none; }
         .filter-btn {
-            background: #f1f2f6;
+            flex: 0 0 auto;
+            white-space: nowrap;
+            background: #fff;
             color: #4b6584;
             border: 1px solid #ced6e0;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.88rem;
+            padding: 6px 13px;
+            border-radius: 18px;
+            font-size: .82rem;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.2s;
+            font-family: inherit;
         }
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--accent-color);
-            color: #ffffff;
-            border-color: var(--accent-color);
-        }
-        .coupon-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 16px;
-        }
-        .coupon-card {
-            background: #ffffff;
-            border: 1px solid #e1e8ed;
+        .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+        .coupon-list { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .coupon {
+            display: flex;
+            gap: 10px;
+            background: #fff;
+            border: 1px solid var(--line);
             border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .03);
+        }
+        .coupon-thumb {
+            flex: 0 0 86px;
+            height: 86px;
+            border-radius: 8px;
+            background: #f7f9fa;
+            border: 1px solid #eef1f4;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.25s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             position: relative;
+            cursor: pointer;
         }
-        .coupon-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            border-color: #3498db;
+        .coupon-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+        .coupon-thumb::after {
+            content: '🔍';
+            position: absolute;
+            right: 3px;
+            bottom: 3px;
+            background: rgba(44, 62, 80, .8);
+            border-radius: 6px;
+            font-size: .62rem;
+            padding: 0 3px;
         }
-        .coupon-card-header {
-            padding: 10px 14px;
-            background: #f8fafc;
-            border-bottom: 1px solid #f1f2f6;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .coupon-store-title {
-            font-size: 0.96rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin: 0;
-        }
-        .coupon-cat-badge {
-            font-size: 0.72rem;
-            padding: 2px 8px;
-            border-radius: 10px;
+        .coupon-info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+        .coupon-name { font-weight: bold; font-size: .9rem; color: var(--primary); line-height: 1.35; }
+        .coupon-cat {
+            display: inline-block;
+            font-size: .64rem;
             background: #e2e8f0;
             color: #475569;
+            padding: 0 6px;
+            border-radius: 8px;
+            margin-left: 4px;
+            vertical-align: middle;
             font-weight: normal;
         }
-        .coupon-img-wrapper {
-            position: relative;
-            background: #f7f9fa;
+        .coupon-off { color: var(--red); font-weight: bold; font-size: .86rem; margin: 2px 0; line-height: 1.4; }
+        .coupon-desc { font-size: .76rem; color: #555; line-height: 1.55; }
+        .coupon-meta { font-size: .7rem; color: var(--muted); margin-top: 4px; }
+        .btn-barcode {
+            margin-top: auto;
+            width: 100%;
+            background: var(--red);
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            padding: 7px;
+            font-weight: bold;
+            font-size: .8rem;
             cursor: pointer;
-            overflow: hidden;
-            height: 200px;
+            font-family: inherit;
+        }
+        .coupon-info .btn-barcode { margin-top: 8px; }
+
+        /* ===== 退稅攻略 ===== */
+        .flow {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+        .flow-step {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 8px 4px;
+            text-align: center;
+            line-height: 1.35;
+        }
+        .flow-step .n {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            font-size: .66rem;
+            font-weight: bold;
+        }
+        .flow-step .e { display: block; font-size: 1.2rem; margin: 2px 0; }
+        .flow-step .l { font-size: .78rem; font-weight: bold; color: var(--primary); }
+        .flow-step .s { font-size: .66rem; color: var(--muted); }
+        .flow-step .s.r { color: var(--red); font-weight: bold; }
+
+        .tabs { display: flex; gap: 6px; margin: 4px 0 10px; }
+        .tab-btn {
+            flex: 1;
+            padding: 8px 2px;
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: .8rem;
+            color: #475569;
+            cursor: pointer;
+            font-family: inherit;
+            line-height: 1.3;
+        }
+        .tab-btn small { display: block; font-size: .64rem; font-weight: normal; opacity: .85; }
+        .tab-btn.active[data-tab="jp"] { background: #c0392b; border-color: #c0392b; color: #fff; }
+        .tab-btn.active[data-tab="jt"] { background: #0984e3; border-color: #0984e3; color: #fff; }
+        .tab-btn.active[data-tab="gb"] { background: #0a3d62; border-color: #0a3d62; color: #fff; }
+        .tab-pane {
+            display: none;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 12px;
+            font-size: .86rem;
+        }
+        .tab-pane.active { display: block; }
+        .tab-pane ol { padding-left: 18px; margin: 6px 0; }
+        .tab-pane li { margin-bottom: 5px; line-height: 1.6; }
+        .tab-pane .note {
+            background: #f8fafc;
+            border-left: 3px solid var(--red);
+            border-radius: 6px;
+            padding: 7px 10px;
+            font-size: .8rem;
+            margin-top: 8px;
+        }
+        .tab-pane .note.blue { border-left-color: #0984e3; }
+
+        .fee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+        .fee {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 8px 4px;
+            text-align: center;
+            line-height: 1.35;
+        }
+        .fee .st { font-size: .74rem; font-weight: bold; color: var(--primary); }
+        .fee .fb { display: inline-block; font-size: .64rem; padding: 0 6px; border-radius: 8px; margin: 3px 0; font-weight: bold; }
+        .fee .amt { font-size: 1.25rem; font-weight: bold; }
+        .fee.free .fb { background: #d4edda; color: #155724; }
+        .fee.pct .fb { background: #cce5ff; color: #004085; }
+        .fee.fix .fb { background: #f8d7da; color: #721c24; }
+        .fee.free .amt { color: var(--green); }
+        .fee.pct .amt { color: var(--accent-dark); }
+        .fee.fix .amt { color: var(--red); }
+
+        .checklist { display: grid; grid-template-columns: 1fr; gap: 6px; }
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 9px 12px;
+            font-size: .86rem;
+            cursor: pointer;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            transition: all .2s;
+        }
+        .check-box {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #cbd5e1;
+            border-radius: 5px;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid #f1f2f6;
+            color: #fff;
+            font-size: .75rem;
         }
-        .coupon-img-wrapper img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.3s;
+        .check-item.is-checked { background: #e8f8f5; border-color: #a9dfbf; color: #1e8449; }
+        .check-item.is-checked .check-box { background: var(--green); border-color: var(--green); }
+        .check-item.is-checked .check-box::after { content: '✓'; }
+        .check-item.is-checked .txt { text-decoration: line-through; }
+
+        .small-title { font-size: .95rem; color: var(--primary); font-weight: bold; margin: 16px 2px 8px; }
+        .disclaimer { font-size: .76rem; color: var(--muted); margin-top: 12px; text-align: center; }
+
+        /* ===== 底部固定導覽列 ===== */
+        .bottom-nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, .97);
+            border-top: 1px solid var(--line);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, .06);
+            padding-bottom: env(safe-area-inset-bottom);
         }
-        .coupon-img-wrapper:hover img {
-            transform: scale(1.04);
-        }
-        .coupon-zoom-overlay {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            background: rgba(44, 62, 80, 0.85);
-            color: #ffffff;
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 0.72rem;
-            pointer-events: none;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .coupon-card-body {
-            padding: 12px 14px;
-            flex-grow: 1;
+        .bottom-nav .inner { max-width: 860px; margin: 0 auto; display: flex; }
+        .bottom-nav a {
+            flex: 1;
+            height: var(--nav-h);
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-        }
-        .coupon-discount-text {
-            color: #e74c3c;
-            font-weight: bold;
-            font-size: 1.05rem;
-            margin-bottom: 5px;
-            display: flex;
             align-items: center;
-            gap: 5px;
-        }
-        .coupon-desc {
-            font-size: 0.84rem;
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 10px;
-        }
-        .coupon-footer-info {
-            font-size: 0.78rem;
-            color: #7f8c8d;
-            border-top: 1px dashed #edf2f7;
-            padding-top: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .btn-view-barcode {
-            width: 100%;
-            margin-top: 10px;
-            padding: 8px;
-            background: #e74c3c;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 0.88rem;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
-            text-align: center;
-        }
-        .btn-view-barcode:hover {
-            background: #c0392b;
-            transform: translateY(-1px);
-        }
-
-        /* 優惠券條碼專用放大彈窗 (Class 驅動，確保每次彈出均有流暢動畫，絕不卡死) */
-        .barcode-modal-overlay {
-            position: fixed;
-            z-index: 999999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(15, 23, 42, 0.78);
-            display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 16px;
-            box-sizing: border-box;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            gap: 2px;
+            font-size: .68rem;
+            color: var(--muted);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .bottom-nav a:hover { text-decoration: none; }
+        .bottom-nav a .i { font-size: 1.25rem; line-height: 1; filter: grayscale(.6); }
+        .bottom-nav a.active { color: var(--accent-dark); font-weight: bold; }
+        .bottom-nav a.active .i { filter: none; }
 
-            /* 預設完全隱藏且不可點擊，不阻擋任何頁面互動 */
+        .to-top {
+            position: fixed;
+            right: 14px;
+            bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 14px);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 0;
+            background: var(--primary);
+            color: #fff;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .2);
+            cursor: pointer;
+            display: none;
+            z-index: 999;
+        }
+
+        /* ===== 圖片放大彈窗 ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(15, 23, 42, .82);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            transition: opacity .25s, visibility .25s;
         }
-
-        /* 啟動狀態：背景平滑淡入 */
-        .barcode-modal-overlay.is-active {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
-
-        .barcode-modal-box {
-            background: #ffffff;
+        .modal-overlay.is-active { opacity: 1; visibility: visible; pointer-events: auto; }
+        .modal-box {
+            background: #fff;
             width: 100%;
-            max-width: 500px;
-            max-height: 90vh;
-            border-radius: 16px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+            max-width: 520px;
+            max-height: 94vh;
+            border-radius: 14px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-
-            /* 預設縮小（scale 0.8）與位移，為放大動畫做準備 */
-            transform: scale(0.8) translateY(20px);
-            opacity: 0;
-            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.25s ease;
+            transform: scale(.9);
+            transition: transform .3s cubic-bezier(.175, .885, .32, 1.275);
         }
-
-        /* 啟動狀態：彈窗彈跳放大（從 0.8 彈出至 1.0，極度生動明顯的放大動畫） */
-        .barcode-modal-overlay.is-active .barcode-modal-box {
-            transform: scale(1) translateY(0);
-            opacity: 1;
-        }
-
-        .barcode-modal-header {
-            padding: 14px 18px;
-            background: #2c3e50;
-            color: #ffffff;
+        .modal-overlay.is-active .modal-box { transform: scale(1); }
+        .modal-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 2px solid #34495e;
+            gap: 8px;
+            padding: 10px 12px;
+            background: var(--primary);
+            color: #fff;
         }
-        .barcode-modal-title {
-            font-size: 1.05rem;
-            font-weight: bold;
-            color: #ffffff;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .barcode-modal-close-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            border: none;
+        .modal-title { font-size: .92rem; font-weight: bold; line-height: 1.4; }
+        .modal-close {
+            flex-shrink: 0;
             width: 34px;
             height: 34px;
             border-radius: 50%;
+            border: 0;
+            background: rgba(255, 255, 255, .2);
+            color: #fff;
             font-size: 22px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
             line-height: 1;
+            cursor: pointer;
         }
-        .barcode-modal-close-btn:hover {
-            background: #e74c3c;
-            transform: scale(1.08);
-        }
-        .barcode-modal-tip {
-            background: #fff8e7;
-            color: #856404;
-            padding: 10px 16px;
-            font-size: 0.85rem;
-            border-bottom: 1px solid #ffeeba;
-            line-height: 1.5;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .barcode-img-scroll-container {
+        .modal-tip { background: #fff8e7; color: #856404; font-size: .76rem; padding: 6px 12px; }
+        .modal-img-box {
             flex: 1;
-            overflow-y: auto;
-            padding: 16px;
+            overflow: auto;
             background: #f8fafc;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-height: 62vh;
+            padding: 10px;
             -webkit-overflow-scrolling: touch;
         }
-        .barcode-img-scroll-container img {
+        .modal-img-box img { display: block; width: 100%; height: auto; border-radius: 6px; cursor: zoom-in; background: #fff; }
+        .modal-img-box img.is-zoomed { width: 170%; max-width: none; cursor: zoom-out; }
+        .modal-footer { padding: 8px 10px; border-top: 1px solid var(--line); }
+        .modal-footer button {
             width: 100%;
-            height: auto;
-            max-width: 100%;
-            display: block;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            background: #ffffff;
-            cursor: zoom-in;
-            transition: transform 0.25s ease, max-width 0.25s ease;
-            transform-origin: center top;
-        }
-        .barcode-img-scroll-container img.is-zoomed {
-            width: 150%;
-            max-width: 150%;
-            cursor: zoom-out;
-        }
-        .barcode-modal-footer {
-            padding: 12px 16px;
-            background: #ffffff;
-            border-top: 1px solid #e2e8f0;
-            display: flex;
-            gap: 10px;
-        }
-        .btn-modal-close-bottom {
-            flex: 1;
-            background: #e74c3c;
-            color: #ffffff;
-            border: none;
-            padding: 11px 16px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
-            text-align: center;
-        }
-        .btn-modal-close-bottom:hover {
-            background: #c0392b;
-        }
-        .btn-modal-close-bottom:active {
-            transform: translateY(1px);
-        }
-
-        /* 💴 日本退稅完整攻略專屬樣式 */
-        .tax-sub-title {
-            font-size: 1.08rem;
-            color: var(--primary-color);
-            margin: 24px 0 12px 0;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .tax-flow-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .tax-flow-step {
-            background: #f8fafc;
-            border: 1px solid #cbd5e1;
-            border-radius: 10px;
-            padding: 12px 10px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-        .tax-flow-step .step-num {
-            display: inline-block;
-            background: var(--accent-color);
+            background: var(--red);
             color: #fff;
-            width: 24px;
-            height: 24px;
-            line-height: 24px;
-            border-radius: 50%;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 6px;
-        }
-        .tax-flow-step .step-icon {
-            font-size: 1.4rem;
-            display: block;
-            margin-bottom: 4px;
-        }
-        .tax-flow-step .step-label {
-            font-size: 0.86rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        .tax-prep-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 14px;
-            margin-bottom: 18px;
-        }
-        .tax-prep-box {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-top: 4px solid var(--accent-color);
-            border-radius: 10px;
-            padding: 15px 18px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-        }
-        .tax-prep-box.prep-warn {
-            border-top-color: #e74c3c;
-            background: #fffdf9;
-        }
-        .tax-prep-box h4 {
-            margin: 0 0 10px 0;
-            color: var(--primary-color);
-            font-size: 0.98rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .tax-prep-box ul {
-            margin: 0;
-            padding-left: 18px;
-            font-size: 0.88rem;
-            color: #444;
-        }
-        .tax-prep-box li {
-            margin-bottom: 6px;
-        }
-        .tax-platform-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-        .tax-platform-card {
-            background: #ffffff;
-            border: 1px solid #e1e8ed;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
-            display: flex;
-            flex-direction: column;
-        }
-        .tax-platform-header {
-            padding: 12px 16px;
-            color: #ffffff;
-            font-weight: bold;
-            font-size: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .tax-platform-header.jprefund {
-            background: linear-gradient(135deg, #c0392b, #2c3e50);
-        }
-        .tax-platform-header.jtaxrefund {
-            background: linear-gradient(135deg, #1e3799, #0984e3);
-        }
-        .tax-platform-header.globalblue {
-            background: linear-gradient(135deg, #0a3d62, #38ada9);
-        }
-        .tax-platform-badge {
-            font-size: 0.74rem;
-            background: rgba(255,255,255,0.22);
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-weight: normal;
-        }
-        .tax-platform-body {
-            padding: 15px 16px;
-            font-size: 0.88rem;
-            color: #444;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .tax-platform-body ol, .tax-platform-body ul {
-            padding-left: 18px;
-            margin: 8px 0;
-        }
-        .tax-platform-body li {
-            margin-bottom: 6px;
-            line-height: 1.5;
-        }
-        .tax-platform-note {
-            background: #f8fafc;
-            border-left: 3px solid #e74c3c;
-            padding: 8px 10px;
-            border-radius: 4px;
-            font-size: 0.82rem;
-            margin-top: 10px;
-            color: #333;
-        }
-        .tax-fee-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 14px;
-            margin-bottom: 18px;
-        }
-        .tax-fee-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 14px 16px;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-        }
-        .tax-fee-card .store-type {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 0.95rem;
-            margin-bottom: 4px;
-        }
-        .tax-fee-card .fee-badge {
-            display: inline-block;
-            font-size: 0.78rem;
-            padding: 2px 10px;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        .tax-fee-card.fee-free .fee-badge {
-            background: #d4edda;
-            color: #155724;
-        }
-        .tax-fee-card.fee-pct .fee-badge {
-            background: #cce5ff;
-            color: #004085;
-        }
-        .tax-fee-card.fee-fixed .fee-badge {
-            background: #f8d7da;
-            color: #721c24;
-        }
-        .tax-fee-card .refund-amount {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 4px 0;
-        }
-        .tax-fee-card.fee-free .refund-amount { color: #27ae60; }
-        .tax-fee-card.fee-pct .refund-amount { color: #2980b9; }
-        .tax-fee-card.fee-fixed .refund-amount { color: #e74c3c; }
-
-        .tax-checklist-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 10px;
-            margin-bottom: 18px;
-        }
-        .tax-check-item {
-            background: #f8fafc;
-            border: 1px solid #cbd5e1;
+            border: 0;
             border-radius: 8px;
-            padding: 10px 14px;
-            font-size: 0.88rem;
-            color: #2c3e50;
+            padding: 10px;
+            font-weight: bold;
+            font-size: .92rem;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            user-select: none;
-            transition: all 0.2s;
-        }
-        .tax-check-item:hover {
-            border-color: var(--accent-color);
-            background: #f0f7ff;
-        }
-        .tax-check-item.is-checked {
-            background: #e8f8f5;
-            border-color: #27ae60;
-            color: #1e8449;
-            text-decoration: line-through;
-        }
-        .tax-check-box {
-            width: 18px;
-            height: 18px;
-            border: 2px solid #e74c3c;
-            border-radius: 4px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            color: #ffffff;
-            background: #e74c3c;
-            flex-shrink: 0;
-        }
-        .tax-check-item.is-checked .tax-check-box {
-            background: #27ae60;
-            border-color: #27ae60;
+            font-family: inherit;
         }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 18px;
-            }
-            h1 {
-                font-size: 1.4rem;
-            }
-            .day-title {
-                font-size: 1.05rem;
-                padding: 14px 15px;
-            }
-            .day-content {
-                padding: 15px;
-            }
-            .ezomikuji-grid {
-                grid-template-columns: 1fr;
-            }
-            .notice-list-grid {
-                grid-template-columns: 1fr;
-            }
-            .coupon-grid {
-                grid-template-columns: 1fr;
-            }
-            .tax-flow-steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .controls {
-                flex-wrap: wrap;
-            }
+        /* ===== 平板／桌機（寬螢幕加強排版） ===== */
+        @media (min-width: 640px) {
+            body { font-size: 16px; }
+            .wrap { padding: 0 20px 30px; }
+            .hero { margin: 0 -20px 16px; padding: 30px 24px 22px; }
+            .hero h1 { font-size: 1.7rem; }
+            .flight { font-size: .85rem; }
+            .chips { margin: 0; padding-left: 2px; padding-right: 2px; flex-wrap: wrap; }
+            .chip { flex: 1 1 0; }
+            .mikuji-grid { grid-template-columns: repeat(3, 1fr); }
+            .notice-list { grid-template-columns: 1fr 1fr; }
+            .coupon-list { grid-template-columns: 1fr 1fr; }
+            .coupon-thumb { flex-basis: 100px; height: 100px; }
+            .flow { grid-template-columns: repeat(6, 1fr); }
+            .checklist { grid-template-columns: 1fr 1fr; }
+            .card-head { padding: 13px 16px; }
+            .card-body { padding: 6px 18px 18px; }
+            .filter-bar { margin: 0 0 10px; padding: 2px 0 6px; flex-wrap: wrap; }
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
+    <div class="wrap">
 
-    <div class="container">
-        <h1>❄️ 2026 北海道六天五夜浪漫之旅 ❄️</h1>
-
-        <!-- 頂部控制按鈕 -->
-        <div class="controls">
-            <button id="btn-expand-all" class="btn">展開全部</button>
-            <button id="btn-collapse-all" class="btn">收合全部</button>
-            <a href="#sec-notices" id="btn-nav-notices" class="btn btn-secondary">📌 實用技巧＆注意事項</a>
-            <a href="#sec-coupons" id="btn-nav-coupons" class="btn btn-secondary">🎟️ 專屬購物優惠券</a>
-            <a href="#sec-taxrefund" id="btn-nav-taxrefund" class="btn btn-secondary">💴 日本退稅完整攻略</a>
-        </div>
-
-        <h2>✈️ 航班資訊</h2>
-        <div class="flight-info">
-            <p>🛫 去程：2026/12/14 (一) 12:30 桃園 (T1) 飛 17:00 函館 ｜ 星宇航空 JX860</p>
-            <p>🛬 回程：2026/12/19 (六) 14:40 新千歲 飛 18:00 桃園 ｜ 星宇航空 JX851</p>
-        </div>
-
-        <!-- Day 1 -->
-        <div class="day-card">
-            <h3 class="day-title">Day 1：12/14 (一) 抵達函館，港灣夜步 <span class="arrow">▼</span></h3>
-            <div class="day-content">
-                <ul>
-                    <li><strong>傍晚：</strong>17:00 抵達函館機場。搭乘帝產巴士接駁專車前往函館市區（JR 函館站），步行約6分鐘即可抵達飯店辦理入住。<br>
-                        　🚌 <em>路線資訊：於函館機場3號站牌搭乘「函館帝產巴士 (函館帝産バス)」直達 JR 函館站前（車程約20分鐘），下車步行6分鐘至飯店。</em>
-                    </li>
-                    <li><strong>晚餐：</strong><a href="https://www.google.com/maps/search/?api=1&query=函館+幸運小丑漢堡" target="_blank"><span
-                            class="highlight">函館幸運小丑漢堡（幸運ピエロ）</span></a>。推薦前往鄰近海灣的「碼頭末廣店」或「本店」，必點招牌的中華雞腿堡。<br>
-                        　🚋 <em>路線資訊：從飯店步行至「市役所前」搭乘函館市電（往谷地頭或函館 dock 前方向）至「十字街」站（車程約5分鐘），出站步行約5分鐘即達。</em>
-                    </li>
-                    <li><strong>夜間：</strong><a href="https://www.google.com/maps/search/?api=1&query=函館金森紅磚倉庫" target="_blank"><span class="highlight">函館金森紅磚倉庫</span></a>。晚餐後在倉庫群周邊散步，欣賞12月浪漫的聖誕點燈與巨大聖誕樹。<br>
-                        　🚶 <em>路線資訊：就在幸運小丑漢堡碼頭末廣店旁，步行 1-2 分鐘即可直接進入紅磚倉庫區。</em>
-                    </li>
-                    <li><strong>住宿：</strong><span class="highlight">函館世紀濱海 SPA 飯店 (Century Marina Hakodate)</span><br>
-                        　📍 <a href="https://www.google.com/maps/search/?api=1&query=Century+Marina+Hakodate" target="_blank">22-13 Otemachi, Hakodate, Hokkaido 040-0064日本</a><br>
-                        　📞 +81 138-23-2121<br>
-                        　🌐 <a href="https://www.centurymarina.com" target="_blank">www.centurymarina.com</a><br>
-                        　ℹ️ <strong>優勢位置：</strong>距離 JR 函館站步行約 6 分鐘，緊鄰函館朝市及摩周丸紀念館 (約 0.2 公里)。距離五稜郭堡和湯之川溫泉不到 10 分鐘車程。
-                    </li>
-                </ul>
+        <!-- ===== 頁首：標題＋航班 ===== -->
+        <header class="hero" id="top">
+            <h1>❄️ 2026 北海道六天五夜<br>浪漫雪國之旅 ❄️</h1>
+            <div class="sub">函館 ➜ 札幌 ➜ 小樽 ➜ 美瑛富良野｜12/14 – 12/19</div>
+            <div class="flight-grid">
+                <div class="flight">
+                    <div class="lbl">🛫 去程 12/14 (一)</div>
+                    <div class="time">12:30 ➜ 17:00</div>
+                    桃園 T1 ➜ 函館<br>星宇航空 JX860
+                </div>
+                <div class="flight">
+                    <div class="lbl">🛬 回程 12/19 (六)</div>
+                    <div class="time">14:40 ➜ 18:00</div>
+                    新千歲 ➜ 桃園<br>星宇航空 JX851
+                </div>
             </div>
-        </div>
+        </header>
 
-        <!-- Day 2 -->
-        <div class="day-card">
-            <h3 class="day-title">Day 2：12/15 (二) 飯店奢華早餐、函館經典巡禮與百萬夜景 <span class="arrow">▼</span></h3>
-            <div class="day-content">
-                <ul>
-                    <li><strong>早晨：</strong>享用 <span class="highlight">飯店奢華自助早餐</span>（Century Marina Hakodate 知名頂級海鮮 Buffet）。餐後可順道至飯店旁的 <a href="https://www.google.com/maps/search/?api=1&query=函館朝市" target="_blank"><span class="highlight">函館朝市</span></a> 散步逛街、體驗釣活烏賊或購買海味乾貨。</li>
-                    <li><strong>上午（神社參拜）：</strong>參拜 <a href="https://www.google.com/maps/search/?api=1&query=函館湯倉神社" target="_blank"><span class="highlight">函館｜湯倉神社</span></a>（湯之川溫泉發祥地、開運祈福與撫摸神兔）。<span class="ezo-tag">🦑 蝦夷神籤：イカすみくじ (烏賊籤)</span><br>
-                        　🚋 <em>路線資訊：從「函館站前」搭乘函館市電（往湯之川方向）至終點「湯之川」站（車程約30分鐘），出站步行約2分鐘即達。體驗趣味「釣烏賊神籤」！</em>
-                    </li>
-                    <li><strong>中午：</strong><a href="https://www.google.com/maps/search/?api=1&query=函館五稜郭公園" target="_blank"><span class="highlight">函館五稜郭公園</span></a>。購票登上「五稜郭塔」，俯瞰冬季限定的白雪星形堡壘。<br>
-                        　🚋 <em>路線資訊：從「湯之川」搭乘函館市電（往函館站前方向）至「五稜郭公園前」站（車程約15分鐘），下車後步行約15分鐘可達五稜郭塔。</em>
-                    </li>
-                    <li><strong>下午：</strong>元町異國風情區散步。漫步於八幡坂、元町羅馬天主教堂等充滿異國風情的坡道。<br>
-                        　🚋 <em>路線資訊：從「五稜郭公園前」搭市電至「十字街」站（車程約25分鐘），往山坡方向步行約10分鐘即可抵達元町區域。</em>
-                    </li>
-                    <li><strong>傍晚至夜間：</strong><a href="https://www.google.com/maps/search/?api=1&query=函館山纜車" target="_blank"><span
-                            class="highlight">函館山纜車看夜景</span></a>。冬季日落較早（約下午4點），建議提早搭乘纜車上山，捕捉日落與著名的雙海灣百萬夜景。<br>
-                        　🚶 <em>路線資訊：從元町教堂群散步沿斜坡往上，約步行10分鐘左右即可抵達「函館山纜車山麓站」。</em>
-                    </li>
-                    <li><strong>住宿：</strong><span class="highlight">函館世紀濱海 SPA 飯店 (Century Marina Hakodate)</span><br>
-                        　📍 <a href="https://www.google.com/maps/search/?api=1&query=Century+Marina+Hakodate" target="_blank">22-13 Otemachi, Hakodate, Hokkaido 040-0064日本</a><br>
-                        　📞 +81 138-23-2121<br>
-                        　🌐 <a href="https://www.centurymarina.com" target="_blank">www.centurymarina.com</a>
-                    </li>
-                </ul>
+        <!-- ===== 行程總覽（點擊直接跳到該日） ===== -->
+        <nav class="chips" aria-label="每日行程快速跳轉">
+            <a class="chip" data-goto="day1"><b>D1</b><span>12/14 函館</span></a>
+            <a class="chip" data-goto="day2"><b>D2</b><span>12/15 函館</span></a>
+            <a class="chip" data-goto="day3"><b>D3</b><span>12/16 札幌</span></a>
+            <a class="chip" data-goto="day4"><b>D4</b><span>12/17 小樽</span></a>
+            <a class="chip" data-goto="day5"><b>D5</b><span>12/18 美瑛</span></a>
+            <a class="chip" data-goto="day6"><b>D6</b><span>12/19 返台</span></a>
+        </nav>
+
+        <!-- ================================================= -->
+        <!-- 🗓️ 每日行程 -->
+        <!-- ================================================= -->
+        <section class="section" id="sec-itinerary">
+            <div class="section-head">
+                <h2>🗓️ 每日行程</h2>
+                <div class="mini-btns">
+                    <button type="button" id="btn-expand-all">全部展開</button>
+                    <button type="button" id="btn-collapse-all">全部收合</button>
+                </div>
             </div>
-        </div>
 
-        <!-- Day 3 -->
-        <div class="day-card">
-            <h3 class="day-title">Day 3：12/16 (三) 飯店早餐、鐵道北上與札幌花手水神社 <span class="arrow">▼</span></h3>
-            <div class="day-content">
-                <ul>
-                    <li><strong>早晨：</strong>於飯店悠閒享用 <span class="highlight">飯店奢華自助早餐</span>（享受全日本評比前列的百匯美食）。</li>
-                    <li><strong>上午：</strong>辦理退房手續後，搭乘 JR 特急列車（北斗號）從函館前往札幌（車程約 4 小時）。沿途欣賞內浦灣無敵海景與雪景。<br>
-                        　🚆 <em>路線資訊：從「JR 函館站」搭乘 JR 特急北斗號直達「JR 札幌站」。</em>
-                    </li>
-                    <li><strong>下午（神社參拜）：</strong>參拜超人氣花手水名所 <a href="https://www.google.com/maps/search/?api=1&query=札幌諏訪神社" target="_blank"><span class="highlight">札幌諏訪神社</span></a>（美麗的季節花手水與戀愛/子孫繁榮祈願）。<br>
-                        　🚇 <em>路線資訊：從 JR 札幌站搭乘地下鐵東豐線 1 站至「北13條東」站（2號出口步行約3分鐘）；或從札幌站北口直接步行約12分鐘即達。</em>
-                    </li>
-                    <li><strong>傍晚：</strong>前往 <a href="https://www.google.com/maps/search/?api=1&query=北海道白色戀人公園" target="_blank"><span
-                            class="highlight">北海道白色戀人公園</span></a>。記得在園區內製作<strong>訂製磁鐵</strong>，使用合照留下專屬紀念。<br>
-                        　🚇 <em>路線資訊：從「北13條東」搭乘地下鐵東豐線至「大通站」，轉乘地下鐵東西線至終點「宮之澤站」，出站步行約7分鐘即可抵達。</em>
-                    </li>
-                    <li><strong>晚餐：</strong>札幌特色湯咖哩。寒冷的冬夜裡，推薦來一碗辛香濃郁、辣度可自由調整的湯咖哩暖胃（如 GARAKU 或 Suage+）。<br>
-                        　🚇 <em>路線資訊：搭乘地下鐵東西線回「大通站」或「薄野站」周邊，多數名店皆在出站步行5-10分鐘內的商圈範圍。</em>
-                    </li>
-                    <li><strong>住宿：</strong>札幌市區。</li>
-                </ul>
+            <!-- Day 1 -->
+            <div class="card" id="day1">
+                <div class="card-head">
+                    <div class="badge"><small>DAY</small>1</div>
+                    <div class="card-title">
+                        <div class="t">抵達函館，港灣夜步</div>
+                        <div class="d">12/14 (一)｜小丑漢堡・金森紅磚倉庫</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <div class="tl">
+                        <div class="tl-item">
+                            <span class="tl-time">傍晚 17:00</span>
+                            <div class="tl-title">抵達函館機場 ➜ 飯店入住</div>
+                            <p>搭乘帝產巴士接駁專車前往 JR 函館站，步行約 6 分鐘即可抵達飯店。</p>
+                            <div class="route">🚌 函館機場 3 號站牌搭「函館帝產巴士（函館帝産バス）」直達 JR 函館站前（約 20 分鐘），下車步行 6 分鐘。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">晚餐</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=函館+幸運小丑漢堡" target="_blank">函館幸運小丑漢堡（幸運ピエロ）</a></div>
+                            <p>推薦鄰近海灣的「碼頭末廣店」或「本店」，必點招牌中華雞腿堡。</p>
+                            <div class="route">🚋 飯店步行至「市役所前」搭函館市電（往谷地頭／函館 dock 前方向）至「十字街」（約 5 分鐘），出站步行約 5 分鐘。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">夜間</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=函館金森紅磚倉庫" target="_blank">函館金森紅磚倉庫</a></div>
+                            <p>晚餐後在倉庫群周邊散步，欣賞 12 月浪漫的聖誕點燈與巨大聖誕樹。</p>
+                            <div class="route">🚶 就在小丑漢堡碼頭末廣店旁，步行 1–2 分鐘。</div>
+                        </div>
+                    </div>
+                    <div class="stay">
+                        <div class="name">🏨 函館世紀濱海 SPA 飯店（Century Marina Hakodate）</div>
+                        📍 <a href="https://www.google.com/maps/search/?api=1&query=Century+Marina+Hakodate" target="_blank">22-13 Otemachi, Hakodate, Hokkaido 040-0064</a><br>
+                        📞 <a href="tel:+81138232121">+81 138-23-2121</a>　🌐 <a href="https://www.centurymarina.com" target="_blank">官網</a><br>
+                        ℹ️ 距 JR 函館站步行約 6 分鐘，緊鄰函館朝市及摩周丸紀念館；到五稜郭、湯之川溫泉車程不到 10 分鐘。
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <!-- 景點資訊卡：白色戀人公園 -->
-        <div class="day-card">
-            <h3 class="day-title">🏰 景點資訊卡：全新改裝「白色戀人公園」（Shiroi Koibito Park）✨ <span class="arrow">▼</span></h3>
-            <div class="day-content">
-                <p>重溫經典與創新！許多人初來訪北海道都會去的札幌地標——<strong>「白色戀人公園」（Shiroi Koibito Park）</strong>經過全面改裝後，變得更好玩、更漂亮、也更有趣了！這次改裝不僅保留了原本夢幻的歐式城堡風格，更加入許多互動體驗和全新的拍照打卡點，無論是第一次去還是舊地重遊，都能找到新鮮感！</p>
-                
-                <div class="spot-station">
-                    <h4>👑 第一站：英倫風情校園與歐式庭園 <span class="spot-tag">彷彿置身國外</span></h4>
-                    <p>一踏進公園，迎面而來的就是濃濃的異國風情。原本的歐式建築變得更加精緻，中庭的庭園四季都有不同的花卉造景，真的超級好拍！</p>
-                    <p><strong>📸 不可錯過的打卡點：</strong></p>
+            <!-- Day 2 -->
+            <div class="card" id="day2">
+                <div class="card-head">
+                    <div class="badge"><small>DAY</small>2</div>
+                    <div class="card-title">
+                        <div class="t">函館經典巡禮與百萬夜景</div>
+                        <div class="d">12/15 (二)｜湯倉神社・五稜郭・元町・函館山</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <div class="tl">
+                        <div class="tl-item">
+                            <span class="tl-time">早晨</span>
+                            <div class="tl-title">飯店奢華自助早餐 ＋ <a href="https://www.google.com/maps/search/?api=1&query=函館朝市" target="_blank">函館朝市</a></div>
+                            <p>Century Marina 知名頂級海鮮 Buffet，餐後到隔壁朝市散步、體驗釣活烏賊或買海味乾貨。</p>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">上午・神社</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=函館湯倉神社" target="_blank">函館｜湯倉神社</a></div>
+                            <p>湯之川溫泉發祥地，開運祈福與撫摸神兔。</p>
+                            <span class="tag">🦑 蝦夷神籤：イカすみくじ（釣烏賊籤）</span>
+                            <div class="route">🚋 「函館站前」搭市電（往湯之川）至終點「湯之川」（約 30 分鐘），步行 2 分鐘。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">中午</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=函館五稜郭公園" target="_blank">五稜郭公園＋五稜郭塔</a></div>
+                            <p>登塔俯瞰冬季限定的白雪星形堡壘。</p>
+                            <div class="route">🚋 「湯之川」搭市電至「五稜郭公園前」（約 15 分鐘），步行約 15 分鐘到塔。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">下午</span>
+                            <div class="tl-title">元町異國風情區散步</div>
+                            <p>漫步八幡坂、元町羅馬天主教堂等異國風情坡道。</p>
+                            <div class="route">🚋 「五稜郭公園前」搭市電至「十字街」（約 25 分鐘），往山坡步行約 10 分鐘。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">傍晚～夜間</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=函館山纜車" target="_blank">函館山纜車看夜景</a></div>
+                            <p>冬季約 16:00 日落，建議提早上山，捕捉日落與雙海灣百萬夜景。</p>
+                            <div class="route">🚶 從元町教堂群沿斜坡往上步行約 10 分鐘到「山麓站」。</div>
+                            <div class="tip-box">🌫️ 山頂易起大霧，出發前先看即時影像；天氣不佳可改其他夜景行程。</div>
+                        </div>
+                    </div>
+                    <div class="stay">
+                        <div class="name">🏨 函館世紀濱海 SPA 飯店（續住）</div>
+                        📞 <a href="tel:+81138232121">+81 138-23-2121</a>　📍 <a href="https://www.google.com/maps/search/?api=1&query=Century+Marina+Hakodate" target="_blank">地圖</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="card" id="day3">
+                <div class="card-head">
+                    <div class="badge"><small>DAY</small>3</div>
+                    <div class="card-title">
+                        <div class="t">鐵道北上，札幌神社＆白色戀人</div>
+                        <div class="d">12/16 (三)｜北斗號・諏訪神社・白色戀人公園・湯咖哩</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <div class="tl">
+                        <div class="tl-item">
+                            <span class="tl-time">早晨</span>
+                            <div class="tl-title">飯店奢華自助早餐</div>
+                            <p>悠閒享受全日本評比前列的百匯美食。</p>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">上午</span>
+                            <div class="tl-title">JR 特急北斗號：函館 ➜ 札幌（約 4 小時）</div>
+                            <p>退房後出發，沿途欣賞內浦灣海景與雪景。</p>
+                            <div class="route">🚆 「JR 函館站」搭特急北斗號直達「JR 札幌站」（建議單買指定席，不必買 JR Pass）。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">下午・神社</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=札幌諏訪神社" target="_blank">札幌諏訪神社</a></div>
+                            <p>超人氣花手水名所，戀愛／子孫繁榮祈願。</p>
+                            <div class="route">🚇 札幌站搭地下鐵東豐線 1 站至「北13條東」（2 號出口步行 3 分鐘）；或札幌站北口步行約 12 分鐘。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">傍晚</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=北海道白色戀人公園" target="_blank">白色戀人公園</a></div>
+                            <p>記得在園區製作<strong>訂製磁鐵</strong>，用合照留下專屬紀念（攻略見下方）。</p>
+                            <div class="route">🚇 「北13條東」搭東豐線至「大通」，轉東西線至終點「宮之澤」，步行約 7 分鐘。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">晚餐</span>
+                            <div class="tl-title">札幌特色湯咖哩</div>
+                            <p>冬夜來一碗辛香濃郁、辣度可調的湯咖哩暖胃（如 GARAKU 或 Suage+）。</p>
+                            <div class="route">🚇 東西線回「大通」或「薄野」，名店多在出站步行 5–10 分鐘內。</div>
+                        </div>
+                    </div>
+
+                    <details class="sub">
+                        <summary>🏰 白色戀人公園（全新改裝）景點攻略</summary>
+                        <div class="sub-body">
+                            <p>札幌地標「白色戀人公園」全面改裝後保留夢幻歐式城堡風格，並加入許多互動體驗與全新拍照點。</p>
+                            <h4>👑 英倫風情校園與歐式庭園</h4>
+                            <ul>
+                                <li><strong>紅色雙層巴士：</strong>經典倫敦巴士與歐式建築超搭；後方另有露天雙層巴士，由下往上拍可把建築盡收眼底。</li>
+                                <li><strong>夢幻玻璃屋：</strong>白紗簾、垂吊花藝與典雅木桌椅，怎麼拍都美。</li>
+                            </ul>
+                            <h4>🕺 巨型餅乾互動拍照區</h4>
+                            <p>浮誇巨型道具讓你瞬間變小人，還有療癒的投影互動遊戲。</p>
+                            <h4>🍫 巧克力幻想曲工廠</h4>
+                            <ol>
+                                <li><strong>投影歷史隧道：</strong>有中英文字幕，員工半互動帶場。</li>
+                                <li><strong>透明生產線：</strong>親眼看白色戀人貓舌餅乾製作過程，機器上還有小貓玩偶點綴。</li>
+                                <li><strong>伴手禮兌換：</strong>憑票根可兌換一小盒白色戀人（機器或找工作人員皆可）。</li>
+                            </ol>
+                            <h4>🎁 血拚時間</h4>
+                            <ul>
+                                <li>各式限定包裝白色戀人，適合當伴手禮。</li>
+                                <li>可做專屬<strong>原創餅乾盒</strong>，最快 20 分鐘取件。</li>
+                            </ul>
+                            <div class="stay" style="margin-top:10px;">
+                                📍 <a href="https://www.google.com/maps/search/?api=1&query=北海道札幌市西區宮之澤2條2丁目11-36" target="_blank">札幌市西區宮之澤 2 條 2 丁目 11-36</a><br>
+                                🚇 地鐵東西線「宮之澤站」步行約 7 分鐘<br>
+                                ⏰ 10:00–17:00（最後入場 16:00，以官網為準）<br>
+                                💡 戶外免費區亮點有限，<strong>購票進付費園區</strong>才是精華！
+                            </div>
+                        </div>
+                    </details>
+
+                    <div class="stay">
+                        <div class="name">🏨 札幌市區</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="card" id="day4">
+                <div class="card-head">
+                    <div class="badge"><small>DAY</small>4</div>
+                    <div class="card-title">
+                        <div class="t">小樽漫步：神社、海鮮、運河</div>
+                        <div class="d">12/17 (四)｜住吉神社・三角市場・堺町通・運河夜景</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <div class="tl">
+                        <div class="tl-item">
+                            <span class="tl-time">上午・神社</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=小樽住吉神社" target="_blank">小樽住吉神社</a></div>
+                            <p>小樽總鎮守，坡道上的巨大鳥居與浪漫紅燈籠參道。</p>
+                            <span class="tag">🐟 蝦夷神籤：日進月歩みくじ（釣鯡魚籤）</span>
+                            <div class="route">🚆 札幌站搭 JR 快速 Airport（往小樽）至「南小樽」（約 30 分鐘），步行 8–10 分鐘。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">中午・海鮮</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=小樽三角市場" target="_blank">小樽三角市場</a></div>
+                            <p>品嚐新鮮豪邁的帝王蟹、海膽海鮮丼。</p>
+                            <div class="route">🚶 住吉神社步行約 15 分鐘（或南小樽搭 JR 1 站至小樽站），出站左轉 1 分鐘。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">午後</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=小樽運河" target="_blank">小樽運河</a></div>
+                            <p>淺草橋拍照，推薦搭 40 分鐘的<strong>運河遊覽船</strong>。</p>
+                            <div class="route">🚶 三角市場直走中央通，約 10 分鐘。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">逛街</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=小樽堺町通商店街" target="_blank">堺町通商店街</a>・<a href="https://www.google.com/maps/search/?api=1&query=小樽音樂盒堂" target="_blank">小樽音樂盒堂</a></div>
+                            <p>盡頭「童話十字路口」有 3 千多種音樂盒的百年紅磚建築，門口蒸汽鐘每 15 分鐘噴氣。</p>
+                            <div class="route">🚶 運河淺草橋轉入堺町通走到底（約 15–20 分鐘）。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">下午茶</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=小樽+銀之鐘" target="_blank">小樽 銀之鐘（銀の鐘）</a></div>
+                            <p>喝完可將特色咖啡杯洗淨帶回家作紀念。</p>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">傍晚</span>
+                            <div class="tl-title">運河瓦斯燈夜景／<a href="https://www.google.com/maps/search/?api=1&query=小樽天狗山" target="_blank">天狗山</a>夜景</div>
+                            <p>63 座瓦斯燈點亮後最浪漫；體力充足可上天狗山（《First Love 初戀》取景地），再搭車回札幌。</p>
+                            <div class="route">🚌 小樽站前 3 號站牌搭中央巴士「天狗山線（9 號）」至終點，約 17 分鐘。</div>
+                            <div class="tip-box">💡 白天團客多，傍晚點燈至入夜人潮適中、雪景最出片！</div>
+                        </div>
+                    </div>
+                    <div class="tip-box">👨‍👩‍👧 <strong>親子替代方案：</strong><a href="https://www.google.com/maps/search/?api=1&query=小樽水族館" target="_blank">小樽水族館</a>（小樽站前搭中央巴士「水族館線」約 25 分鐘），可看冬季超人氣「雪中企鵝散步」。</div>
+                    <div class="stay">
+                        <div class="name">🏨 札幌市區</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="card" id="day5">
+                <div class="card-head">
+                    <div class="badge"><small>DAY</small>5</div>
+                    <div class="card-title">
+                        <div class="t">富良野與美瑛銀白世界</div>
+                        <div class="d">12/18 (五)｜一日遊巴士團・狸小路</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <div class="tl">
+                        <div class="tl-item">
+                            <span class="tl-time">全天</span>
+                            <div class="tl-title">富良野・美瑛冬季一日遊（旅行團）</div>
+                            <p>雪地自駕風險高，報名札幌出發的巴士團最輕鬆。通常含白鬚瀑布、青池、富良野精靈露臺。</p>
+                            <span class="tag">🌽 美瑛神社：富諸来しみくじ（玉米籤）</span>
+                            <div class="route">🚌 多於 JR 札幌站北口或大通公園周邊集合。若行程含美瑛神社，可收集用烤肉鉗夾的玉米籤！</div>
+                            <div class="tip-box">📅 點燈一日團極熱門，建議出發前 1–2 個月線上預訂。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">晚上</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=狸小路商店街" target="_blank">狸小路商店街</a></div>
+                            <p>簡單購物或吃碗札幌味噌拉麵。</p>
+                            <div class="route">🚶 解散點多在札幌站／大通站附近，步行或地下鐵到「大通／薄野」即達。</div>
+                            <div class="tip-box">🛍️ 採購記得出示 <a href="#sec-coupons" data-goto="sec-coupons">購物優惠券</a>，並拍下 <a href="#sec-taxrefund" data-goto="sec-taxrefund">退稅 QR Code</a>！</div>
+                        </div>
+                    </div>
+                    <div class="stay">
+                        <div class="name">🏨 札幌市區</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="card" id="day6">
+                <div class="card-head">
+                    <div class="badge"><small>DAY</small>6</div>
+                    <div class="card-title">
+                        <div class="t">機場血拚，滿載而歸</div>
+                        <div class="d">12/19 (六)｜新千歲機場・14:40 起飛</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <div class="tl">
+                        <div class="tl-item">
+                            <span class="tl-time">早上</span>
+                            <div class="tl-title">退房，彈性順遊神社或直奔機場</div>
+                            <div class="route">🚆 札幌站搭「JR 快速 Airport」約 37 分鐘直達「新千歲機場站」。順遊神社可參考 <a href="#sec-shrines" data-goto="sec-shrines">彈性神社攻略</a>。</div>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">上午～中午</span>
+                            <div class="tl-title"><a href="https://www.google.com/maps/search/?api=1&query=新千歲機場" target="_blank">新千歲機場逛街</a></div>
+                            <p>國內線航廈超好逛，預留時間買齊伴手禮；午餐推薦「拉麵道場」。</p>
+                        </div>
+                        <div class="tl-item">
+                            <span class="tl-time">12:30 報到・14:40 起飛</span>
+                            <div class="tl-title">國際線航廈辦理報到，搭機返台</div>
+                            <div class="tip-box">💴 <strong>退稅提醒：</strong>行李<strong>托運前</strong>先到海關 KIOSK 刷護照確認，免稅商品要帶在身上！詳見 <a href="#sec-taxrefund" data-goto="sec-taxrefund">退稅攻略</a>。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- ⛩️ 神社＆蝦夷神籤 -->
+        <!-- ================================================= -->
+        <section class="section" id="sec-shrines">
+            <div class="section-head">
+                <h2>⛩️ 神社＆蝦夷神籤</h2>
+            </div>
+
+            <div class="card">
+                <div class="card-head">
+                    <div class="badge emoji">🦊</div>
+                    <div class="card-title">
+                        <div class="t">北海道限定「蝦夷神籤」集籤地圖</div>
+                        <div class="d">15 間神社・行程內可收集 3 款</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <div class="intro">
+                        💡 <strong>什麼是蝦夷神籤（えぞみくじ）？</strong><br>
+                        由根室金刀比羅神社發起，用北海道傳統工藝「張り子」做成在地名產小模型，內含<strong>北海道方言</strong>吉祥詩籤。抽法超有童趣（釣竿釣魚、烤肉鉗夾玉米等），命名皆為雙關語，是必收集的超萌限定品！
+                    </div>
+                    <div class="mikuji-grid">
+                        <div class="mikuji on"><b>🦑 函館｜湯倉神社</b>イカすみくじ（烏賊）／釣竿</div>
+                        <div class="mikuji on"><b>🐟 小樽｜住吉神社</b>日進月歩みくじ（鯡魚）／釣竿</div>
+                        <div class="mikuji on"><b>🌽 美瑛｜美瑛神社</b>富諸来しみくじ（玉米）／烤肉鉗</div>
+                        <div class="mikuji"><b>🏭 江別｜錦山天滿宮</b>幸路みくじ（紅磚筒倉）</div>
+                        <div class="mikuji"><b>🐚 苫小牧｜樽前山神社</b>一念発起みくじ（北寄貝）</div>
+                        <div class="mikuji"><b>🌾 旭川｜旭川神社</b>福よ米米みくじ（米俵）</div>
+                        <div class="mikuji"><b>🐟 鹿部｜鹿部稻荷神社</b>多楽呼みくじ（鱈魚子）</div>
+                        <div class="mikuji"><b>🐟 岩內｜岩內神社</b>たら福みくじ（明太魚）</div>
+                        <div class="mikuji"><b>🦀 稚內｜北門神社</b>いカニもいいみくじ（毛蟹）</div>
+                        <div class="mikuji"><b>👼 網走｜網走神社</b>福が来るよねみくじ（流冰天使）</div>
+                        <div class="mikuji"><b>🧅 北見｜北見神社</b>福多招みくじ（洋蔥）</div>
+                        <div class="mikuji"><b>🥔 浦幌｜浦幌/乳神神社</b>やるなら今じゃがみくじ（馬鈴薯）</div>
+                        <div class="mikuji"><b>🐟 根室｜金刀比羅神社</b>福ざんまいみくじ（秋刀魚）</div>
+                        <div class="mikuji"><b>🦪 厚岸｜厚岸神社</b>幸牡蠣あつめみくじ（牡蠣）</div>
+                        <div class="mikuji"><b>🐟 帶廣｜帶廣神社</b>魔鮭福鱒みくじ（鮭魚）／釣竿</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-head">
+                    <div class="badge emoji">🚆</div>
+                    <div class="card-title">
+                        <div class="t">稍遠神社大眾交通攻略（彈性景點）</div>
+                        <div class="d">江別・苫小牧・鹿部・岩內</div>
+                    </div>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="card-body">
+                    <div class="shrine">
+                        <div class="name">江別｜<a href="https://www.google.com/maps/search/?api=1&query=錦山天滿宮" target="_blank">錦山天滿宮</a></div>
+                        <p>學業與解災祈願，紅磚與花手水名所。<span class="tag">🏭 幸路みくじ（紅磚筒倉籤）</span></p>
+                        <div class="route">🚆 JR 札幌站搭函館本線（往江別）至「野幌站」（約 20 分鐘），步行約 10 分鐘。</div>
+                        <div class="when">✅ 適合排在 Day 3 下午或 Day 6 早上</div>
+                    </div>
+                    <div class="shrine">
+                        <div class="name">苫小牧｜<a href="https://www.google.com/maps/search/?api=1&query=樽前山神社" target="_blank">樽前山神社</a></div>
+                        <p>膽振總鎮守，歷史悠久且境內壯觀。<span class="tag">🐚 一念発起みくじ（北寄貝籤）</span></p>
+                        <div class="route">🚆/🚌 札幌站搭 JR 特急至「苫小牧站」（約 45 分鐘），轉道南巴士（錦岡線）至「神社前」，或計程車約 10 分鐘。</div>
+                        <div class="when">✅ 鄰近新千歲機場，適合 Day 6 去機場前順遊</div>
+                    </div>
+                    <div class="shrine">
+                        <div class="name">鹿部｜<a href="https://www.google.com/maps/search/?api=1&query=鹿部稻荷神社" target="_blank">鹿部稻荷神社</a></div>
+                        <p>海邊溫泉鄉神社。<span class="tag">🐟 多楽呼みくじ（鱈魚子籤）</span></p>
+                        <div class="route">🚆/🚌 JR 函館站搭函館本線（砂原支線）至「鹿部站」，轉函館巴士至「鹿部役場前」。</div>
+                        <div class="when">✅ 可作為 Day 2 郊區延伸</div>
+                    </div>
+                    <div class="shrine">
+                        <div class="name">岩內｜<a href="https://www.google.com/maps/search/?api=1&query=岩內神社" target="_blank">岩內神社</a></div>
+                        <p>開拓歷史神社，俯瞰港灣。<span class="tag">🐟 たら福みくじ（明太魚籤）</span></p>
+                        <div class="route">🚌 小樽站前搭中央巴士「岩內線」至「岩內總站」（約 1.5 小時），步行約 15 分鐘。</div>
+                        <div class="when">✅ 可作為 Day 4 小樽深度延伸</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- 📌 實用技巧＆避坑指南（依主題分類） -->
+        <!-- ================================================= -->
+        <section class="section" id="sec-notices">
+            <div class="section-head">
+                <h2>📌 實用技巧＆避坑指南</h2>
+            </div>
+
+            <div class="group-title">🚆 交通與行程規劃</div>
+            <div class="notice-list">
+                <div class="notice warn">
+                    <div class="ic">🚫</div>
+                    <div>
+                        <h4>不要盲目買 JR PASS</h4>
+                        <p>景點集中在函館、札幌、小樽，單買「北斗號」指定席更划算；長程跑多個跨區大景點才需考慮周遊券。</p>
+                    </div>
+                </div>
+                <div class="notice warn">
+                    <div class="ic">🗺️</div>
+                    <div>
+                        <h4>不要一天硬衝多個城市</h4>
+                        <p>北海道超遼闊，跨城雪地移動極耗體力，一天一個重點區域剛剛好。</p>
+                    </div>
+                </div>
+                <div class="notice warn">
+                    <div class="ic">🌫️</div>
+                    <div>
+                        <h4>函館夜景看天氣再出門</h4>
+                        <p>秋冬山頂易起大霧，出發前看氣象與即時影像，天候不佳就改行程。</p>
+                    </div>
+                </div>
+                <div class="notice tip">
+                    <div class="ic">📅</div>
+                    <div>
+                        <h4>一日遊巴士團提早訂</h4>
+                        <p>富良野／美瑛點燈一日團極熱門，建議出發前 1–2 個月預訂。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group-title">📸 景點避坑</div>
+            <div class="notice-list">
+                <div class="notice tip">
+                    <div class="ic">🌃</div>
+                    <div>
+                        <h4>小樽運河別白天擠人潮</h4>
+                        <p>白天團客多，傍晚至夜晚 63 座瓦斯燈點亮，雪中運河最浪漫上相。</p>
+                    </div>
+                </div>
+                <div class="notice tip">
+                    <div class="ic">🏰</div>
+                    <div>
+                        <h4>白色戀人公園別只逛免費區</h4>
+                        <p>付費園區（玻璃屋、工廠見學走廊）才是精華，還有限定甜點與伴手禮。</p>
+                    </div>
+                </div>
+                <div class="notice tip">
+                    <div class="ic">🦀</div>
+                    <div>
+                        <h4>海鮮別只吃觀光大街店</h4>
+                        <p>避開觀光客高價店，走進函館朝市、小樽三角市場或巷弄食堂，新鮮又實惠。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group-title">🛍️ 購物與金錢</div>
+            <div class="notice-list">
+                <div class="notice tip">
+                    <div class="ic">🛍️</div>
+                    <div>
+                        <h4>狸小路別瘋狂購物</h4>
+                        <p>觀光客爆滿、部分標價偏高；札幌站周邊 BicCamera、大丸或在地超市品項齊、折扣大。</p>
+                    </div>
+                </div>
+                <div class="notice money">
+                    <div class="ic">🎫</div>
+                    <div>
+                        <h4>結帳前出示遊客優惠券</h4>
+                        <p>免稅 10% 再折 3%～8%，條碼都在下方 <a href="#sec-coupons" data-goto="sec-coupons">購物優惠券</a>。</p>
+                    </div>
+                </div>
+                <div class="notice money">
+                    <div class="ic">🕒</div>
+                    <div>
+                        <h4>百貨退稅黃金時間：下午 3 點</h4>
+                        <p>傍晚 5 點後或打烊前免稅櫃台常大排長龍，下午 3 點左右人最少。</p>
+                    </div>
+                </div>
+                <div class="notice money">
+                    <div class="ic">💴</div>
+                    <div>
+                        <h4>隨身備足日幣現金</h4>
+                        <p>郊區景點、溫泉旅館、神社御守、拉麵小店大多只收現金。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group-title">❄️ 冬季與生活</div>
+            <div class="notice-list">
+                <div class="notice snow">
+                    <div class="ic">🥾</div>
+                    <div>
+                        <h4>不要穿一般平底雪靴</h4>
+                        <p>路面常有透明「黑冰」，務必穿深紋防滑大底雪靴，或在便利商店加購防滑冰爪。</p>
+                    </div>
+                </div>
+                <div class="notice tip">
+                    <div class="ic">🗑️</div>
+                    <div>
+                        <h4>街頭幾乎沒有垃圾桶</h4>
+                        <p>隨身帶小垃圾袋，回飯店或利用便利商店分類垃圾桶丟棄。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- 🎟️ 購物優惠券 -->
+        <!-- ================================================= -->
+        <section class="section" id="sec-coupons">
+            <div class="section-head">
+                <h2>🎟️ 購物優惠券</h2>
+            </div>
+
+            <div class="info-bar">
+                🎉 結帳前出示<strong>護照＋優惠券條碼</strong>，可同時享「免稅 10% ＋ 額外 3%～8% 折扣」。<br>
+                💡 點縮圖或「出示條碼」可放大；螢幕調最亮掃碼更順。
+            </div>
+
+            <div class="filter-bar">
+                <button type="button" class="filter-btn active" data-filter="all">全部 (12)</button>
+                <button type="button" class="filter-btn" data-filter="drug">💊 藥妝 (4)</button>
+                <button type="button" class="filter-btn" data-filter="electric">🔌 電器 (4)</button>
+                <button type="button" class="filter-btn" data-filter="dept">🏬 百貨 (3)</button>
+                <button type="button" class="filter-btn" data-filter="other">⛷️ 運動 (1)</button>
+            </div>
+
+            <div class="coupon-list">
+                <!-- 藥妝 -->
+                <div class="coupon" data-category="drug">
+                    <div class="coupon-thumb js-zoom" data-src="img/1792034927714.jpg" data-title="唐吉訶德 優惠券領取步驟與條碼"><img src="img/1792034927714.jpg" alt="唐吉訶德 優惠券" loading="lazy"></div>
+                    <div class="coupon-info">
+                        <div class="coupon-name">唐吉訶德<span class="coupon-cat">藥妝/百貨</span></div>
+                        <div class="coupon-off">免稅 ＋ 5%～7% OFF</div>
+                        <div class="coupon-desc">未稅滿 ¥10,000 折 5%；滿 ¥30,000 折 7%。掃圖中 QR 點 Discount Coupon 產生動態條碼。</div>
+                        <div class="coupon-meta">深夜營業・伴手禮齊全・退稅免手續費</div>
+                        <button type="button" class="btn-barcode js-zoom" data-src="img/1792034927714.jpg" data-title="唐吉訶德 優惠券領取步驟與條碼">📱 查看掃碼步驟</button>
+                    </div>
+                </div>
+
+                <div class="coupon" data-category="drug">
+                    <div class="coupon-thumb js-zoom" data-src="img/1792034865178.jpg" data-title="SUGI 杉藥局 優惠券（最高 18% OFF）"><img src="img/1792034865178.jpg" alt="SUGI 杉藥局 優惠券" loading="lazy"></div>
+                    <div class="coupon-info">
+                        <div class="coupon-name">SUGI 杉藥局<span class="coupon-cat">藥妝</span></div>
+                        <div class="coupon-off">免稅 ＋ 最高 8% OFF</div>
+                        <div class="coupon-desc">滿 ¥1–3 萬折 4%；¥3–5 萬折 6%；¥5 萬以上折 8%。</div>
+                        <div class="coupon-meta">至 2027/02/28・全國 800 家</div>
+                        <button type="button" class="btn-barcode js-zoom" data-src="img/1792034865178.jpg" data-title="SUGI 杉藥局 優惠券（最高 18% OFF）">📱 出示條碼</button>
+                    </div>
+                </div>
+
+                <div class="coupon" data-category="drug">
+                    <div class="coupon-thumb js-zoom" data-src="img/1792034973288.jpg" data-title="尚都樂客 Sundrug 優惠券（最高 17% OFF）"><img src="img/1792034973288.jpg" alt="Sundrug 優惠券" loading="lazy"></div>
+                    <div class="coupon-info">
+                        <div class="coupon-name">尚都樂客 Sundrug<span class="coupon-cat">藥妝</span></div>
+                        <div class="coupon-off">免稅 ＋ 最高 7% OFF</div>
+                        <div class="coupon-desc">未稅滿 ¥1–3 萬折 3%；¥3–5 萬折 5%；¥5 萬以上折 7%。</div>
+                        <div class="coupon-meta">至 2026/12/31・サンドラッグ</div>
+                        <button type="button" class="btn-barcode js-zoom" data-src="img/1792034973288.jpg" data-title="尚都樂客 Sundrug 優惠券（最高 17% OFF）">📱 出示條碼</button>
+                    </div>
+                </div>
+
+                <div class="coupon" data-category="drug">
+                    <div class="coupon-thumb js-zoom" data-src="img/1792034985122.jpg" data-title="KoKuMiN 國民藥妝店 優惠券（JY20）"><img src="img/1792034985122.jpg" alt="KoKuMiN 優惠券" loading="lazy"></div>
+                    <div class="coupon-info">
+                        <div class="coupon-name">KoKuMiN 國民藥妝<span class="coupon-cat">藥妝</span></div>
+                        <div class="coupon-off">免稅 ＋ 5%～8% OFF</div>
+                        <div class="coupon-desc">滿 ¥1–3 萬折 5%；¥3 萬以上折 8%。優待識別碼 <strong class="hl">JY20</strong>。</div>
+                        <div class="coupon-meta">全日本免稅店</div>
+                        <button type="button" class="btn-barcode js-zoom" data-src="img/1792034985122.jpg" data-title="KoKuMiN 國民藥妝店 優惠券（JY20）">📱 出示條碼</button>
+                    </div>
+                </div>
+
+                <!-- 電器 -->
+                <div class="coupon" data-category="electric">
+                    <div class="coupon-thumb js-zoom" data-src="img/1792034962262.jpg" data-title="BicCamera / KOJIMA 免稅優惠券"><img src="img/1792034962262.jpg" alt="BicCamera 優惠券" loading="lazy"></div>
+                    <div class="coupon-info">
+                        <div class="coupon-name">BicCamera / KOJIMA<span class="coupon-cat">電器</span></div>
+                        <div class="coupon-off">免稅 ＋ 最高 7% OFF</div>
+                        <div class="coupon-desc">相機/家電/玩具 7%；藥品/化妝品 5%；清酒 3%（獺祭、八海山除外）。</div>
+                        <div class="coupon-meta">至 2026/12/31・退稅免手續費</div>
+                        <button type="button" class="btn-barcode js-zoom" data-src="img/1792034962262.jpg" data-title="BicCamera / KOJIMA 免稅優惠券">📱 出示條碼</button>
+                    </div>
+                </div>
+
+                <div class="coupon" data-category="electric">
+                    <div class="coupon-thumb js-zoom" data-src="img/1792034884015.jpg" data-title="山田電機 YAMADA 免稅優惠券"><img src="img/1792034884015.jpg" alt="山田電機 優惠券" loading="lazy"></div>
+                    <div class="coupon-info">
+                        <div class="coupon-name">山田電機 YAMADA<span class="coupon-cat">電器</span></div>
+                        <div class="coupon-off">免稅 ＋ 7% OFF</div>
+                        <div class="coupon-desc">吹風機、保溫杯、刮鬍刀等生活家電皆適用。</div>
+                        <div class="coupon-meta">至 2027/03/31・全日本門市</div>
+                        <button type="button" class="btn-barcode js-zoom" data-src="img/1792034884015.jpg" data-title="山田電機 YAMADA 免稅優惠券">📱 出示條碼</button>
+                    </div>
+                </div>
+
+                <div class="coupon" data-category="electric">
+                    <div class="coupon-thumb js-zoom" data-src="img/1792034951170.jpg" data-title="EDION 愛電王 免稅優惠券"><img src="img/1792034951170.jpg" alt="EDION 優惠券" loading="lazy"></div>
+                    <div class="coupon-info">
+                        <div class="coupon-name">EDION 愛電王<span class="coupon-cat">電器</span></div>
+                        <div class="coupon-off">免稅 ＋ 5%～7% OFF</div>
+                        <div class="coupon-desc">家電/相機/手錶 7%；食品/藥品/化妝品 5%。請出示條碼①與②。</div>
+                        <div class="coupon-meta">至 2027/12/31</div>
+                        <button type="button" class="btn-barcode js-zoom" data-src="img/1792034951170.jpg" data-title="EDION 愛電王 免稅優惠券">📱 出示條碼</button>
+                    </div>
+                </div>
+
+                <div class="coupon" data-category="electric">
+                    <div class="coupon-thumb js-zoom" data-src="img/1792035045578.jpg" data-title="LAOX 特別優惠券 5% OFF"><img src="img/1792035045578.jpg" alt="LAOX 優惠券" loading="lazy"></div>
+                    <div class="coupon-info">
+                        <div class="coupon-name">LAOX<span class="coupon-cat">綜合免稅</span></div>
+                        <div class="coupon-off">特別優惠 5% OFF</div>
+                        <div class="coupon-desc">家電、模型動漫、日本伴手禮適用（部分商品除外）。</div>
+                        <div class="coupon-meta">至 2027/06/30・秋葉原總店</div>
+                        <button type="button" class="btn-barcode js-zoom" data-src="img/1792035045578.jpg" data-title="LAOX 特別優惠券 5% OFF">📱 出示條碼</button>
+                    </div>
+                </div>
+
+                <!-- 百貨 -->
+                <div class="coupon" data-category="dept">
+                    <div class="coupon-thumb js-zoom" data-src="img/1792034938112.jpg" data-title="大丸 / 松坂屋百貨 5% OFF ＋ 美食券"><img src="img/1792034938112.jpg" alt="大丸百貨 優惠券" loading="lazy"></div>
+                    <div class="coupon-info">
+                        <div class="coupon-name">大丸 / 松坂屋百貨<span class="coupon-cat">百貨</span></div>
+                        <div class="coupon-off">5% OFF ＋ 贈美食券</div>
+                        <div class="coupon-desc"><strong>JR 札幌站直通大丸札幌店適用！</strong>含稅滿 ¥3,000 享 5% 折扣，購物及退稅時出示護照與條碼。</div>
+                        <div class="coupon-meta">至 2027/08/31・退稅走 Global Blue</div>
+                        <button type="button" class="btn-barcode js-zoom" data-src="img/1792034938112.jpg" data-title="大丸 / 松坂屋百貨 5% OFF ＋ 美食券">📱 出示條碼</button>
+                    </div>
+                </div>
+
+                <div class="coupon" data-category="dept">
+                    <div class="coupon-thumb js-zoom" data-src="img/1792035055281.jpg" data-title="近鐵百貨 顧客優惠券 95 折（Z114-14）"><img src="img/1792035055281.jpg" alt="近鐵百貨 優惠券" loading="lazy"></div>
+                    <div class="coupon-info">
+                        <div class="coupon-name">近鐵百貨<span class="coupon-cat">百貨</span></div>
+                        <div class="coupon-off">95 折（代碼 Z114-14）</div>
+                        <div class="coupon-desc">未稅滿 ¥2,000 享 95 折，退稅時亦請出示此券。</div>
+                        <div class="coupon-meta">至 2027/02/28</div>
+                        <button type="button" class="btn-barcode js-zoom" data-src="img/1792035055281.jpg" data-title="近鐵百貨 顧客優惠券 95 折（Z114-14）">📱 出示條碼</button>
+                    </div>
+                </div>
+
+                <div class="coupon" data-category="dept">
+                    <div class="coupon-thumb js-zoom" data-src="img/1792035030869.jpg" data-title="京王百貨店 新宿店 95 折優惠券"><img src="img/1792035030869.jpg" alt="京王百貨店 優惠券" loading="lazy"></div>
+                    <div class="coupon-info">
+                        <div class="coupon-name">京王百貨店<span class="coupon-cat">百貨</span></div>
+                        <div class="coupon-off">95 折（優待番號 76-232）</div>
+                        <div class="coupon-desc">未稅滿 ¥3,000 可用，結帳前出示畫面。</div>
+                        <div class="coupon-meta">至 2027/03/31・新宿店專用</div>
+                        <button type="button" class="btn-barcode js-zoom" data-src="img/1792035030869.jpg" data-title="京王百貨店 新宿店 95 折優惠券">📱 出示條碼</button>
+                    </div>
+                </div>
+
+                <!-- 運動 -->
+                <div class="coupon" data-category="other">
+                    <div class="coupon-thumb js-zoom" data-src="img/1792034912556.jpg" data-title="Alpen Group 免稅 5% OFF 優惠券"><img src="img/1792034912556.jpg" alt="Alpen Group 優惠券" loading="lazy"></div>
+                    <div class="coupon-info">
+                        <div class="coupon-name">Alpen Group<span class="coupon-cat">運動/滑雪</span></div>
+                        <div class="coupon-off">免稅 ＋ 5% OFF</div>
+                        <div class="coupon-desc">SPORTS DEPO、GOLF5、Alpen Outdoors，滑雪服、雪靴滿 ¥5,000 適用。</div>
+                        <div class="coupon-meta">至 2027/06/30・促銷碼 20000682</div>
+                        <button type="button" class="btn-barcode js-zoom" data-src="img/1792034912556.jpg" data-title="Alpen Group 免稅 5% OFF 優惠券">📱 出示條碼</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================= -->
+        <!-- 💴 日本退稅攻略 -->
+        <!-- ================================================= -->
+        <section class="section" id="sec-taxrefund">
+            <div class="section-head">
+                <h2>💴 日本退稅攻略</h2>
+            </div>
+
+            <div class="info-bar red">
+                ⚠️ <strong>三大鐵則</strong><br>
+                ① 店家用哪家退稅公司，就去<strong>哪家平台登記</strong>（不能自選）。<br>
+                ② 結帳後<strong>當場拍下退稅 QR Code＋Transaction ID</strong>，不是一般收據！<br>
+                ③ 出境時<strong>托運前</strong>先過海關確認，商品要帶在身上。
+            </div>
+
+            <div class="flow">
+                <div class="flow-step"><span class="n">1</span><span class="e">👤</span><div class="l">註冊帳號</div><div class="s">護照＋英文地址</div></div>
+                <div class="flow-step"><span class="n">2</span><span class="e">🛒</span><div class="l">購物免稅</div><div class="s">出示護照</div></div>
+                <div class="flow-step"><span class="n">3</span><span class="e">📸</span><div class="l">拍 QR/序號</div><div class="s r">當場拍照</div></div>
+                <div class="flow-step"><span class="n">4</span><span class="e">💻</span><div class="l">線上登記</div><div class="s">掃碼或輸入</div></div>
+                <div class="flow-step"><span class="n">5</span><span class="e">🛂</span><div class="l">海關確認</div><div class="s r">托運前</div></div>
+                <div class="flow-step"><span class="n">6</span><span class="e">💰</span><div class="l">等待退款</div><div class="s">退回信用卡</div></div>
+            </div>
+
+            <details class="sub" open>
+                <summary>📋 出發前先準備（建議在台灣先註冊）</summary>
+                <div class="sub-body">
+                    <h4>✅ 必備資料</h4>
                     <ul>
-                        <li><strong>紅色雙層巴士：</strong>園區內停放著一輛經典的倫敦紅色雙層巴士，復古的造型與後方的歐式建築相得益彰，是必拍景點之一！在後方還有另外一台露天的雙層巴士，由下往上拍可以把歐式建築盡收眼底喔！</li>
-                        <li><strong>夢幻玻璃屋：</strong>庭園中有一座絕美的玻璃陽光房，陽光灑落，透過白色紗簾和垂吊的花藝，擺設著典雅的木桌椅，坐在這裡彷彿成了歐洲貴族，照片怎麼拍怎麼美！</li>
+                        <li><strong>護照</strong>（依護照英文姓名填寫）</li>
+                        <li><strong>可收信的 Email</strong>（兩個平台都需要）</li>
+                        <li><strong>台灣英文地址</strong>：用 <a href="https://www.post.gov.tw/post/internet/Postal/index.jsp?ID=207" target="_blank">中華郵政「中文地址英譯」</a> 查詢</li>
+                        <li><strong>手機</strong>可拍照／掃 QR Code，並有<strong>網路</strong></li>
+                    </ul>
+                    <h4>💡 先記住這 2 點</h4>
+                    <ul>
+                        <li><span class="hl">J-TaxRefund</span> 的<strong>登入 ID 會寄到 Email</strong>，要另外存起來。</li>
+                        <li><strong>JPrefund</strong> 與 <strong>J-TaxRefund</strong> 都要先註冊，出國前或第一晚在飯店完成最順。</li>
                     </ul>
                 </div>
+            </details>
 
-                <div class="spot-station">
-                    <h4>🕺 第二站：巨型餅乾現身！互動拍照區 <span class="spot-tag">玩到瘋</span></h4>
-                    <p>這是改裝後最受歡迎的區域之一！這裡有超多浮誇的巨型道具，讓你瞬間變成迷你小人。還有投影互動遊戲，雖然簡單但是很療癒。</p>
-                </div>
+            <div class="small-title">🏢 3 大退稅平台操作</div>
+            <div class="tabs">
+                <button type="button" class="tab-btn active" data-tab="jp">JPrefund<small>藥妝/服飾</small></button>
+                <button type="button" class="tab-btn" data-tab="jt">J-TaxRefund<small>Outlet/品牌</small></button>
+                <button type="button" class="tab-btn" data-tab="gb">Global Blue<small>百貨/友都八喜</small></button>
+            </div>
 
-                <div class="spot-station">
-                    <h4>🍫 第三站：深入「巧克力幻想曲工廠」 <span class="spot-tag">解鎖美味祕密</span></h4>
-                    <p>改裝後的重頭戲就是全新升級的工廠參觀行程：</p>
-                    <ol>
-                        <li><strong>投影歷史隧道：</strong>帶你進入巧克力的歷史隧道，聽不懂日文沒關係，旁邊很貼心的有英文跟中文字幕，旁邊還會有可愛的員工妹妹半互動帶場。</li>
-                        <li><strong>全透明的生產線：</strong>在這裡可以親眼目睹「白色戀人」貓舌餅乾的製作過程。看著一片片餅乾在自動化機器上整齊排列、填入內餡、冷卻包裝，過程超級療癒！自動化設備上甚至還有可愛的小貓玩偶點綴，細節滿分。</li>
-                        <li><strong>伴手禮兌換：</strong>憑入場票根可以在機器兌換一小盒白色戀人餅乾。但如果你懶得排隊，也是可以直接跟工作人員兌換的啦！</li>
-                    </ol>
-                </div>
+            <div class="tab-pane active" id="tab-jp">
+                🌐 <a href="https://jprefund.com" target="_blank"><strong>jprefund.com</strong></a>
+                <ol>
+                    <li>開啟網站，用 Email 註冊並完成驗證</li>
+                    <li>建立密碼，填寫護照資料與英文地址</li>
+                    <li>結帳時櫃台／自助機會顯示 <code>Transaction ID</code> 與 QR Code → <strong class="hl">立刻拍照</strong></li>
+                    <li>進入「免稅購買記錄」，看到「待處理」依指示完成登記</li>
+                </ol>
+                <div class="note">🔍 <strong>畫面重點：</strong>待處理、Refund Amount（退款金額）、Transaction ID、「請於出境時接受海關確認」。</div>
+            </div>
 
-                <div class="spot-station">
-                    <h4>🎁 第四站：血拚時間！ <span class="spot-tag">把美味與回憶帶回家</span></h4>
+            <div class="tab-pane" id="tab-jt">
+                🌐 <a href="https://j-taxrefund.com" target="_blank"><strong>j-taxrefund.com</strong></a>
+                <ol>
+                    <li>開啟網站，用 Email 註冊帳號</li>
+                    <li>到信箱收「<strong class="hl">登入 ID</strong>」（收不到查垃圾郵件）</li>
+                    <li>用「登入 ID＋密碼」登入，填護照資料與英文地址</li>
+                    <li>掃描紙本單據上的<strong>官方 QR Code</strong>，回平台查看「免稅適用金額」與「待退稅」紀錄</li>
+                </ol>
+                <div class="note">⚠️ 最特別：<strong>不是用 Email 登入，而是用信箱收到的「登入 ID」</strong>，建議截圖保存。</div>
+            </div>
+
+            <div class="tab-pane" id="tab-gb">
+                📱 App：<code>Global Blue – Shop Tax Free</code>（英／日文）<br>
+                <span style="font-size:.8rem;color:var(--muted);">高島屋、三越伊勢丹、大丸松坂屋、阪急阪神、友都八喜都是它</span>
+                <ol>
+                    <li><strong>結帳出示護照，付含稅價：</strong>同店同日未稅滿 ¥5,000，無紙本退稅單，店家直接上傳紀錄。</li>
+                    <li><strong>登記退款方式：</strong>掃店家給的 QR Code 或 Email 連結填卡號，或用 App。</li>
+                    <li><strong>出境前到海關 KIOSK 刷護照：</strong><span class="hl">托運前</span>、購買 90 天內、商品帶在身上（一筆少一件整筆不退）。</li>
+                    <li><strong>等退款：</strong>退到信用卡／簽帳卡／電子錢包。</li>
+                </ol>
+                <div class="note blue">🏢 <strong>札幌可市區領現金：</strong>友都八喜札幌店等 11 家門市可辦，別家 Global Blue 店（如大丸札幌）買的也行，帶<strong>商品＋收據＋護照</strong>。市區領現需登記信用卡，沒過海關會從卡扣回；直接退卡最單純。</div>
+            </div>
+
+            <details class="sub">
+                <summary>📸 結帳後必做＆兩種登記方式</summary>
+                <div class="sub-body">
+                    <h4>🚨 買完當下</h4>
                     <ul>
-                        <li><strong>各式限定包裝的白色戀人：</strong>除了經典款，這裡還有許多限定的精美包裝，非常適合作為伴手禮。</li>
-                        <li><strong>原創餅乾盒：</strong>可以做出屬於自己的原創餅乾盒，最快只要 20 分鐘就可以取件喔！</li>
+                        <li>當場拍清楚<strong>退稅 QR Code</strong>（櫃台螢幕或紙本單據）</li>
+                        <li><strong>Transaction ID／序號</strong>一起拍，QR 模糊時可手動輸入</li>
+                        <li>當下沒空掃也沒關係，先保存照片，回飯店再補登記</li>
+                        <li>❌ 不要只拍一般消費收據</li>
                     </ul>
+                    <h4>📲 方式 A｜掃描 QR Code</h4>
+                    <p>打開對應平台 ➜ 掃官方 QR ➜ 核對店家／金額／退稅額 ➜ 送出看狀態</p>
+                    <h4>⌨️ 方式 B｜手動輸入序號</h4>
+                    <p>找到 Transaction ID ➜ 在平台輸入 ➜ 核對資料 ➜ 完成登記</p>
+                    <h4>🔍 登記後確認</h4>
+                    <p>交易有出現、退款金額合理、狀態為「待處理／待退稅／已確認」（出境前顯示<strong>待處理屬正常</strong>）。</p>
                 </div>
+            </details>
 
-                <div class="spot-info-box">
-                    <strong>【白色戀人公園 Shiroi Koibito Park 資訊】</strong>
-                    <p>📍 <strong>地址：</strong><a href="https://www.google.com/maps/search/?api=1&query=北海道札幌市西區宮之澤2條2丁目11-36" target="_blank">北海道札幌市西區宮之澤2條2丁目11-36</a></p>
-                    <p>🚇 <strong>交通：</strong>搭乘地鐵東西線至「宮之澤站」下車，步行約7分鐘即可抵達。</p>
-                    <p>⏰ <strong>營業時間：</strong>10:00 - 17:00 (最後入場時間為16:00，具體請參考官網)</p>
-                    <p>💡 全新改裝後的白色戀人公園真的是驚喜連連，結合了觀光、體驗、拍照和購物，非常適合全家大小一起遊玩。下次來到北海道，千萬不要錯過這個甜蜜的夢幻景點喔！💖</p>
+            <div class="small-title">🧮 手續費比一比（買含稅 ¥11,000）</div>
+            <div class="fee-grid">
+                <div class="fee free">
+                    <div class="st">唐吉訶德<br>BicCamera</div>
+                    <span class="fb">免手續費</span>
+                    <div class="amt">¥1,000</div>
                 </div>
-            </div>
-        </div>
-
-
-
-        <!-- Day 4 -->
-        <div class="day-card">
-            <h3 class="day-title">Day 4：12/17 (四) 小樽漫步：總鎮守神社、海鮮、運河與復古商店街 <span class="arrow">▼</span></h3>
-            <div class="day-content">
-                <ul>
-                    <li><strong>上午（神社參拜）：</strong>前往小樽總鎮守 <a href="https://www.google.com/maps/search/?api=1&query=小樽住吉神社" target="_blank"><span class="highlight">小樽住吉神社</span></a>。參拜坡道上的巨大鳥居與浪漫紅燈籠參道。<span class="ezo-tag">🐟 蝦夷神籤：日進月歩みくじ (鯡魚籤)</span><br>
-                        　🚆 <em>路線資訊：從 JR 札幌站搭乘 JR 快速 Airport 線（往小樽方向）至「JR 南小樽站」（車程約30分鐘），出站步行約8-10分鐘即達神社。體驗「釣鯡魚神籤」！</em>
-                    </li>
-                    <li><strong>中午（海鮮午餐）：</strong>前往 <a href="https://www.google.com/maps/search/?api=1&query=小樽三角市場" target="_blank"><span class="highlight">小樽三角市場</span></a> 品嚐新鮮豪邁的帝王蟹或海膽海鮮丼。<br>
-                        　🚆/🚶 <em>路線資訊：從住吉神社步行約15分鐘（或從 JR 南小樽站搭乘 JR 1站至 JR 小樽站），出小樽站左轉步行1分鐘即達三角市場。</em>
-                    </li>
-                    <li><strong>午後漫步：</strong>前往小樽最具代表性的地標 <a href="https://www.google.com/maps/search/?api=1&query=小樽運河" target="_blank"><span class="highlight">小樽運河</span></a>。除了在淺草橋拍照，也推薦搭乘40分鐘的<strong>運河遊覽船</strong>。<br>
-                        　🚶 <em>路線資訊：從小樽三角市場直走中央通，徒步約10分鐘即可抵達小樽運河。</em>
-                    </li>
-                    <li><strong>逛街與音樂盒：</strong>一路逛進 <a href="https://www.google.com/maps/search/?api=1&query=小樽堺町通商店街" target="_blank"><span class="highlight">小樽堺町通商店街</span></a> 與 <a href="https://www.google.com/maps/search/?api=1&query=小樽音樂盒堂" target="_blank"><span class="highlight">小樽音樂盒堂</span></a>。走到盡頭的「童話十字路口」可以參觀擁有3千多種音樂盒的百年紅磚建築，並與門口每15分鐘噴氣的蒸汽鐘合影。<br>
-                        　🚶 <em>路線資訊：沿著運河走到淺草橋後，轉入堺町通順著走到底（約散步15-20分鐘），盡頭即是童話十字路口及音樂盒堂。</em>
-                    </li>
-                    <li><strong>下午茶：</strong>逛累了就到十字路口旁的 <a href="https://www.google.com/maps/search/?api=1&query=小樽+銀之鐘" target="_blank"><span class="highlight">小樽 銀之鐘（銀の鐘）</span></a> 點份下午茶，享用完畢後可將特色咖啡杯洗淨帶回家作紀念。</li>
-                    <li><strong>傍晚：</strong>回到小樽運河欣賞63座瓦斯燈點亮後的浪漫夜景（💡 <em>避坑技巧：白天常爆滿，傍晚點燈至入夜人潮適中、雪景最美最出片！</em>）。若體力充裕，也可選擇搭巴士上 <a href="https://www.google.com/maps/search/?api=1&query=小樽天狗山" target="_blank"><span class="highlight">小樽天狗山</span></a>（《First Love初戀》取景地）欣賞璀璨夜景，隨後搭車返回札幌。<br>
-                        　🚌 <em>路線資訊：從小樽站前巴士總站3號站牌搭乘北海道中央巴士「天狗山線（9號）」直達終點，車程約17分鐘即達天狗山纜車站。</em>
-                    </li>
-                    <li><strong>💡 親子替代方案：</strong>若喜歡看動物，可將行程替換為 <a href="https://www.google.com/maps/search/?api=1&query=小樽水族館" target="_blank"><span class="highlight">小樽水族館</span></a>（從小樽站前搭乘中央巴士「水族館線」約25分鐘，觀看冬季超人氣的「雪中企鵝散步」）。</li>
-                    <li><strong>住宿：</strong>札幌市區。</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Day 5 -->
-        <div class="day-card">
-            <h3 class="day-title">Day 5：12/18 (五) 富良野與美瑛銀白世界 <span class="arrow">▼</span></h3>
-            <div class="day-content">
-                <ul>
-                    <li><strong>全天：</strong><span
-                            class="highlight">富良野、美瑛冬季一日遊（旅行團）</span>。冬季雪地自駕風險高，報名從札幌出發的一日巴士團最輕鬆。行程通常包含美瑛白鬚瀑布、青池，以及富良野的精靈露臺。<span class="ezo-tag">🌽 美瑛神社：富諸来しみくじ (玉米籤)</span><br>
-                        　🚌 <em>路線資訊：參加當地一日遊，通常於 JR 札幌車站北口或大通公園周邊集合上車，全程搭乘觀光巴士專車接駁。（若一日團包含美瑛神社可順道收集用烤肉鉗夾的玉米籤！）</em>
-                    </li>
-                    <li><strong>晚上：</strong>跟團返回札幌市區，可前往 <a href="https://www.google.com/maps/search/?api=1&query=狸小路商店街" target="_blank"><span class="highlight">狸小路商店街</span></a> 簡單購物或吃碗札幌味噌拉麵。<br>
-                        　🚶 <em>路線資訊：旅行團解散地點多在札幌站或大通站附近，步行幾分鐘或轉乘地下鐵至「大通站/薄野站」即可抵達狸小路商店街。（🛍️ 採購藥妝、零食伴手禮請記得出示下方【<a href="#sec-coupons">專屬購物優惠券</a>】享免稅與額外折扣！）</em>
-                    </li>
-                    <li><strong>住宿：</strong>札幌市區。</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Day 6 -->
-        <div class="day-card">
-            <h3 class="day-title">Day 6：12/19 (六) 順遊神社、機場血拚與滿載而歸 <span class="arrow">▼</span></h3>
-            <div class="day-content">
-                <ul>
-                    <li><strong>早上（選擇性神社順遊 / 市區彈性）：</strong>退房後可彈性安排周邊神社參拜，或直接搭 JR 前往機場。<br>
-                        　🚆 <em>路線資訊：從 JR 札幌站搭乘「JR 快速 Airport 線」，約37分鐘直達「新千歲機場站」。</em>
-                    </li>
-                    <li><strong>上午至中午：</strong><a href="https://www.google.com/maps/search/?api=1&query=新千歲機場" target="_blank"><span
-                            class="highlight">札幌新千歲機場逛街</span></a>。國內線航廈非常好逛，請預留充足時間買齊伴手禮，午餐推薦直接在機場的「拉麵道場」享用。</li>
-                    <li><strong>下午：</strong>12:30 左右前往國際線航廈辦理報到手續。14:40 搭乘班機返回台灣。</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 彈性神社攻略 -->
-        <div class="day-card">
-            <h3 class="day-title">⛩️ 特色神社與稍遠神社大眾交通攻略 (彈性景點) <span class="arrow">▼</span></h3>
-            <div class="day-content">
-                <ul>
-                    <li><strong>江別｜<a href="https://www.google.com/maps/search/?api=1&query=錦山天滿宮" target="_blank"><span class="highlight">錦山天滿宮</span></a>：</strong>學業與解災祈願，紅磚與花手水名所。<span class="ezo-tag">🏭 幸路みくじ (紅磚筒倉籤)</span><br>
-                        　🚆 <em>大眾交通路線：從「JR 札幌站」搭乘 JR 函館本線（區間快速/普通車往江別方向）至「JR 野幌站」（車程約20分鐘），出站後步行約10分鐘即可抵達。適合排在 Day 3 下午或 Day 6 早上。</em>
-                    </li>
-                    <li><strong>苫小牧｜<a href="https://www.google.com/maps/search/?api=1&query=樽前山神社" target="_blank"><span class="highlight">樽前山神社</span></a>：</strong>膽振總鎮守，歷史悠久且境內壯觀。<span class="ezo-tag">🐚 一念発起みくじ (北寄貝籤)</span><br>
-                        0🚆/🚌 <em>大眾交通路線：從「JR 札幌站」搭乘 JR 特急 (Hokuto/Suzuran) 至「JR 苫小牧站」（車程約45分鐘），轉乘道南巴士（錦岡線）至「神社前」站下車即達，或搭乘計程車約10分鐘。此地點鄰近新千歲機場，適合 Day 6 前往機場前順遊。</em>
-                    </li>
-                    <li><strong>鹿部｜<a href="https://www.google.com/maps/search/?api=1&query=鹿部稻荷神社" target="_blank"><span class="highlight">鹿部稻荷神社</span></a>：</strong>海邊溫泉鄉神社。<span class="ezo-tag">🐟 多楽呼みくじ (鱈魚子籤)</span><br>
-                        　🚆/🚌 <em>大眾交通路線：從「JR 函館站」搭乘 JR 函館本線（砂原支線）至「JR 鹿部站」，轉乘函館巴士（往鹿部溫泉方向）至「鹿部役場前」下車步行即達。可排在 Day 2 的延伸郊區行程。</em>
-                    </li>
-                    <li><strong>岩內｜<a href="https://www.google.com/maps/search/?api=1&query=岩內神社" target="_blank"><span class="highlight">岩內神社</span></a>：</strong>開拓歷史神社，俯瞰港灣。<span class="ezo-tag">🐟 たら福みくじ (明太魚籤)</span><br>
-                        　🚌 <em>大眾交通路線：從「JR 小樽站」前巴士總站搭乘北海道中央巴士「岩內線 (Iwanai Line)」直達「岩內總站 (Iwanai Terminal)」（車程約1.5小時），下車後步行約15分鐘即達。可排在 Day 4 小樽行程的深度延伸。</em>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- 蝦夷神籤專題卡片 -->
-        <div class="day-card">
-            <h3 class="day-title">⛩️ 北海道限定「蝦夷神籤 (えぞみくじ)」集籤地圖攻略 <span class="arrow">▼</span></h3>
-            <div class="day-content">
-                <div class="ezomikuji-intro">
-                    💡 <strong>什麼是蝦夷神籤（えぞみくじ）？</strong><br>
-                    「蝦夷」為北海道之古稱。這系列神籤是由根室金刀比羅神社發起，結合北海道傳統工藝「張り子（和紙中空玩偶）」製成在地名產小模型，內部裝有以<strong>北海道方言</strong>撰寫的吉祥詩籤。抽籤方式極具童趣（如使用小型釣竿釣魚、烤肉鉗夾玉米或水網撈），且命名皆運用台詞雙關語，是造訪北海道神社必收集的超萌限定守護品！
+                <div class="fee pct">
+                    <div class="st">大丸、高島屋<br>等百貨</div>
+                    <span class="fb">扣 1.55%</span>
+                    <div class="amt">¥845</div>
                 </div>
-                <div class="ezomikuji-grid">
-                    <div class="ezomikuji-item">🦑 <strong>函館｜湯倉神社</strong><br>イカすみくじ (烏賊) / 釣竿釣</div>
-                    <div class="ezomikuji-item">🐟 <strong>小樽｜住吉神社</strong><br>日進月歩みくじ (鯡魚) / 釣竿釣</div>
-                    <div class="ezomikuji-item">🏭 <strong>江別｜錦山天滿宮</strong><br>幸路みくじ (紅磚筒倉)</div>
-                    <div class="ezomikuji-item">🐚 <strong>苫小牧｜樽前山神社</strong><br>一念発起みくじ (北寄貝)</div>
-                    <div class="ezomikuji-item">🌽 <strong>美瑛｜美瑛神社</strong><br>富諸来しみくじ (玉米) / 烤肉鉗夾</div>
-                    <div class="ezomikuji-item">🌾 <strong>旭川｜旭川神社</strong><br>福よ米米みくじ (米俵)</div>
-                    <div class="ezomikuji-item">🐟 <strong>鹿部｜鹿部稻荷神社</strong><br>多楽呼みくじ (鱈魚子)</div>
-                    <div class="ezomikuji-item">🐟 <strong>岩內｜岩內神社</strong><br>たら福みくじ (明太魚)</div>
-                    <div class="ezomikuji-item">🦀 <strong>稚內｜北門神社</strong><br>いカニもいいみくじ (毛蟹)</div>
-                    <div class="ezomikuji-item">👼 <strong>網走｜網走神社</strong><br>福が来るよねみくじ (流冰天使)</div>
-                    <div class="ezomikuji-item">🧅 <strong>北見｜北見神社</strong><br>福多招みくじ (洋蔥)</div>
-                    <div class="ezomikuji-item">🥔 <strong>浦幌｜浦幌/乳神神社</strong><br>やるなら今じゃがみくじ (馬鈴薯)</div>
-                    <div class="ezomikuji-item">🐟 <strong>根室｜金刀比羅神社</strong><br>福ざんまいみくじ (秋刀魚)</div>
-                    <div class="ezomikuji-item">🦪 <strong>厚岸｜厚岸神社</strong><br>幸牡蠣あつめみくじ (牡蠣)</div>
-                    <div class="ezomikuji-item">🐟 <strong>帶廣｜帶廣神社</strong><br>魔鮭福鱒みくじ (鮭魚) / 釣竿釣</div>
+                <div class="fee fix">
+                    <div class="st">3COINS<br>等定額店</div>
+                    <span class="fb">固定扣 ¥320</span>
+                    <div class="amt">¥680</div>
                 </div>
             </div>
-        </div>
+            <p style="font-size:.78rem;color:var(--muted);margin:6px 2px 0;">一般商品稅率 10%、食品 8%；金額為預估值，以店家實際退款為準，退稅款退給付款人。</p>
 
-        
-        <!-- 📌 北海道旅遊 12 大注意事項與避坑指南 -->
-        <div class="day-card" id="sec-notices">
-            <h3 class="day-title">📌 北海道旅遊 12 大實用技巧與避坑指南 <span class="arrow">▼</span></h3>
-            <div class="day-content">
-                <div class="notice-section-intro">
-                    💡 <strong>出發前必看精選攻略：</strong>以下為造訪北海道非常實用的 12 大在地經驗總結，涵蓋交通票券、冬季防滑防摔穿著、熱門景點最佳造訪時段、購物退稅避坑與消費習慣等重要提醒，讓雪國旅程更順暢安心～
-                </div>
-
-                <!-- 12 大重點條列式卡片整理 -->
-                <div class="notice-list-grid">
-                    <div class="notice-item-box warn">
-                        <h4>🚫 1. 不要盲目買 JR PASS</h4>
-                        <p>很多觀光客直接買昂貴的全區 JR PASS！北海道景點分散，若主要在函館、札幌、小樽市區移動，單買「JR 北斗號」等指定席車票更省錢划算。只有長程跑多個跨縣市大景點才需考慮周遊券。</p>
-                    </div>
-                    <div class="notice-item-box tip">
-                        <h4>🛍️ 2. 狸小路商店街別瘋狂購物</h4>
-                        <p>狸小路觀光客爆滿，部分藥妝與熱門伴手禮標價偏高！想要平價採買囤貨，推薦改至札幌車站周邊的大型量販百貨（BicCamera、大丸）或在地連鎖超市，品項更齊全、折扣往往更大。</p>
-                    </div>
-                    <div class="notice-item-box money">
-                        <h4>🎫 3. 出發前用好遊客專屬優惠券</h4>
-                        <p>札幌市區、新千歲機場、當地百貨、唐吉訶德、BicCamera 等皆有外國遊客優惠券（全日本門店通用）。出發前存入手機相簿，結帳時主動出示掃碼，買雪具、伴手禮、藥妝超級划算！</p>
-                    </div>
-                    <div class="notice-item-box tip">
-                        <h4>📸 4. 小樽運河別白天擠人潮</h4>
-                        <p>白天常有大量旅行團團客，拍照背景全是人潮。最佳造訪時間為「傍晚至夜晚」，63 座古董煤氣瓦斯燈點亮，襯托積雪小樽運河與百年倉庫，氣氛浪漫極為夢幻，拍照超上相！</p>
-                    </div>
-                    <div class="notice-item-box tip">
-                        <h4>🏰 5. 白色戀人公園別只免費逛</h4>
-                        <p>戶外免費區遊客繁雜且亮點有限。若想拍美照（如唯美歐風玻璃屋、童話工廠見學走廊），購票進入「付費園區」才是精華重點，裝潢細緻好拍，還有限定款甜點與伴手禮！</p>
-                    </div>
-                    <div class="notice-item-box warn">
-                        <h4>🌫️ 6. 函館夜景看天氣再出門</h4>
-                        <p>秋冬與多雲季節函館山頂極易起大霧，山上容易白茫茫一片什麼都看不到。出發前務必查看氣象與即時影像；若天氣不理想，建議可改逛札幌電視塔或市區夜景，穩定不踩雷。</p>
-                    </div>
-                    <div class="notice-item-box money">
-                        <h4>🕒 7. 百貨退稅黃金時間：下午 3 點</h4>
-                        <p>各大百貨免稅櫃台在下午 5 點後或打烊前常大排長龍。最佳避坑時間為「下午 3 點左右」前往辦理，人潮最少，幾分鐘內即可快速搞定退稅。</p>
-                    </div>
-                    <div class="notice-item-box snow">
-                        <h4>❄️ 8. 冬天絕對不要穿一般平底雪靴</h4>
-                        <p>北海道冬季路面常見透明透明的「黑冰薄凍」，一般平底鞋或無防滑抓地設計的流行雪靴極為濕滑危險！務必穿著具深紋路防滑橡膠大底的雪靴，或在便利商店加購隨身防滑冰爪套。</p>
-                    </div>
-                    <div class="notice-item-box warn">
-                        <h4>🗺️ 9. 不要一天硬衝多個城市</h4>
-                        <p>北海道超級遼闊！札幌、小樽、登別、洞爺湖彼此距離遙遠，跨城雪地移動極耗體力與時間。一天安排一個重點區域剛剛好，放慢腳步深度感受雪國魅力才是旅行精髓。</p>
-                    </div>
-                    <div class="notice-item-box tip">
-                        <h4>🦀 10. 海鮮料理別只吃觀光大街店</h4>
-                        <p>想吃鮮甜毛蟹、海膽與霸氣帝王蟹，避開觀光大街上專做遊客生意的高價門店。走進在地傳統市場（如函館朝市、小樽三角市場）或巷弄家庭食堂，海味更新鮮且價格實惠很多。</p>
-                    </div>
-                    <div class="notice-item-box tip">
-                        <h4>🗑️ 11. 日本街頭幾乎沒有垃圾桶</h4>
-                        <p>日本公共街道幾乎不設置垃圾桶。出門時請隨身自備小垃圾袋收納面紙或食品包裝，切勿隨意丟棄，返回飯店或利用便利商店的分類垃圾桶丟棄。</p>
-                    </div>
-                    <div class="notice-item-box money">
-                        <h4>💴 12. 隨身務必備足日幣現金</h4>
-                        <p>北海道鄉村郊區景點、傳統溫泉旅館、神社御守販售處、在地拉麵小吃攤大多「只收現金」無法刷卡或行動支付。身上請備妥充裕的日幣現鈔以防不時之需。</p>
-                    </div>
-                </div>
+            <div class="small-title">☑️ 出境前檢查表 <span style="font-size:.74rem;color:var(--muted);font-weight:normal;">（點擊打勾，會自動記住）</span></div>
+            <div class="checklist" id="tax-checklist">
+                <div class="check-item" data-key="c1"><span class="check-box"></span><span class="txt">已完成平台註冊</span></div>
+                <div class="check-item" data-key="c2"><span class="check-box"></span><span class="txt">護照資料填寫正確</span></div>
+                <div class="check-item" data-key="c3"><span class="check-box"></span><span class="txt">英文地址已填好</span></div>
+                <div class="check-item" data-key="c4"><span class="check-box"></span><span class="txt">Email 可正常收信</span></div>
+                <div class="check-item" data-key="c5"><span class="check-box"></span><span class="txt">J-TaxRefund 登入 ID 已保存</span></div>
+                <div class="check-item" data-key="c6"><span class="check-box"></span><span class="txt">每筆 QR Code／序號都拍下了</span></div>
+                <div class="check-item" data-key="c7"><span class="check-box"></span><span class="txt">已在對應平台完成登記</span></div>
+                <div class="check-item" data-key="c8"><span class="check-box"></span><span class="txt">出境前再確認一次狀態</span></div>
+                <div class="check-item" data-key="c9"><span class="check-box"></span><span class="txt">護照、商品、單據保留到離境</span></div>
             </div>
-        </div>
 
-        <!-- 🎟️ 訪日旅客購物必備！免稅店＆百貨超值優惠券專區 -->
-        <div class="day-card" id="sec-coupons">
-            <h3 class="day-title">🎟️ 訪日旅客專屬購物優惠券 (出示手機條碼享免稅＋折抵) <span class="arrow">▼</span></h3>
-            <div class="day-content">
-                <div class="coupon-intro-bar">
-                    🎉 <strong>使用說明：</strong>結帳前主動向收銀員出示手機中的優惠券條碼畫面，搭配外國護照，即可同時享有「免稅 10% + 額外 3%～8% 折扣」！<br>
-                    💡 <strong>小提醒：</strong>點擊各卡片圖片或「出示 / 放大條碼」按鈕即可彈出【高清晰大條碼】；長按圖片亦可儲存至相簿。
-                </div>
-
-                <!-- 分類過濾按鈕（jQuery 切換） -->
-                <div class="coupon-filter-bar">
-                    <button class="filter-btn active" data-filter="all">全部優惠券 (12)</button>
-                    <button class="filter-btn" data-filter="electric">🔌 電器量販 (4)</button>
-                    <button class="filter-btn" data-filter="drug">💊 藥妝美妝 (4)</button>
-                    <button class="filter-btn" data-filter="dept">🏬 百貨名店 (3)</button>
-                    <button class="filter-btn" data-filter="other">⛷️ 運動＆滑雪 (1)</button>
-                </div>
-
-                <!-- 優惠券卡片網格 -->
-                <div class="coupon-grid">
-
-                    <!-- 1. BicCamera / KOJIMA -->
-                    <div class="coupon-card" data-category="electric">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">BicCamera / KOJIMA</span>
-                            <span class="coupon-cat-badge">電器量販</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792034962262.jpg" data-title="BicCamera / KOJIMA 免稅優惠券">
-                            <img src="img/1792034962262.jpg" alt="BicCamera 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">免稅 10% + 最高 7% OFF</div>
-                                <div class="coupon-desc">
-                                    • 相機/手錶/家電/玩具：<strong>再享 7% OFF</strong><br>
-                                    • 藥品/化妝品/日用品：<strong>再享 5% OFF</strong><br>
-                                    • 日本清酒（獺祭八海山除外）：<strong>再享 3% OFF</strong>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>有效期限：至 2026/12/31</span>
-                                    <span>全日本適用</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792034962262.jpg" data-title="BicCamera / KOJIMA 免稅優惠券">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. 山田電機 YAMADA DENKI -->
-                    <div class="coupon-card" data-category="electric">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">山田電機 YAMADA</span>
-                            <span class="coupon-cat-badge">電器量販</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792034884015.jpg" data-title="山田電機 YAMADA 免稅優惠券">
-                            <img src="img/1792034884015.jpg" alt="山田電機 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">免稅 10% + 7% OFF</div>
-                                <div class="coupon-desc">
-                                    日本超大型連鎖電器商場！購買生活家電、吹風機、保溫杯、刮鬍刀等商品，出示條碼享免稅再折 7%。
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>有效期限：至 2027/03/31</span>
-                                    <span>全日本門市</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792034884015.jpg" data-title="山田電機 YAMADA 免稅優惠券">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3. EDION 愛電王 -->
-                    <div class="coupon-card" data-category="electric">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">EDION 愛電王</span>
-                            <span class="coupon-cat-badge">電器量販</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792034951170.jpg" data-title="EDION 愛電王 免稅優惠券">
-                            <img src="img/1792034951170.jpg" alt="EDION 愛電王 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">免稅 10% + 7% 或 5% OFF</div>
-                                <div class="coupon-desc">
-                                    • 家電/相機/手錶：<strong>折 7% OFF</strong><br>
-                                    • 食品/藥品/化妝品：<strong>折 5% OFF</strong><br>
-                                    結帳時請務必出示條碼①與②讓店員掃描。
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>有效期限：至 2027/12/31</span>
-                                    <span>東証一部上市</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792034951170.jpg" data-title="EDION 愛電王 免稅優惠券">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 4. LAOX 秋葉原總店 -->
-                    <div class="coupon-card" data-category="electric">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">LAOX 秋葉原總店</span>
-                            <span class="coupon-cat-badge">綜合免稅</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792035045578.jpg" data-title="LAOX 特別優惠券 5% OFF">
-                            <img src="img/1792035045578.jpg" alt="LAOX 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">特別優惠 5% 折扣</div>
-                                <div class="coupon-desc">
-                                    LAOX 專屬免稅折扣券，購買生活家電、模型動漫、日本伴手禮出示此券享 5% 優惠（部分指定商品除外）。
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>有效期限：至 2027/06/30</span>
-                                    <span>秋葉原總店</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792035045578.jpg" data-title="LAOX 特別優惠券 5% OFF">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 5. SUGI 杉藥局 -->
-                    <div class="coupon-card" data-category="drug">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">SUGI 杉藥局 (スギ薬局)</span>
-                            <span class="coupon-cat-badge">連鎖藥妝</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792034865178.jpg" data-title="SUGI 杉藥局 專屬優惠券 (最高18% OFF)">
-                            <img src="img/1792034865178.jpg" alt="SUGI 杉藥局 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">免稅 10% + 最高 8% OFF</div>
-                                <div class="coupon-desc">
-                                    日本全國 800 家免稅店通用：<br>
-                                    • 滿 1 萬~3 萬日圓：<strong>折 4% OFF</strong><br>
-                                    • 滿 3 萬~5 萬日圓：<strong>折 6% OFF</strong><br>
-                                    • 滿 5 萬日圓以上：<strong>折 8% OFF (最高享 18% OFF)</strong>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>有效期限：至 2027/02/28</span>
-                                    <span>800家店通用</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792034865178.jpg" data-title="SUGI 杉藥局 專屬優惠券">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 6. 尚都樂客 Sundrug -->
-                    <div class="coupon-card" data-category="drug">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">尚都樂客 (Sundrug)</span>
-                            <span class="coupon-cat-badge">連鎖藥妝</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792034973288.jpg" data-title="尚都樂客 Sundrug 免稅優惠券 (最高17% OFF)">
-                            <img src="img/1792034973288.jpg" alt="尚都樂客 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">免稅最大 17% OFF</div>
-                                <div class="coupon-desc">
-                                    超人氣平價藥妝店，出示條碼享折抵：<br>
-                                    • 未稅滿 1 萬~3 萬日圓：<strong>3% OFF (9.7折)</strong><br>
-                                    • 未稅滿 3 萬~5 萬日圓：<strong>5% OFF (9.5折)</strong><br>
-                                    • 未稅滿 5 萬日圓以上：<strong>7% OFF (9.3折)</strong>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>有效期限：至 2026/12/31</span>
-                                    <span>サンドラッグ</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792034973288.jpg" data-title="尚都樂客 Sundrug 免稅優惠券">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 7. KoKuMiN 國民藥妝店 -->
-                    <div class="coupon-card" data-category="drug">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">KoKuMiN 國民藥妝店</span>
-                            <span class="coupon-cat-badge">連鎖藥妝</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792034985122.jpg" data-title="KoKuMiN 國民藥妝店 優待識別優惠券">
-                            <img src="img/1792034985122.jpg" alt="KoKuMiN 國民藥妝店 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">免稅 10% + 5%~8% OFF</div>
-                                <div class="coupon-desc">
-                                    優待識別代號：<strong style="color:#d63031;">JY20</strong><br>
-                                    • 店內購物滿 1 萬~3 萬日圓：<strong>5% OFF</strong><br>
-                                    • 店內購物滿 3 萬日圓以上：<strong>8% OFF</strong><br>
-                                    結帳前出示條碼讓店員讀取鑑定券。
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>優待識別碼：JY20</span>
-                                    <span>全日本免稅店</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792034985122.jpg" data-title="KoKuMiN 國民藥妝店 優惠券">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 8. 唐吉訶德 DONKI -->
-                    <div class="coupon-card" data-category="drug">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">唐吉訶德 (驚安之殿堂)</span>
-                            <span class="coupon-cat-badge">綜合百貨/藥妝</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792034927714.jpg" data-title="唐吉訶德 5%~7% 優惠券領取步驟與條碼">
-                            <img src="img/1792034927714.jpg" alt="唐吉訶德 優惠券指南" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">免稅 10% + 5%~7% 折扣</div>
-                                <div class="coupon-desc">
-                                    • 不含稅滿 10,000 日圓：<strong>折 5%</strong><br>
-                                    • 不含稅滿 30,000 日圓：<strong>折 7%</strong><br>
-                                    💡 掃描圖中二維碼點擊 Discount Coupon 即可生成動態條碼出示，不影響免稅退稅！
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>深夜營業 / 伴手禮齊全</span>
-                                    <span>動態條碼</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792034927714.jpg" data-title="唐吉訶德 優惠券領取步驟">📱 查看掃碼步驟與條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 9. 大丸百貨 / 松坂屋百貨 -->
-                    <div class="coupon-card" data-category="dept">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">大丸百貨 / 松坂屋百貨</span>
-                            <span class="coupon-cat-badge">名牌百貨</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792034938112.jpg" data-title="大丸百貨 松坂屋百貨 購物優惠券 5% OFF + 美食券">
-                            <img src="img/1792034938112.jpg" alt="大丸百貨 松坂屋百貨 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">退稅 + 5% OFF + 贈美食券</div>
-                                <div class="coupon-desc">
-                                    JR 札幌站直通「大丸札幌店」完美適用！單筆滿 3,000 日圓(含稅)即可享 5% 折扣，購物及退稅時出示護照與此條碼。
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>有效期限：至 2027/08/31</span>
-                                    <span>札幌站旁大丸適用</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792034938112.jpg" data-title="大丸百貨 松坂屋百貨 購物優惠券">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 10. 京王百貨店 新宿店 -->
-                    <div class="coupon-card" data-category="dept">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">京王百貨店 (新宿店)</span>
-                            <span class="coupon-cat-badge">名牌百貨</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792035030869.jpg" data-title="京王百貨店 新宿店 訪日旅客尊享 95折優惠券">
-                            <img src="img/1792035030869.jpg" alt="京王百貨店 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">訪日旅客尊享 95折 (5% OFF)</div>
-                                <div class="coupon-desc">
-                                    優待番號：<strong>【76 - 232】</strong><br>
-                                    單次結帳滿 3,000 日圓(未稅)即可使用優惠券，結帳前向收銀台出示畫面即可折抵。
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>有效期限：至 2027/03/31</span>
-                                    <span>新宿店專用</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792035030869.jpg" data-title="京王百貨店 95折優惠券">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 11. 近鐵百貨 -->
-                    <div class="coupon-card" data-category="dept">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">近鐵百貨 (Kintetsu)</span>
-                            <span class="coupon-cat-badge">名牌百貨</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792035055281.jpg" data-title="近鐵百貨 顧客優惠券 95折">
-                            <img src="img/1792035055281.jpg" alt="近鐵百貨 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">95折優惠 (代碼 Z114-14)</div>
-                                <div class="coupon-desc">
-                                    單次購物滿 2,000 日圓(不含稅)以上，原價享 95 折優惠！購物時出示享折扣，退稅時亦請務必出示此券。
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>有效期限：至 2027/02/28</span>
-                                    <span>優惠代號 Z114-14</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792035055281.jpg" data-title="近鐵百貨 顧客優惠券 95折">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 12. Alpen Group 運動休閒名店 -->
-                    <div class="coupon-card" data-category="other">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">Alpen Group 運動用品</span>
-                            <span class="coupon-cat-badge">滑雪＆運動</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="img/1792034912556.jpg" data-title="Alpen Group 日本最大運動店 5% OFF">
-                            <img src="img/1792034912556.jpg" alt="Alpen Group 優惠券" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div>
-                                <div class="coupon-discount-text">免稅 + 額外 5% OFF</div>
-                                <div class="coupon-desc">
-                                    日本最大體育用品集團！包含 SPORTS DEPO、GOLF5、Alpen Outdoors，採購滑雪服、防寒雪靴、戶外裝備滿 5,000 日圓免稅再折 5%。
-                                </div>
-                            </div>
-                            <div>
-                                <div class="coupon-footer-info">
-                                    <span>有效期限：至 2027/06/30</span>
-                                    <span>促銷碼 20000682</span>
-                                </div>
-                                <button class="btn-view-barcode" data-src="img/1792034912556.jpg" data-title="Alpen Group 免稅 5% OFF 優惠券">📱 出示 / 放大條碼</button>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-
-        <!-- 💴 2026 日本退稅新制完整攻略 (J-TaxRefund / JPrefund / Global Blue) -->
-        <div class="day-card" id="sec-taxrefund">
-            <h3 class="day-title">💴 日本退稅完整圖文攻略 (J-TaxRefund / JPrefund / Global Blue) <span class="arrow">▼</span></h3>
-            <div class="day-content">
-                <div class="coupon-intro-bar">
-                    💡 <strong>2026 日本退稅新制必看：</strong>日本退稅採<strong>「店內結帳先付含稅價 ➔ 取得退稅 QR Code / 序號 ➔ 線上平台登記 ➔ 機場出境海關確認（托運前）➔ 退還稅款」</strong>機制！<br>
-                    ⚠️ <strong>核心鐵則：</strong>不能自己選退稅公司（店家用哪家就去哪家平台登記）；結帳後<strong>務必當場拍下「退稅專用 QR Code 與 Transaction ID 序號」</strong>，不要只拍一般消費收據！
-                </div>
-
-                <!-- 1. 六大核心步驟流程 -->
-                <h4 class="tax-sub-title">🔄 一、日本退稅 6 大核心流程總覽</h4>
-                <div class="tax-flow-steps">
-                    <div class="tax-flow-step">
-                        <span class="step-num">1</span>
-                        <span class="step-icon">👤</span>
-                        <div class="step-label">註冊平台帳號</div>
-                        <div style="font-size:0.76rem;color:#64748b;margin-top:3px;">填護照＆英文地址</div>
-                    </div>
-                    <div class="tax-flow-step">
-                        <span class="step-num">2</span>
-                        <span class="step-icon">🛒</span>
-                        <div class="step-label">合作店家購物</div>
-                        <div style="font-size:0.76rem;color:#64748b;margin-top:3px;">出示護照付含稅價</div>
-                    </div>
-                    <div class="tax-flow-step">
-                        <span class="step-num">3</span>
-                        <span class="step-icon">📸</span>
-                        <div class="step-label">拍下 QR / 序號</div>
-                        <div style="font-size:0.76rem;color:#e74c3c;font-weight:bold;margin-top:3px;">當場立刻拍照保存</div>
-                    </div>
-                    <div class="tax-flow-step">
-                        <span class="step-num">4</span>
-                        <span class="step-icon">💻</span>
-                        <div class="step-label">線上完成登記</div>
-                        <div style="font-size:0.76rem;color:#64748b;margin-top:3px;">掃碼或輸入序號</div>
-                    </div>
-                    <div class="tax-flow-step">
-                        <span class="step-num">5</span>
-                        <span class="step-icon">🛂</span>
-                        <div class="step-label">出境海關確認</div>
-                        <div style="font-size:0.76rem;color:#e74c3c;font-weight:bold;margin-top:3px;">托運前刷護照查驗</div>
-                    </div>
-                    <div class="tax-flow-step">
-                        <span class="step-num">6</span>
-                        <span class="step-icon">🪙</span>
-                        <div class="step-label">等待退款完成</div>
-                        <div style="font-size:0.76rem;color:#64748b;margin-top:3px;">退回信用卡或帳戶</div>
-                    </div>
-                </div>
-
-                <!-- 2. 出發前先準備 -->
-                <h4 class="tax-sub-title">📋 二、出發前先準備（先把資料備好，現場快很多！）</h4>
-                <div class="tax-prep-grid">
-                    <div class="tax-prep-box">
-                        <h4>✅ 5 大必備資料</h4>
-                        <ul>
-                            <li><strong>護照：</strong>依護照上的英文姓名填寫。</li>
-                            <li><strong>可收信的 Email：</strong>各大退稅平台註冊與收驗證信皆需要。</li>
-                            <li><strong>台灣英文地址：</strong>註冊時必填（可用右方中華郵政工具查詢）。</li>
-                            <li><strong>智慧型手機：</strong>需可拍照保存單據、可掃描 QR Code。</li>
-                            <li><strong>網路連線：</strong>建議先在台灣或飯店 Wi-Fi 環境下完成註冊。</li>
-                        </ul>
-                    </div>
-                    <div class="tax-prep-box prep-warn">
-                        <h4>📮 英文地址怎麼找 ＆ 2 大行前重點</h4>
-                        <ul>
-                            <li><strong>英文地址快查：</strong>前往 <a href="https://www.post.gov.tw/post/internet/Postal/index.jsp?ID=207" target="_blank"><strong>中華郵政「中文地址英譯」 (post.gov.tw)</strong></a>，依查詢結果複製貼上即可。</li>
-                            <li><strong>重點 ①：</strong><span class="highlight">J-TaxRefund 比較特別</span>，註冊後<strong>「登入 ID」會寄到你的 Email</strong>，請務必確認信箱收得到信並另存 ID！</li>
-                            <li><strong>重點 ②：</strong><strong>JPrefund</strong> 與 <strong>J-TaxRefund</strong> 都需要先註冊帳號，強烈建議<strong>出國前或第一天在飯店先註冊好</strong>，買完登記最順暢。</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 3. 三大退稅平台完整操作指南 -->
-                <h4 class="tax-sub-title">🏢 三、日本 3 大退稅平台操作重點比較</h4>
-                <div class="tax-platform-grid">
-                    <!-- JPrefund -->
-                    <div class="tax-platform-card">
-                        <div class="tax-platform-header jprefund">
-                            <span>🔴 JPrefund</span>
-                            <span class="tax-platform-badge">常見藥妝/服飾/連鎖店</span>
-                        </div>
-                        <div class="tax-platform-body">
-                            <div>
-                                <p style="margin:0 0 8px 0;">🌐 <strong>官方網站：</strong><a href="https://jprefund.com" target="_blank"><strong>jprefund.com</strong></a></p>
-                                <strong>📌 操作 6 步驟：</strong>
-                                <ol>
-                                    <li>打開 <a href="https://jprefund.com" target="_blank">jprefund.com</a></li>
-                                    <li>用 Email 註冊並完成信箱驗證</li>
-                                    <li>建立登入密碼</li>
-                                    <li>填寫護照資料與英文地址</li>
-                                    <li>買完後進入<strong>「免稅購買記錄」</strong></li>
-                                    <li>看到<strong>「待處理」</strong>項目後，依指示掃碼或輸入序號完成登記</li>
-                                </ol>
-                            </div>
-                            <div class="tax-platform-note">
-                                🔍 <strong>看畫面找重點：</strong><br>
-                                • 櫃台/自助機畫面會顯示 <code>Transaction ID</code> 與 <code>QR Code</code>（請當場拍照！）<br>
-                                • 平台內確認：<strong>待處理</strong>狀態、<strong>Refund Amount（退款金額）</strong>、<strong>請於出境時接受海關確認</strong>。
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- J-TaxRefund -->
-                    <div class="tax-platform-card">
-                        <div class="tax-platform-header jtaxrefund">
-                            <span>🔵 J-TaxRefund</span>
-                            <span class="tax-platform-badge">Outlet/運動品牌/百貨</span>
-                        </div>
-                        <div class="tax-platform-body">
-                            <div>
-                                <p style="margin:0 0 8px 0;">🌐 <strong>官方網站：</strong><a href="https://j-taxrefund.com" target="_blank"><strong>j-taxrefund.com</strong></a></p>
-                                <strong>📌 操作 6 步驟：</strong>
-                                <ol>
-                                    <li>打開 <a href="https://j-taxrefund.com" target="_blank">j-taxrefund.com</a></li>
-                                    <li>用 Email 註冊帳號</li>
-                                    <li><span class="highlight">到信箱收「登入 ID」</span>（收不到請查垃圾郵件）</li>
-                                    <li>使用<strong>「登入 ID ＋ 密碼」</strong>登入平台</li>
-                                    <li>填寫護照資料與英文地址</li>
-                                    <li>買完後掃描紙本單據上的<strong>官方 QR Code</strong>，回平台查看「免稅適用金額」與「待退稅」清單</li>
-                                </ol>
-                            </div>
-                            <div class="tax-platform-note">
-                                ⚠️ <strong>一定要記得：</strong><br>
-                                • 最特別之處：<strong>不是用 Email 登入，而是用信箱收到的「登入 ID」登入！</strong>建議把登入 ID 截圖或記事本存起來。
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Global Blue -->
-                    <div class="tax-platform-card">
-                        <div class="tax-platform-header globalblue">
-                            <span>🌐 Global Blue</span>
-                            <span class="tax-platform-badge">大丸/友都八喜/高島屋/三越</span>
-                        </div>
-                        <div class="tax-platform-body">
-                            <div>
-                                <p style="margin:0 0 8px 0;">📱 <strong>專用 App：</strong><code>Global Blue – Shop Tax Free</code>（英/日文）</p>
-                                <strong>📌 操作 4 步驟：</strong>
-                                <ol>
-                                    <li><strong>結帳出示護照，付含稅價：</strong>同店同日未稅滿 ¥5,000；無紙本退稅單，店家直接將購買紀錄上傳系統。</li>
-                                    <li><strong>登記退款方式：</strong>掃店家給的 QR Code 或 Email 連結填卡號，或使用 App 綁定。</li>
-                                    <li><strong>出境前到海關 KIOSK 刷護照：</strong><span class="highlight">行李托運前</span>、購買 90 天內、<strong>商品帶在身上</strong>（一筆交易少一件，整筆不退！）。</li>
-                                    <li><strong>等退款：</strong>退至信用卡/簽帳卡/電子錢包（最單純免額外費用）。</li>
-                                </ol>
-                            </div>
-                            <div class="tax-platform-note" style="border-left-color:#0984e3;">
-                                🏢 <strong>札幌實用特報（市區領現金）：</strong><br>
-                                <strong>友都八喜（Yodobashi 札幌店等 11 家門市）</strong>支援市區領現！連在別家 Global Blue 加盟店（如<strong>大丸札幌店</strong>）買的也能帶<strong>商品、收據、護照</strong>去辦（需壓信用卡擔保，建議直接退信用卡最划算單純）。
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. 結帳後現場必做 & 兩種登記方式 -->
-                <h4 class="tax-sub-title">📸 四、結帳後現場必做 4 件事 ＆ 兩種完成登記方式</h4>
-                <div class="tax-prep-grid">
-                    <div class="tax-prep-box prep-warn">
-                        <h4>🚨 買完當下一定要先做這 4 件事！</h4>
-                        <ul>
-                            <li>✔️ <strong>當場拍清楚退稅 QR Code：</strong>無論是櫃台螢幕顯示（JPrefund）或紙本退稅單據（J-TaxRefund）。</li>
-                            <li>✔️ <strong>把 Transaction ID / 交易序號一起拍下：</strong>萬一 QR Code 反光或模糊，還能手動輸入序號補救。</li>
-                            <li>✔️ <strong>若當下沒空掃，先保存照片：</strong>回飯店或搭車時再打開平台補登記即可。</li>
-                            <li>❌ <strong>千萬不要只拍一般消費收據：</strong>一般收據無法用來退稅，重點是<strong>退稅平台給的 QR Code / 序號</strong>！</li>
-                        </ul>
-                    </div>
-                    <div class="tax-prep-box">
-                        <h4>📲 怎麼完成登記？（JPrefund 的單去 JPrefund；J-TaxRefund 去 J-TaxRefund）</h4>
-                        <ul>
-                            <li><strong>方式 A｜掃描 QR Code：</strong>① 打開對應平台 ➔ ② 掃描官方 QR Code ➔ ③ 核對店家、金額、退稅額 ➔ ④ 送出後查看狀態。</li>
-                            <li><strong>方式 B｜手動輸入序號：</strong>① 找到單據/畫面上的 Transaction ID 序號 ➔ ② 在平台輸入 ➔ ③ 核對資料 ➔ ④ 完成登記。</li>
-                            <li><strong>🔍 登記後看什麼？</strong>確認交易已出現、退款金額合理、狀態顯示<strong>「待處理 / 待退稅 / 已確認」</strong>（出境前顯示待處理屬正常狀態！）。</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 5. 退稅手續費實算比較 -->
-                <h4 class="tax-sub-title">🧮 五、退稅手續費怎麼算？實算比一比（以購買含稅 ¥11,000 / 未稅 ¥10,000 為例）</h4>
-                <p style="font-size:0.88rem;color:#555;margin:0 0 12px 0;">
-                    💡 日本消費稅分為<strong>「一般商品 10%」</strong>與<strong>「食品/輕減稅率 8%」</strong>。各通路退稅手續費規定不同，出境海關確認後，退稅款會<strong>退還給原付款人</strong>：
-                </p>
-                <div class="tax-fee-grid">
-                    <div class="tax-fee-card fee-free">
-                        <div class="store-type">🟢 唐吉訶德、Bic Camera</div>
-                        <span class="fee-badge">免手續費（稅額全退）</span>
-                        <div style="font-size:0.82rem;color:#666;">買含稅 ¥11,000 預計退回</div>
-                        <div class="refund-amount">¥1,000</div>
-                        <div style="font-size:0.78rem;color:#7f8c8d;">10% 稅額全數退還最划算！</div>
-                    </div>
-                    <div class="tax-fee-card fee-pct">
-                        <div class="store-type">🔵 大丸、高島屋等百貨</div>
-                        <span class="fee-badge">扣 1.55% 退稅手續費</span>
-                        <div style="font-size:0.82rem;color:#666;">買含稅 ¥11,000 預計退回</div>
-                        <div class="refund-amount">¥845</div>
-                        <div style="font-size:0.78rem;color:#7f8c8d;">可搭配本頁大丸 5% 優惠券補血！</div>
-                    </div>
-                    <div class="tax-fee-card fee-fixed">
-                        <div class="store-type">🔴 3COINS 等定額店家</div>
-                        <span class="fee-badge">單筆固定扣 ¥320</span>
-                        <div style="font-size:0.82rem;color:#666;">買含稅 ¥11,000 預計退回</div>
-                        <div class="refund-amount">¥680</div>
-                        <div style="font-size:0.78rem;color:#7f8c8d;">適合集中單筆大額結帳較划算</div>
-                    </div>
-                </div>
-
-                <!-- 6. 出境前懶人檢查表 (互動可打勾) -->
-                <h4 class="tax-sub-title">☑️ 六、出境前懶人檢查表（點擊項目可打勾確認，避免漏掉！）</h4>
-                <div class="tax-checklist-grid">
-                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>1. 已完成 JPrefund / J-TaxRefund 平台註冊</span></div>
-                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>2. 護照資料（英文姓名/號碼）填寫正確</span></div>
-                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>3. 台灣英文地址已填好（中華郵政英譯）</span></div>
-                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>4. 註冊之 Email 測試可正常收信</span></div>
-                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>5. J-TaxRefund 的「登入 ID」已另外保存</span></div>
-                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>6. 每筆交易的退稅 QR Code / 序號都拍下了</span></div>
-                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>7. 所有單據皆已在「對應平台」完成登記</span></div>
-                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>8. 去機場出境前已再次登入確認各筆狀態</span></div>
-                    <div class="tax-check-item"><span class="tax-check-box">✓</span> <span>9. 護照、免稅商品、單據保留在身直到過海關</span></div>
-                </div>
-
-                <!-- 7. 10張退稅教學圖文懶人包原圖瀏覽 (點擊放大) -->
-                <h4 class="tax-sub-title">📱 七、日本退稅完整圖文懶人包（共 10 張，點擊圖片可全螢幕放大檢視）</h4>
-                <div class="coupon-grid">
-                    <!-- 01.jpg -->
-                    <div class="coupon-card">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">01. 日本退稅教學總覽</span>
-                            <span class="coupon-cat-badge">封面總覽 (1/8)</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="taxfund/01.jpg" data-title="01. 日本退稅教學：J-TaxRefund / JPrefund 完整圖文流程">
-                            <img src="taxfund/01.jpg" alt="01. 日本退稅教學總覽" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div class="coupon-desc">J-TaxRefund 與 JPrefund 櫃台畫面、紙本單據、手機登記紀錄對照與 6 步驟流程圖。</div>
-                            <button class="btn-view-barcode" data-src="taxfund/01.jpg" data-title="01. 日本退稅教學：J-TaxRefund / JPrefund 完整圖文流程">🔍 放大檢視教學圖</button>
-                        </div>
-                    </div>
-
-                    <!-- 02.jpg -->
-                    <div class="coupon-card">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">02. 出發前先準備</span>
-                            <span class="coupon-cat-badge">行前準備 (2/8)</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="taxfund/02.jpg" data-title="02. 出發前先準備：5大必備資料與英文地址查詢">
-                            <img src="taxfund/02.jpg" alt="02. 出發前先準備" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div class="coupon-desc">必備護照、Email、中華郵政中文地址英譯查詢方式，以及兩大平台註冊行前提醒。</div>
-                            <button class="btn-view-barcode" data-src="taxfund/02.jpg" data-title="02. 出發前先準備：5大必備資料與英文地址查詢">🔍 放大檢視教學圖</button>
-                        </div>
-                    </div>
-
-                    <!-- 03.jpg -->
-                    <div class="coupon-card">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">03. 兩家共同流程</span>
-                            <span class="coupon-cat-badge">共同流程 (3/8)</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="taxfund/03.jpg" data-title="03. 兩家共同流程：8步驟與3大重點提醒">
-                            <img src="taxfund/03.jpg" alt="03. 兩家共同流程" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div class="coupon-desc">從註冊帳號、店內辦理免稅、拍下 QR/序號、線上登記到海關確認的 8 大步驟詳解。</div>
-                            <button class="btn-view-barcode" data-src="taxfund/03.jpg" data-title="03. 兩家共同流程：8步驟與3大重點提醒">🔍 放大檢視教學圖</button>
-                        </div>
-                    </div>
-
-                    <!-- 04.jpg -->
-                    <div class="coupon-card">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">04. JPrefund 操作重點</span>
-                            <span class="coupon-cat-badge">JPrefund (4/8)</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="taxfund/04.jpg" data-title="04. JPrefund 操作重點 (jprefund.com)">
-                            <img src="taxfund/04.jpg" alt="04. JPrefund 操作重點" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div class="coupon-desc">打開 jprefund.com 註冊驗證、建立密碼、查看「免稅購買記錄」與待處理項目教學。</div>
-                            <button class="btn-view-barcode" data-src="taxfund/04.jpg" data-title="04. JPrefund 操作重點 (jprefund.com)">🔍 放大檢視教學圖</button>
-                        </div>
-                    </div>
-
-                    <!-- 05.jpg -->
-                    <div class="coupon-card">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">05. J-TaxRefund 操作重點</span>
-                            <span class="coupon-cat-badge">J-TaxRefund (5/8)</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="taxfund/05.jpg" data-title="05. J-TaxRefund 操作重點：登入 ID 會寄到 Email">
-                            <img src="taxfund/05.jpg" alt="05. J-TaxRefund 操作重點" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div class="coupon-desc">打開 j-taxrefund.com 註冊、到信箱收「登入 ID」、以 ID+密碼登入查看免稅紀錄清單。</div>
-                            <button class="btn-view-barcode" data-src="taxfund/05.jpg" data-title="05. J-TaxRefund 操作重點：登入 ID 會寄到 Email">🔍 放大檢視教學圖</button>
-                        </div>
-                    </div>
-
-                    <!-- 06.jpg -->
-                    <div class="coupon-card">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">06. 買完後必做這件事</span>
-                            <span class="coupon-cat-badge">拍照保存 (6/8)</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="taxfund/06.jpg" data-title="06. 買完後一定要先做這件事：拍清楚退稅 QR Code 與序號">
-                            <img src="taxfund/06.jpg" alt="06. 買完後必做這件事" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div class="coupon-desc">辨識櫃台自助機畫面與紙本單據上的官方 QR Code 及 Transaction ID，當場拍照防遺失。</div>
-                            <button class="btn-view-barcode" data-src="taxfund/06.jpg" data-title="06. 買完後一定要先做這件事：拍清楚退稅 QR Code 與序號">🔍 放大檢視教學圖</button>
-                        </div>
-                    </div>
-
-                    <!-- 07.jpg -->
-                    <div class="coupon-card">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">07. 怎麼完成退稅登記</span>
-                            <span class="coupon-cat-badge">登記教學 (7/8)</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="taxfund/07.jpg" data-title="07. 怎麼完成登記：方式 A 掃描 QR Code vs 方式 B 手動輸入序號">
-                            <img src="taxfund/07.jpg" alt="07. 怎麼完成退稅登記" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div class="coupon-desc">詳解「方式 A 掃描 QR Code」與「方式 B 手動輸入序號」，以及登記後必看 4 大核對重點。</div>
-                            <button class="btn-view-barcode" data-src="taxfund/07.jpg" data-title="07. 怎麼完成登記：方式 A 掃描 QR Code vs 方式 B 手動輸入序號">🔍 放大檢視教學圖</button>
-                        </div>
-                    </div>
-
-                    <!-- 08.jpg -->
-                    <div class="coupon-card">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">08. 出境前懶人檢查表</span>
-                            <span class="coupon-cat-badge">檢查表＆FAQ (8/8)</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="taxfund/08.jpg" data-title="08. 出境前懶人檢查表與常見問題 FAQ">
-                            <img src="taxfund/08.jpg" alt="08. 出境前懶人檢查表" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div class="coupon-desc">離境前最後 9 項確認清單與常見問題 FAQ（護照、商品、單據務必保留到離境過海關）。</div>
-                            <button class="btn-view-barcode" data-src="taxfund/08.jpg" data-title="08. 出境前懶人檢查表與常見問題 FAQ">🔍 放大檢視教學圖</button>
-                        </div>
-                    </div>
-
-                    <!-- 09.jpg -->
-                    <div class="coupon-card">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">09. 退稅手續費實算對照</span>
-                            <span class="coupon-cat-badge">加碼 +1</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="taxfund/09.jpg" data-title="09. 退稅不用自己算：各免稅店手續費與 ¥11,000 實退金額比較">
-                            <img src="taxfund/09.jpg" alt="09. 退稅手續費實算對照" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div class="coupon-desc">同樣買 ¥11,000：唐吉訶德/BicCamera 實退 ¥1,000、百貨扣 1.55% 退 ¥845、3COINS 退 ¥680。</div>
-                            <button class="btn-view-barcode" data-src="taxfund/09.jpg" data-title="09. 退稅不用自己算：各免稅店手續費與 ¥11,000 實退金額比較">🔍 放大檢視教學圖</button>
-                        </div>
-                    </div>
-
-                    <!-- 10.jpg -->
-                    <div class="coupon-card">
-                        <div class="coupon-card-header">
-                            <span class="coupon-store-title">10. Global Blue 怎麼退</span>
-                            <span class="coupon-cat-badge">加碼 +2</span>
-                        </div>
-                        <div class="coupon-img-wrapper" data-src="taxfund/10.jpg" data-title="10. Global Blue 怎麼退：大丸松坂屋/友都八喜/高島屋退稅指南">
-                            <img src="taxfund/10.jpg" alt="10. Global Blue 怎麼退" loading="lazy">
-                            <div class="coupon-zoom-overlay">🔍 點擊放大</div>
-                        </div>
-                        <div class="coupon-card-body">
-                            <div class="coupon-desc">百貨最常遇到的 Global Blue 4 步驟、海關 KIOSK 刷護照規定，以及友都八喜札幌店市區領現情報。</div>
-                            <button class="btn-view-barcode" data-src="taxfund/10.jpg" data-title="10. Global Blue 怎麼退：大丸松坂屋/友都八喜/高島屋退稅指南">🔍 放大檢視教學圖</button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="tips">
-            <strong>💡 行程小叮嚀：</strong><br>
-            1. 交通票券：建議單買函館到札幌的「北斗號」指定席車票即可，不一定要買 JR Pass。<br>
-            2. 冬季穿著：務必準備一雙防滑、防水的雪靴，以免在結冰路面滑倒。<br>
-            3. 一日團預訂：富良野/美瑛點燈一日團極熱門，建議出發前1-2個月提早線上預訂。<br>
-            4. 購物免稅：採購伴手禮或藥妝可直接出示本頁面<strong>【<a href="#sec-coupons">訪日旅客專屬購物優惠券</a>】</strong>，結帳前出示手機條碼享最高 18% 折扣！<br>
-            5. 日本退稅：結帳後務必拍下退稅 QR Code 與序號，並參考<strong>【<a href="#sec-taxrefund">日本退稅完整圖文攻略</a>】</strong>於出境托運前完成線上登記與海關確認！
-        </div>
+            <div class="disclaimer">實際畫面可能因店家或系統版本略有不同，請以現場與官方平台資訊為準。</div>
+        </section>
 
     </div>
 
-    <!-- 優惠券條碼放大出示專用彈窗 (Lightbox Modal) -->
-    <div id="image-modal" class="barcode-modal-overlay">
-        <div class="barcode-modal-box">
-            <div class="barcode-modal-header">
-                <div class="barcode-modal-title">
-                    <span>📱</span> <span id="modal-title">優惠券條碼放大</span>
-                </div>
-                <button type="button" class="barcode-modal-close-btn" id="close-modal" title="關閉視窗">&times;</button>
+    <!-- ===== 底部固定導覽列 ===== -->
+    <nav class="bottom-nav" aria-label="主要區塊導覽">
+        <div class="inner">
+            <a href="#sec-itinerary" data-goto="sec-itinerary" class="active"><span class="i">🗓️</span>行程</a>
+            <a href="#sec-shrines" data-goto="sec-shrines"><span class="i">⛩️</span>神社</a>
+            <a href="#sec-notices" data-goto="sec-notices"><span class="i">📌</span>注意</a>
+            <a href="#sec-coupons" data-goto="sec-coupons"><span class="i">🎟️</span>優惠券</a>
+            <a href="#sec-taxrefund" data-goto="sec-taxrefund"><span class="i">💴</span>退稅</a>
+        </div>
+    </nav>
+
+    <button type="button" class="to-top" id="to-top" title="回到頂端">▲</button>
+
+    <!-- ===== 圖片／條碼放大彈窗 ===== -->
+    <div id="image-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div class="modal-title" id="modal-title">圖片放大</div>
+                <button type="button" class="modal-close" id="close-modal" title="關閉">&times;</button>
             </div>
-            <div class="barcode-modal-tip">
-                💡 <strong>檢視秘訣：</strong>結帳掃碼請將手機螢幕調至最亮，上下滑動可查看完整內容；<strong>點擊圖片可再切換 150% 超大放大模式</strong>！
+            <div class="modal-tip">💡 掃碼請把螢幕調到最亮；點圖片可切換放大模式。</div>
+            <div class="modal-img-box">
+                <img id="modal-img" src="" alt="放大圖片">
             </div>
-            <div class="barcode-img-scroll-container">
-                <img id="modal-img" src="" alt="優惠券條碼大圖">
-            </div>
-            <div class="barcode-modal-footer">
-                <button type="button" class="btn-modal-close-bottom" id="close-modal-bottom">✕ 關閉條碼視窗</button>
+            <div class="modal-footer">
+                <button type="button" id="close-modal-bottom">✕ 關閉</button>
             </div>
         </div>
     </div>
 
     <script>
-        // 使用 jQuery 製作行程摺疊、分類篩選與圖片放大 Lightbox
-        $(document).ready(function () {
-            // 預設展開第一天的行程
-            $(".day-card:first .day-content").show();
-            $(".day-card:first .day-title .arrow").text("▲");
+        // 使用 jQuery 處理：卡片摺疊、區塊導覽、優惠券篩選、退稅分頁、檢查表、圖片放大
+        $(function () {
 
-            // 點擊卡片標題時展開或收合內容
-            $(".day-title").click(function () {
-                var content = $(this).next(".day-content");
-                var arrow = $(this).find(".arrow");
-
-                content.slideToggle(300);
-                if (arrow.text() === "▼") {
-                    arrow.text("▲");
+            // ---------- 卡片摺疊 ----------
+            function setCard($card, open) {
+                var $body = $card.children(".card-body");
+                if (open) {
+                    $card.addClass("open");
+                    $body.stop(true, true).slideDown(250);
                 } else {
-                    arrow.text("▼");
+                    $card.removeClass("open");
+                    $body.stop(true, true).slideUp(250);
+                }
+            }
+
+            $(document).on("click", ".card-head", function () {
+                var $card = $(this).closest(".card");
+                setCard($card, !$card.hasClass("open"));
+            });
+
+            // 預設展開 Day 1
+            $("#day1").addClass("open").children(".card-body").show();
+
+            $("#btn-expand-all").on("click", function () {
+                $("#sec-itinerary .card").each(function () { setCard($(this), true); });
+            });
+            $("#btn-collapse-all").on("click", function () {
+                $("#sec-itinerary .card").each(function () { setCard($(this), false); });
+            });
+
+            // ---------- 平滑捲動導覽（行程 Chip、底部導覽、內文連結） ----------
+            function scrollToEl($el) {
+                $("html, body").stop().animate({ scrollTop: $el.offset().top - 10 }, 400);
+            }
+
+            $(document).on("click", "[data-goto]", function (e) {
+                e.preventDefault();
+                var $target = $("#" + $(this).data("goto"));
+                if (!$target.length) return;
+
+                if ($target.hasClass("card")) {
+                    setCard($target, true);
+                } else if ($target.is("#sec-shrines")) {
+                    // 神社區塊：展開第一張卡
+                    var $first = $target.find(".card").first();
+                    if (!$first.hasClass("open")) setCard($first, true);
+                }
+                scrollToEl($target);
+            });
+
+            // ---------- 底部導覽高亮目前區塊＆回頂端按鈕 ----------
+            var sections = ["sec-itinerary", "sec-shrines", "sec-notices", "sec-coupons", "sec-taxrefund"];
+            var ticking = false;
+
+            function updateNav() {
+                var pos = $(window).scrollTop() + 120;
+                var current = sections[0];
+                $.each(sections, function (i, id) {
+                    var $s = $("#" + id);
+                    if ($s.length && $s.offset().top <= pos) current = id;
+                });
+                // 捲到底時，高亮最後一個
+                if ($(window).scrollTop() + $(window).height() >= $(document).height() - 4) {
+                    current = sections[sections.length - 1];
+                }
+                $(".bottom-nav a").removeClass("active");
+                $(".bottom-nav a[data-goto='" + current + "']").addClass("active");
+                $("#to-top").toggle($(window).scrollTop() > 500);
+                ticking = false;
+            }
+
+            $(window).on("scroll resize", function () {
+                if (!ticking) {
+                    ticking = true;
+                    window.requestAnimationFrame(updateNav);
                 }
             });
+            updateNav();
 
-            // 全部展開按鈕
-            $("#btn-expand-all").click(function () {
-                $(".day-content").slideDown(300);
-                $(".day-title .arrow").text("▲");
+            $("#to-top").on("click", function () {
+                $("html, body").stop().animate({ scrollTop: 0 }, 400);
             });
 
-            // 全部收合按鈕
-            $("#btn-collapse-all").click(function () {
-                $(".day-content").slideUp(300);
-                $(".day-title .arrow").text("▼");
-            });
-
-            // 快捷導航按鈕：點擊自動展開目標卡片並平滑滾動到目標位置
-            $("#btn-nav-notices").click(function (e) {
-                e.preventDefault();
-                var targetCard = $("#sec-notices");
-                var content = targetCard.find(".day-content");
-                var arrow = targetCard.find(".day-title .arrow");
-
-                content.slideDown(300);
-                arrow.text("▲");
-                $("html, body").animate({
-                    scrollTop: targetCard.offset().top - 20
-                }, 500);
-            });
-
-            $("#btn-nav-coupons, a[href='#sec-coupons']").click(function (e) {
-                e.preventDefault();
-                var targetCard = $("#sec-coupons");
-                var content = targetCard.find(".day-content");
-                var arrow = targetCard.find(".day-title .arrow");
-
-                content.slideDown(300);
-                arrow.text("▲");
-                $("html, body").animate({
-                    scrollTop: targetCard.offset().top - 20
-                }, 500);
-            });
-
-            $("#btn-nav-taxrefund, a[href='#sec-taxrefund']").click(function (e) {
-                e.preventDefault();
-                var targetCard = $("#sec-taxrefund");
-                var content = targetCard.find(".day-content");
-                var arrow = targetCard.find(".day-title .arrow");
-
-                content.slideDown(300);
-                arrow.text("▲");
-                $("html, body").animate({
-                    scrollTop: targetCard.offset().top - 20
-                }, 500);
-            });
-
-            // 出境前懶人檢查表點擊打勾切換
-            $(".tax-check-item").click(function () {
-                $(this).toggleClass("is-checked");
-            });
-
-            // 優惠券類別 Filter 篩選切換 (jQuery 動畫，限定於優惠券區塊內)
-            $(".filter-btn").click(function () {
+            // ---------- 優惠券篩選 ----------
+            $(".filter-btn").on("click", function () {
                 $(".filter-btn").removeClass("active");
                 $(this).addClass("active");
                 var filter = $(this).data("filter");
+                var $all = $("#sec-coupons .coupon");
 
                 if (filter === "all") {
-                    $("#sec-coupons .coupon-card").stop(true, true).fadeIn(250);
+                    $all.stop(true, true).fadeIn(200);
                 } else {
-                    $("#sec-coupons .coupon-card").stop(true, true).hide();
-                    $("#sec-coupons .coupon-card[data-category='" + filter + "']").stop(true, true).fadeIn(250);
+                    $all.stop(true, true).hide();
+                    $all.filter("[data-category='" + filter + "']").fadeIn(200);
                 }
             });
 
-            // 條碼放大彈窗控制 (以 Class 驅動，絕不殘留 opacity:0，保證每次彈出必有流暢放大動畫)
-            function openBarcodeModal(imgSrc, title) {
-                $("#modal-img").removeClass("is-zoomed").attr("src", imgSrc);
-                $("#modal-title").text(title || "優惠券條碼放大出示");
-                
-                // 滾動條重置至頂端
-                $(".barcode-img-scroll-container").scrollTop(0);
-                
-                // 加上 is-active 觸發彈窗彈出動畫與遮罩淡入
+            // ---------- 退稅平台分頁 ----------
+            $(".tab-btn").on("click", function () {
+                var tab = $(this).data("tab");
+                $(".tab-btn").removeClass("active");
+                $(this).addClass("active");
+                $(".tab-pane").removeClass("active");
+                $("#tab-" + tab).addClass("active");
+            });
+
+            // ---------- 出境前檢查表（localStorage 記住勾選狀態） ----------
+            var STORE_KEY = "hokkaido2026_taxChecklist";
+            var saved = {};
+            try { saved = JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch (err) { saved = {}; }
+
+            $("#tax-checklist .check-item").each(function () {
+                if (saved[$(this).data("key")]) $(this).addClass("is-checked");
+            });
+
+            $("#tax-checklist").on("click", ".check-item", function () {
+                $(this).toggleClass("is-checked");
+                saved[$(this).data("key")] = $(this).hasClass("is-checked");
+                try { localStorage.setItem(STORE_KEY, JSON.stringify(saved)); } catch (err) { }
+            });
+
+            // ---------- 圖片／條碼放大彈窗 ----------
+            function openModal(src, title) {
+                $("#modal-img").removeClass("is-zoomed").attr("src", src);
+                $("#modal-title").text(title || "圖片放大");
+                $(".modal-img-box").scrollTop(0).scrollLeft(0);
                 $("#image-modal").addClass("is-active");
                 $("body").css("overflow", "hidden");
             }
 
-            function closeBarcodeModal() {
-                // 移除 is-active 觸發平滑縮回與淡出動畫
+            function closeModal() {
                 $("#image-modal").removeClass("is-active");
-                $("body").css("overflow", "auto");
-                
-                // 等待退出動畫結束後重置縮放與清空圖片
+                $("body").css("overflow", "");
                 setTimeout(function () {
                     if (!$("#image-modal").hasClass("is-active")) {
                         $("#modal-img").removeClass("is-zoomed").attr("src", "");
                     }
-                }, 320);
+                }, 300);
             }
 
-            // 點擊優惠券圖片或「出示 / 放大條碼」按鈕時開啟條碼彈窗
-            $(document).on("click", ".coupon-img-wrapper, .btn-view-barcode", function (e) {
+            $(document).on("click", ".js-zoom", function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                var src = $(this).data("src");
-                var title = $(this).data("title");
-                if (!src) {
-                    var img = $(this).find("img");
-                    src = img.attr("src");
-                    title = img.attr("alt");
-                }
-                openBarcodeModal(src, title);
+                openModal($(this).data("src"), $(this).data("title"));
             });
 
-            // 點擊彈窗內的大圖：點擊可切換 150% 超大放大模式
-            $("#modal-img").click(function (e) {
+            $("#modal-img").on("click", function (e) {
                 e.stopPropagation();
                 $(this).toggleClass("is-zoomed");
             });
 
-            // 關閉按鈕事件 (頂部 X 按鈕與底部大按鈕)
-            $("#close-modal, #close-modal-bottom").click(function (e) {
+            $("#close-modal, #close-modal-bottom").on("click", function (e) {
                 e.preventDefault();
-                e.stopPropagation();
-                closeBarcodeModal();
+                closeModal();
             });
 
-            // 點擊背景遮罩關閉 (點擊彈窗內部白色區域不觸發)
-            $("#image-modal").click(function (e) {
-                if ($(e.target).is("#image-modal")) {
-                    closeBarcodeModal();
-                }
+            $("#image-modal").on("click", function (e) {
+                if ($(e.target).is("#image-modal")) closeModal();
             });
 
-            // 按 ESC 鍵關閉
-            $(document).keydown(function (e) {
-                if (e.key === "Escape" && $("#image-modal").hasClass("is-active")) {
-                    closeBarcodeModal();
-                }
+            $(document).on("keydown", function (e) {
+                if (e.key === "Escape" && $("#image-modal").hasClass("is-active")) closeModal();
             });
         });
     </script>
-
 </body>
 
 </html>
