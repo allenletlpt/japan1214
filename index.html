@@ -33,15 +33,15 @@
             font-family: '微軟正黑體', 'PingFang TC', 'Noto Sans TC', 'Helvetica Neue', Arial, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.7;
-            font-size: 15px;
+            line-height: 1.72;
+            font-size: 16.5px;
             margin: 0;
-            padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 10px);
+            padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 12px);
         }
 
         a { color: var(--accent-dark); text-decoration: none; }
         a:hover { text-decoration: underline; }
-        code { background: #eef2f7; padding: 0 5px; border-radius: 4px; font-size: .85em; }
+        code { background: #eef2f7; padding: 0 5px; border-radius: 4px; font-size: .88em; }
 
         .wrap {
             max-width: 860px;
@@ -60,8 +60,8 @@
             border-radius: 0 0 22px 22px;
             text-align: center;
         }
-        .hero h1 { margin: 0; font-size: 1.32rem; line-height: 1.4; letter-spacing: .5px; }
-        .hero .sub { font-size: .82rem; opacity: .9; margin-top: 4px; }
+        .hero h1 { margin: 0; font-size: 1.42rem; line-height: 1.4; letter-spacing: .5px; }
+        .hero .sub { font-size: .88rem; opacity: .92; margin-top: 4px; }
 
         .flight-grid {
             display: grid;
@@ -75,11 +75,11 @@
             border: 1px solid rgba(255, 255, 255, .25);
             border-radius: 12px;
             padding: 9px 10px;
-            font-size: .76rem;
+            font-size: .82rem;
             line-height: 1.5;
         }
-        .flight .lbl { font-weight: bold; font-size: .82rem; }
-        .flight .time { font-size: 1rem; font-weight: bold; margin: 2px 0; }
+        .flight .lbl { font-weight: bold; font-size: .86rem; }
+        .flight .time { font-size: 1.04rem; font-weight: bold; margin: 2px 0; }
 
         /* ===== 行程總覽 Day Chips（可橫向滑動） ===== */
         .chips {
@@ -101,18 +101,18 @@
             border-radius: 12px;
             padding: 6px 12px;
             text-align: center;
-            line-height: 1.3;
+            line-height: 1.35;
             box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
             color: var(--primary);
             cursor: pointer;
         }
-        .chip b { display: block; font-size: .9rem; color: var(--accent-dark); }
-        .chip span { font-size: .72rem; color: var(--muted); }
+        .chip b { display: block; font-size: .96rem; color: var(--accent-dark); }
+        .chip span { font-size: .78rem; color: var(--muted); }
         .chip:hover { text-decoration: none; border-color: var(--accent); }
 
         /* ===== 區塊標題 ===== */
         .section {
-            margin-top: 20px;
+            margin-top: 22px;
         }
         .section-head {
             display: flex;
@@ -123,7 +123,7 @@
         }
         .section-head h2 {
             margin: 0;
-            font-size: 1.12rem;
+            font-size: 1.2rem;
             color: var(--primary);
             border-left: 5px solid var(--accent);
             padding-left: 10px;
@@ -134,7 +134,7 @@
             background: #fff;
             border: 1px solid var(--line);
             color: var(--accent-dark);
-            font-size: .76rem;
+            font-size: .82rem;
             font-weight: bold;
             padding: 5px 10px;
             border-radius: 14px;
@@ -155,7 +155,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 11px 12px;
+            padding: 12px;
             cursor: pointer;
             user-select: none;
             -webkit-tap-highlight-color: transparent;
@@ -163,8 +163,8 @@
         .card-head:active { background: #f5f8fb; }
         .badge {
             flex: 0 0 auto;
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
             border-radius: 12px;
             background: var(--accent);
             color: #fff;
@@ -173,18 +173,18 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 1.05rem;
             line-height: 1.1;
         }
-        .badge small { font-size: .6rem; font-weight: normal; opacity: .9; }
-        .badge.emoji { background: #fdf2e9; font-size: 1.35rem; }
+        .badge small { font-size: .64rem; font-weight: normal; opacity: .92; }
+        .badge.emoji { background: #fdf2e9; font-size: 1.4rem; }
         .card-title { flex: 1; min-width: 0; }
-        .card-title .t { font-weight: bold; color: var(--primary); font-size: .98rem; line-height: 1.4; }
-        .card-title .d { font-size: .76rem; color: var(--muted); line-height: 1.4; margin-top: 1px; }
+        .card-title .t { font-weight: bold; color: var(--primary); font-size: 1.04rem; line-height: 1.4; }
+        .card-title .d { font-size: .84rem; color: var(--muted); line-height: 1.45; margin-top: 2px; }
         .arrow {
             flex: 0 0 auto;
             color: #94a3b8;
-            font-size: .75rem;
+            font-size: .8rem;
             transition: transform .3s;
         }
         .card.open > .card-head .arrow { transform: rotate(180deg); }
@@ -224,7 +224,7 @@
         }
         .tl-time {
             display: inline-block;
-            font-size: .72rem;
+            font-size: .8rem;
             font-weight: bold;
             color: var(--accent-dark);
             background: #e6f1fb;
@@ -232,25 +232,25 @@
             border-radius: 10px;
             line-height: 1.7;
         }
-        .tl-title { font-weight: bold; color: var(--primary); margin-top: 3px; line-height: 1.5; }
+        .tl-title { font-weight: bold; color: var(--primary); font-size: 1.03rem; margin-top: 4px; line-height: 1.5; }
         .tl-title a { color: var(--red); }
-        .tl-item p { margin: 3px 0 0; font-size: .9rem; }
+        .tl-item p { margin: 4px 0 0; font-size: .96rem; }
         .route {
             margin-top: 6px;
             background: #f6f8fa;
             border-left: 3px solid #a5b4c4;
             border-radius: 6px;
-            padding: 6px 9px;
-            font-size: .82rem;
-            color: #555;
-            line-height: 1.6;
+            padding: 7px 10px;
+            font-size: .88rem;
+            color: #444;
+            line-height: 1.65;
         }
         .tag {
             display: inline-block;
             background: var(--red);
             color: #fff;
-            font-size: .72rem;
-            padding: 0 8px;
+            font-size: .8rem;
+            padding: 0 9px;
             border-radius: 10px;
             margin-top: 5px;
             line-height: 1.8;
@@ -260,8 +260,8 @@
             background: #fff8e7;
             border-left: 3px solid var(--orange);
             border-radius: 6px;
-            padding: 7px 10px;
-            font-size: .84rem;
+            padding: 8px 10px;
+            font-size: .9rem;
             color: #6d5a2b;
         }
         .stay {
@@ -270,10 +270,10 @@
             border: 1px solid #d6e8fa;
             border-radius: 10px;
             padding: 10px 12px;
-            font-size: .85rem;
+            font-size: .92rem;
             line-height: 1.75;
         }
-        .stay .name { font-weight: bold; color: var(--primary); font-size: .92rem; }
+        .stay .name { font-weight: bold; color: var(--primary); font-size: .98rem; }
 
         /* ===== 原生 details 子摺疊 ===== */
         details.sub {
@@ -286,10 +286,10 @@
         details.sub > summary {
             list-style: none;
             cursor: pointer;
-            padding: 10px 12px;
+            padding: 11px 12px;
             font-weight: bold;
             color: var(--primary);
-            font-size: .92rem;
+            font-size: .98rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -300,19 +300,19 @@
         details.sub > summary::-webkit-details-marker { display: none; }
         details.sub > summary::after {
             content: '▼';
-            font-size: .68rem;
+            font-size: .72rem;
             color: #94a3b8;
             transition: transform .25s;
             flex-shrink: 0;
         }
         details.sub[open] > summary::after { transform: rotate(180deg); }
         details.sub[open] > summary { border-bottom: 1px solid var(--line); }
-        .sub-body { padding: 10px 12px 12px; font-size: .87rem; }
-        .sub-body h4 { margin: 12px 0 4px; font-size: .9rem; color: var(--primary); }
+        .sub-body { padding: 11px 12px 13px; font-size: .94rem; }
+        .sub-body h4 { margin: 12px 0 4px; font-size: .98rem; color: var(--primary); }
         .sub-body h4:first-child { margin-top: 0; }
         .sub-body p { margin: 4px 0; }
         .sub-body ul, .sub-body ol { padding-left: 18px; margin: 4px 0; }
-        .sub-body li { margin-bottom: 4px; }
+        .sub-body li { margin-bottom: 5px; }
 
         /* ===== 神社 ===== */
         .shrine {
@@ -320,16 +320,16 @@
             border-bottom: 1px dashed var(--line);
         }
         .shrine:last-child { border-bottom: 0; padding-bottom: 0; }
-        .shrine .name { font-weight: bold; color: var(--primary); }
+        .shrine .name { font-weight: bold; color: var(--primary); font-size: 1rem; }
         .shrine .name a { color: var(--red); }
-        .shrine p { margin: 2px 0 0; font-size: .87rem; }
-        .shrine .when { font-size: .76rem; color: var(--green); font-weight: bold; margin-top: 4px; }
+        .shrine p { margin: 3px 0 0; font-size: .93rem; }
+        .shrine .when { font-size: .84rem; color: var(--green); font-weight: bold; margin-top: 4px; }
 
         .intro {
             background: #e8f6f3;
             border-radius: 10px;
             padding: 10px 12px;
-            font-size: .86rem;
+            font-size: .93rem;
             margin-top: 10px;
             line-height: 1.7;
         }
@@ -343,12 +343,12 @@
             background: #f8fafc;
             border: 1px solid var(--line);
             border-radius: 10px;
-            padding: 8px 10px;
-            font-size: .78rem;
+            padding: 9px 10px;
+            font-size: .84rem;
             line-height: 1.45;
             position: relative;
         }
-        .mikuji b { display: block; color: var(--primary); font-size: .84rem; margin-bottom: 2px; }
+        .mikuji b { display: block; color: var(--primary); font-size: .92rem; margin-bottom: 2px; }
         .mikuji.on { background: #fff4f2; border-color: #f5b7b1; }
         .mikuji.on::after {
             content: '行程內';
@@ -357,7 +357,7 @@
             right: 6px;
             background: var(--red);
             color: #fff;
-            font-size: .62rem;
+            font-size: .68rem;
             padding: 0 6px;
             border-radius: 8px;
             line-height: 1.6;
@@ -365,29 +365,29 @@
 
         /* ===== 注意事項 ===== */
         .group-title {
-            font-size: .95rem;
+            font-size: 1rem;
             color: var(--primary);
-            margin: 16px 2px 8px;
+            margin: 14px 0 6px;
             font-weight: bold;
         }
-        .group-title:first-child { margin-top: 0; }
+        .group-title:first-child { margin-top: 8px; }
         .notice-list { display: grid; grid-template-columns: 1fr; gap: 8px; }
         .notice {
             display: flex;
             gap: 10px;
-            background: #fff;
+            background: #f9fbfd;
             border: 1px solid var(--line);
             border-left: 4px solid var(--accent);
             border-radius: 10px;
-            padding: 10px 12px;
+            padding: 9px 11px;
         }
         .notice.warn { border-left-color: var(--red); }
         .notice.tip { border-left-color: var(--orange); }
         .notice.money { border-left-color: var(--green); }
         .notice.snow { border-left-color: #0984e3; }
-        .notice .ic { font-size: 1.3rem; line-height: 1.3; flex-shrink: 0; }
-        .notice h4 { margin: 0 0 2px; font-size: .92rem; color: var(--primary); line-height: 1.45; }
-        .notice p { margin: 0; font-size: .84rem; color: #555; line-height: 1.6; }
+        .notice .ic { font-size: 1.3rem; line-height: 1.35; flex-shrink: 0; }
+        .notice h4 { margin: 0 0 2px; font-size: .98rem; color: var(--primary); line-height: 1.45; }
+        .notice p { margin: 0; font-size: .9rem; color: #555; line-height: 1.6; }
 
         /* ===== 優惠券（手機版為精簡橫式卡片） ===== */
         .info-bar {
@@ -395,7 +395,7 @@
             border-left: 4px solid var(--accent);
             border-radius: 8px;
             padding: 10px 12px;
-            font-size: .85rem;
+            font-size: .92rem;
             margin-bottom: 10px;
             line-height: 1.7;
         }
@@ -417,7 +417,7 @@
             border: 1px solid #ced6e0;
             padding: 6px 13px;
             border-radius: 18px;
-            font-size: .82rem;
+            font-size: .88rem;
             font-weight: bold;
             cursor: pointer;
             font-family: inherit;
@@ -452,14 +452,14 @@
             bottom: 3px;
             background: rgba(44, 62, 80, .8);
             border-radius: 6px;
-            font-size: .62rem;
+            font-size: .66rem;
             padding: 0 3px;
         }
         .coupon-info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-        .coupon-name { font-weight: bold; font-size: .9rem; color: var(--primary); line-height: 1.35; }
+        .coupon-name { font-weight: bold; font-size: .98rem; color: var(--primary); line-height: 1.35; }
         .coupon-cat {
             display: inline-block;
-            font-size: .64rem;
+            font-size: .72rem;
             background: #e2e8f0;
             color: #475569;
             padding: 0 6px;
@@ -468,9 +468,9 @@
             vertical-align: middle;
             font-weight: normal;
         }
-        .coupon-off { color: var(--red); font-weight: bold; font-size: .86rem; margin: 2px 0; line-height: 1.4; }
-        .coupon-desc { font-size: .76rem; color: #555; line-height: 1.55; }
-        .coupon-meta { font-size: .7rem; color: var(--muted); margin-top: 4px; }
+        .coupon-off { color: var(--red); font-weight: bold; font-size: .94rem; margin: 2px 0; line-height: 1.4; }
+        .coupon-desc { font-size: .84rem; color: #555; line-height: 1.55; }
+        .coupon-meta { font-size: .78rem; color: var(--muted); margin-top: 4px; }
         .btn-barcode {
             margin-top: auto;
             width: 100%;
@@ -478,15 +478,58 @@
             color: #fff;
             border: 0;
             border-radius: 8px;
-            padding: 7px;
+            padding: 8px;
             font-weight: bold;
-            font-size: .8rem;
+            font-size: .88rem;
             cursor: pointer;
             font-family: inherit;
         }
         .coupon-info .btn-barcode { margin-top: 8px; }
 
         /* ===== 退稅攻略 ===== */
+        .addr-card {
+            background: #fff;
+            border: 1px solid #bfdbfe;
+            border-left: 4px solid var(--accent);
+            border-radius: 10px;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+        }
+        .addr-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            font-size: .9rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .copy-btn {
+            flex-shrink: 0;
+            background: var(--accent);
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            padding: 5px 10px;
+            font-size: .82rem;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .copy-btn.copied { background: var(--green); }
+        .addr-text {
+            margin-top: 6px;
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 6px;
+            padding: 7px 9px;
+            font-size: .88rem;
+            font-family: Consolas, 'Courier New', monospace;
+            color: #1e293b;
+            word-break: break-word;
+            user-select: all;
+        }
+
         .flow {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -503,18 +546,18 @@
         }
         .flow-step .n {
             display: inline-block;
-            width: 18px;
-            height: 18px;
-            line-height: 18px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
             border-radius: 50%;
             background: var(--accent);
             color: #fff;
-            font-size: .66rem;
+            font-size: .72rem;
             font-weight: bold;
         }
-        .flow-step .e { display: block; font-size: 1.2rem; margin: 2px 0; }
-        .flow-step .l { font-size: .78rem; font-weight: bold; color: var(--primary); }
-        .flow-step .s { font-size: .66rem; color: var(--muted); }
+        .flow-step .e { display: block; font-size: 1.25rem; margin: 2px 0; }
+        .flow-step .l { font-size: .84rem; font-weight: bold; color: var(--primary); }
+        .flow-step .s { font-size: .74rem; color: var(--muted); }
         .flow-step .s.r { color: var(--red); font-weight: bold; }
 
         .tabs { display: flex; gap: 6px; margin: 4px 0 10px; }
@@ -525,13 +568,13 @@
             background: #fff;
             border-radius: 10px;
             font-weight: bold;
-            font-size: .8rem;
+            font-size: .86rem;
             color: #475569;
             cursor: pointer;
             font-family: inherit;
             line-height: 1.3;
         }
-        .tab-btn small { display: block; font-size: .64rem; font-weight: normal; opacity: .85; }
+        .tab-btn small { display: block; font-size: .72rem; font-weight: normal; opacity: .88; }
         .tab-btn.active[data-tab="jp"] { background: #c0392b; border-color: #c0392b; color: #fff; }
         .tab-btn.active[data-tab="jt"] { background: #0984e3; border-color: #0984e3; color: #fff; }
         .tab-btn.active[data-tab="gb"] { background: #0a3d62; border-color: #0a3d62; color: #fff; }
@@ -541,17 +584,17 @@
             border: 1px solid var(--line);
             border-radius: 12px;
             padding: 12px;
-            font-size: .86rem;
+            font-size: .94rem;
         }
         .tab-pane.active { display: block; }
         .tab-pane ol { padding-left: 18px; margin: 6px 0; }
-        .tab-pane li { margin-bottom: 5px; line-height: 1.6; }
+        .tab-pane li { margin-bottom: 5px; line-height: 1.65; }
         .tab-pane .note {
             background: #f8fafc;
             border-left: 3px solid var(--red);
             border-radius: 6px;
-            padding: 7px 10px;
-            font-size: .8rem;
+            padding: 8px 10px;
+            font-size: .88rem;
             margin-top: 8px;
         }
         .tab-pane .note.blue { border-left-color: #0984e3; }
@@ -565,9 +608,9 @@
             text-align: center;
             line-height: 1.35;
         }
-        .fee .st { font-size: .74rem; font-weight: bold; color: var(--primary); }
-        .fee .fb { display: inline-block; font-size: .64rem; padding: 0 6px; border-radius: 8px; margin: 3px 0; font-weight: bold; }
-        .fee .amt { font-size: 1.25rem; font-weight: bold; }
+        .fee .st { font-size: .8rem; font-weight: bold; color: var(--primary); }
+        .fee .fb { display: inline-block; font-size: .7rem; padding: 0 6px; border-radius: 8px; margin: 3px 0; font-weight: bold; }
+        .fee .amt { font-size: 1.15rem; font-weight: bold; }
         .fee.free .fb { background: #d4edda; color: #155724; }
         .fee.pct .fb { background: #cce5ff; color: #004085; }
         .fee.fix .fb { background: #f8d7da; color: #721c24; }
@@ -583,16 +626,16 @@
             background: #fff;
             border: 1px solid var(--line);
             border-radius: 10px;
-            padding: 9px 12px;
-            font-size: .86rem;
+            padding: 10px 12px;
+            font-size: .94rem;
             cursor: pointer;
             user-select: none;
             -webkit-tap-highlight-color: transparent;
             transition: all .2s;
         }
         .check-box {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border: 2px solid #cbd5e1;
             border-radius: 5px;
             flex-shrink: 0;
@@ -600,15 +643,15 @@
             align-items: center;
             justify-content: center;
             color: #fff;
-            font-size: .75rem;
+            font-size: .82rem;
         }
         .check-item.is-checked { background: #e8f8f5; border-color: #a9dfbf; color: #1e8449; }
         .check-item.is-checked .check-box { background: var(--green); border-color: var(--green); }
         .check-item.is-checked .check-box::after { content: '✓'; }
         .check-item.is-checked .txt { text-decoration: line-through; }
 
-        .small-title { font-size: .95rem; color: var(--primary); font-weight: bold; margin: 16px 2px 8px; }
-        .disclaimer { font-size: .76rem; color: var(--muted); margin-top: 12px; text-align: center; }
+        .small-title { font-size: 1.02rem; color: var(--primary); font-weight: bold; margin: 16px 2px 8px; }
+        .disclaimer { font-size: .82rem; color: var(--muted); margin-top: 12px; text-align: center; }
 
         /* ===== 底部固定導覽列 ===== */
         .bottom-nav {
@@ -631,7 +674,7 @@
             align-items: center;
             justify-content: center;
             gap: 2px;
-            font-size: .68rem;
+            font-size: .74rem;
             color: var(--muted);
             -webkit-tap-highlight-color: transparent;
         }
@@ -734,11 +777,11 @@
 
         /* ===== 平板／桌機（寬螢幕加強排版） ===== */
         @media (min-width: 640px) {
-            body { font-size: 16px; }
+            body { font-size: 17px; }
             .wrap { padding: 0 20px 30px; }
             .hero { margin: 0 -20px 16px; padding: 30px 24px 22px; }
-            .hero h1 { font-size: 1.7rem; }
-            .flight { font-size: .85rem; }
+            .hero h1 { font-size: 1.75rem; }
+            .flight { font-size: .9rem; }
             .chips { margin: 0; padding-left: 2px; padding-right: 2px; flex-wrap: wrap; }
             .chip { flex: 1 1 0; }
             .mikuji-grid { grid-template-columns: repeat(3, 1fr); }
@@ -770,8 +813,8 @@
                 </div>
                 <div class="flight">
                     <div class="lbl">🛬 回程 12/19 (六)</div>
-                    <div class="time">14:40 ➜ 18:00</div>
-                    新千歲 ➜ 桃園<br>星宇航空 JX851
+                    <div class="time">14:40 ➜ 18:15</div>
+                    札幌 T1 ➜ 桃園 T2<br>中華航空 CI 0131
                 </div>
             </div>
         </header>
@@ -1092,7 +1135,7 @@
                     <div class="badge"><small>DAY</small>6</div>
                     <div class="card-title">
                         <div class="t">機場血拚，滿載而歸</div>
-                        <div class="d">12/19 (六)｜新千歲機場・14:40 起飛</div>
+                        <div class="d">12/19 (六)｜新千歲機場・華航 CI 0131 (14:40)</div>
                     </div>
                     <span class="arrow">▼</span>
                 </div>
@@ -1110,7 +1153,8 @@
                         </div>
                         <div class="tl-item">
                             <span class="tl-time">12:30 報到・14:40 起飛</span>
-                            <div class="tl-title">國際線航廈辦理報到，搭機返台</div>
+                            <div class="tl-title">中華航空 CI 0131 返台（14:40–18:15）</div>
+                            <p>新千歲（札幌）第 1 航廈國際線報到出發 ➜ 抵達桃園機場第 2 航廈。</p>
                             <div class="tip-box">💴 <strong>新千歲退稅動線：</strong><br>
                             ① <strong>託運前（國際線 3F）：</strong>帶免稅商品至<strong>實體審查機台</strong>完成退稅資格審查。<br>
                             ② <strong>安檢後（69 號登機門旁）：</strong>退現金機台僅 <strong>CASH JAPAN</strong> 一處；走線上退卡者依平台通知退款。詳見 <a href="#sec-taxrefund" data-goto="sec-taxrefund">退稅攻略</a>。</div>
@@ -1201,116 +1245,93 @@
         </section>
 
         <!-- ================================================= -->
-        <!-- 📌 實用技巧＆避坑指南（依主題分類） -->
+        <!-- 📌 實用技巧＆避坑指南（預設收合，不佔版面） -->
         <!-- ================================================= -->
         <section class="section" id="sec-notices">
             <div class="section-head">
                 <h2>📌 實用技巧＆避坑指南</h2>
             </div>
 
-            <div class="group-title">🚆 交通與行程規劃</div>
-            <div class="notice-list">
-                <div class="notice warn">
-                    <div class="ic">🚫</div>
-                    <div>
-                        <h4>不要盲目買 JR PASS</h4>
-                        <p>景點集中在函館、札幌、小樽，單買「北斗號」指定席更划算；長程跑多個跨區大景點才需考慮周遊券。</p>
+            <div class="card" id="card-notices">
+                <div class="card-head">
+                    <div class="badge emoji">💡</div>
+                    <div class="card-title">
+                        <div class="t">行前必看・避坑重點（點此展開）</div>
+                        <div class="d">交通票券・防滑雪靴・景點與購物撇步（看過一次即可）</div>
                     </div>
+                    <span class="arrow">▼</span>
                 </div>
-                <div class="notice warn">
-                    <div class="ic">🗺️</div>
-                    <div>
-                        <h4>不要一天硬衝多個城市</h4>
-                        <p>北海道超遼闊，跨城雪地移動極耗體力，一天一個重點區域剛剛好。</p>
+                <div class="card-body">
+                    <div class="group-title">🚆 交通與行程</div>
+                    <div class="notice-list">
+                        <div class="notice warn">
+                            <div class="ic">🚫</div>
+                            <div>
+                                <h4>不需盲買 JR PASS</h4>
+                                <p>主要移動在函館、札幌、小樽，單買「北斗號」指定席更省錢。</p>
+                            </div>
+                        </div>
+                        <div class="notice warn">
+                            <div class="ic">🗺️</div>
+                            <div>
+                                <h4>一天一區不趕跨城</h4>
+                                <p>北海道幅員遼闊、冬季移動耗時，一天專注一個區域最舒適。</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="notice warn">
-                    <div class="ic">🌫️</div>
-                    <div>
-                        <h4>函館夜景看天氣再出門</h4>
-                        <p>秋冬山頂易起大霧，出發前看氣象與即時影像，天候不佳就改行程。</p>
-                    </div>
-                </div>
-                <div class="notice tip">
-                    <div class="ic">📅</div>
-                    <div>
-                        <h4>一日遊巴士團提早訂</h4>
-                        <p>富良野／美瑛點燈一日團極熱門，建議出發前 1–2 個月預訂。</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="group-title">📸 景點避坑</div>
-            <div class="notice-list">
-                <div class="notice tip">
-                    <div class="ic">🌃</div>
-                    <div>
-                        <h4>小樽運河別白天擠人潮</h4>
-                        <p>白天團客多，傍晚至夜晚 63 座瓦斯燈點亮，雪中運河最浪漫上相。</p>
+                    <div class="group-title">📸 景點與美食</div>
+                    <div class="notice-list">
+                        <div class="notice tip">
+                            <div class="ic">🌫️</div>
+                            <div>
+                                <h4>出發函館山先查即時影像</h4>
+                                <p>冬季山頂極易起霧，確認能見度再搭纜車上山。</p>
+                            </div>
+                        </div>
+                        <div class="notice tip">
+                            <div class="ic">🦀</div>
+                            <div>
+                                <h4>海鮮進傳統市場或巷弄吃</h4>
+                                <p>避開觀光大街高價店，函館朝市、小樽三角市場新鮮又實惠。</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="notice tip">
-                    <div class="ic">🏰</div>
-                    <div>
-                        <h4>白色戀人公園別只逛免費區</h4>
-                        <p>付費園區（玻璃屋、工廠見學走廊）才是精華，還有限定甜點與伴手禮。</p>
-                    </div>
-                </div>
-                <div class="notice tip">
-                    <div class="ic">🦀</div>
-                    <div>
-                        <h4>海鮮別只吃觀光大街店</h4>
-                        <p>避開觀光客高價店，走進函館朝市、小樽三角市場或巷弄食堂，新鮮又實惠。</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="group-title">🛍️ 購物與金錢</div>
-            <div class="notice-list">
-                <div class="notice tip">
-                    <div class="ic">🛍️</div>
-                    <div>
-                        <h4>狸小路別瘋狂購物</h4>
-                        <p>觀光客爆滿、部分標價偏高；札幌站周邊 BicCamera、大丸或在地超市品項齊、折扣大。</p>
+                    <div class="group-title">🛍️ 購物與金錢</div>
+                    <div class="notice-list">
+                        <div class="notice tip">
+                            <div class="ic">🛍️</div>
+                            <div>
+                                <h4>大量採買去札幌站周邊</h4>
+                                <p>狸小路遊客多、部分標價偏高；札幌站 BicCamera、大丸或超市常更划算。</p>
+                            </div>
+                        </div>
+                        <div class="notice money">
+                            <div class="ic">🕒</div>
+                            <div>
+                                <h4>百貨櫃台避開 17:00 後尖峰</h4>
+                                <p>下午 3 點左右人最少；郊區、神社、小吃攤請隨身備足日幣現金。</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="notice money">
-                    <div class="ic">🎫</div>
-                    <div>
-                        <h4>結帳前出示遊客優惠券</h4>
-                        <p>免稅 10% 再折 3%～8%，條碼都在下方 <a href="#sec-coupons" data-goto="sec-coupons">購物優惠券</a>。</p>
-                    </div>
-                </div>
-                <div class="notice money">
-                    <div class="ic">🕒</div>
-                    <div>
-                        <h4>百貨退稅黃金時間：下午 3 點</h4>
-                        <p>傍晚 5 點後或打烊前免稅櫃台常大排長龍，下午 3 點左右人最少。</p>
-                    </div>
-                </div>
-                <div class="notice money">
-                    <div class="ic">💴</div>
-                    <div>
-                        <h4>隨身備足日幣現金</h4>
-                        <p>郊區景點、溫泉旅館、神社御守、拉麵小店大多只收現金。</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="group-title">❄️ 冬季與生活</div>
-            <div class="notice-list">
-                <div class="notice snow">
-                    <div class="ic">🥾</div>
-                    <div>
-                        <h4>不要穿一般平底雪靴</h4>
-                        <p>路面常有透明「黑冰」，務必穿深紋防滑大底雪靴，或在便利商店加購防滑冰爪。</p>
-                    </div>
-                </div>
-                <div class="notice tip">
-                    <div class="ic">🗑️</div>
-                    <div>
-                        <h4>街頭幾乎沒有垃圾桶</h4>
-                        <p>隨身帶小垃圾袋，回飯店或利用便利商店分類垃圾桶丟棄。</p>
+                    <div class="group-title">❄️ 冬季與生活</div>
+                    <div class="notice-list">
+                        <div class="notice snow">
+                            <div class="ic">🥾</div>
+                            <div>
+                                <h4>必穿深紋防滑雪靴</h4>
+                                <p>路面常見透明「黑冰」，切勿穿一般平底雪靴，必要時便利商店買冰爪套。</p>
+                            </div>
+                        </div>
+                        <div class="notice tip">
+                            <div class="ic">🗑️</div>
+                            <div>
+                                <h4>隨身帶小垃圾袋</h4>
+                                <p>日本街頭幾乎沒有垃圾桶，垃圾收好帶回飯店或超商分類丟棄。</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1486,39 +1507,40 @@
 
             <div class="info-bar red">
                 ⚠️ <strong>三大鐵則</strong><br>
-                ① 店家用哪家退稅公司，就去<strong>哪家平台登記</strong>（不能自選）。<br>
-                ② 結帳後<strong>當場保留明細 QR Code＋Transaction ID</strong>（若選 J-TaxRefund 退現金則無須掃碼註冊）。<br>
-                ③ 出境<strong>託運前</strong>先至<strong>新千歲國際線 3F 實體機台</strong>審查資格，退現金請至安檢後 <strong>69 號登機門旁 CASH JAPAN</strong>。
+                ① 依店家配合的退稅平台辦理（不能自選）。<br>
+                ② 保留結帳取得的<strong>明細 QR Code＋Transaction ID</strong>。<br>
+                ③ 出境<strong>託運前</strong>至<strong>新千歲國際線 3F 實體審查機台</strong>；領現至安檢後 <strong>69 號登機門旁 CASH JAPAN</strong>。
+            </div>
+
+            <div class="addr-card">
+                <div class="addr-head">
+                    <span>🏠 我的台灣英文地址（註冊貼上用）</span>
+                    <button type="button" class="copy-btn" id="btn-copy-addr" data-copy="5 F.-8, No. 8, Nanya E. Rd., Banqiao Dist., New Taipei City 220053, Taiwan (R.O.C.)">📋 複製</button>
+                </div>
+                <div class="addr-text">5 F.-8, No. 8, Nanya E. Rd., Banqiao Dist., New Taipei City 220053, Taiwan (R.O.C.)</div>
             </div>
 
             <div class="flow">
-                <div class="flow-step"><span class="n">1</span><span class="e">👤</span><div class="l">註冊帳號</div><div class="s">護照＋英文地址</div></div>
+                <div class="flow-step"><span class="n">1</span><span class="e">👤</span><div class="l">註冊帳號</div><div class="s">護照＋地址</div></div>
                 <div class="flow-step"><span class="n">2</span><span class="e">🛒</span><div class="l">購物免稅</div><div class="s">出示護照</div></div>
-                <div class="flow-step"><span class="n">3</span><span class="e">📸</span><div class="l">拍 QR/序號</div><div class="s r">當場拍照</div></div>
-                <div class="flow-step"><span class="n">4</span><span class="e">💻</span><div class="l">線上登記</div><div class="s">掃碼或輸入</div></div>
-                <div class="flow-step"><span class="n">5</span><span class="e">🛂</span><div class="l">海關確認</div><div class="s r">3F 託運前</div></div>
-                <div class="flow-step"><span class="n">6</span><span class="e">💰</span><div class="l">領取退款</div><div class="s">退卡／69號門</div></div>
+                <div class="flow-step"><span class="n">3</span><span class="e">📸</span><div class="l">拍 QR/序號</div><div class="s r">保留明細</div></div>
+                <div class="flow-step"><span class="n">4</span><span class="e">💻</span><div class="l">線上登記</div><div class="s">退現免掃碼</div></div>
+                <div class="flow-step"><span class="n">5</span><span class="e">🛂</span><div class="l">海關審查</div><div class="s r">3F 託運前</div></div>
+                <div class="flow-step"><span class="n">6</span><span class="e">💰</span><div class="l">領取退款</div><div class="s">JCB／69號門</div></div>
             </div>
 
-            <details class="sub" open>
-                <summary>📋 出發前先準備（建議在台灣先註冊）</summary>
+            <details class="sub">
+                <summary>📋 出發前必備資料（JPrefund／J-TaxRefund）</summary>
                 <div class="sub-body">
-                    <h4>✅ 必備資料</h4>
                     <ul>
-                        <li><strong>護照</strong>（依護照英文姓名填寫）</li>
-                        <li><strong>可收信的 Email</strong>（兩個平台都需要）</li>
-                        <li><strong>台灣英文地址</strong>：用 <a href="https://www.post.gov.tw/post/internet/Postal/index.jsp?ID=207" target="_blank">中華郵政「中文地址英譯」</a> 查詢</li>
-                        <li><strong>手機</strong>可拍照／掃 QR Code，並有<strong>網路</strong></li>
-                    </ul>
-                    <h4>💡 先記住這 2 點</h4>
-                    <ul>
-                        <li><span class="hl">J-TaxRefund</span> 的<strong>登入 ID 會寄到 Email</strong>，要另外存起來。</li>
-                        <li><strong>JPrefund</strong> 與 <strong>J-TaxRefund</strong> 都要先註冊，出國前或第一晚在飯店完成最順。</li>
+                        <li><strong>護照</strong>（依英文姓名填寫）、<strong>可收信 Email</strong>、<strong>手機＆網路</strong></li>
+                        <li><strong>台灣英文地址</strong>：直接複製上方地址卡片貼上即可</li>
+                        <li>建議出國前或第一晚在飯店先註冊好 <strong>JPrefund</strong> 與 <strong>J-TaxRefund</strong>；<span class="hl">J-TaxRefund 的「登入 ID」會寄到 Email</span>，記得另外存起來</li>
                     </ul>
                 </div>
             </details>
 
-            <div class="small-title">🏢 3 大退稅平台操作</div>
+            <div class="small-title">🏢 3 大退稅平台重點</div>
             <div class="tabs">
                 <button type="button" class="tab-btn active" data-tab="jp">JPrefund<small>連鎖/服飾</small></button>
                 <button type="button" class="tab-btn" data-tab="jt">J-TaxRefund<small>札幌藥妝/Outlet</small></button>
@@ -1528,90 +1550,67 @@
             <div class="tab-pane active" id="tab-jp">
                 🌐 <a href="https://jprefund.com" target="_blank"><strong>jprefund.com</strong></a>
                 <ol>
-                    <li>開啟網站，用 Email 註冊並完成驗證</li>
-                    <li>建立密碼，填寫護照資料與英文地址</li>
-                    <li>結帳時櫃台／自助機會顯示 <code>Transaction ID</code> 與 QR Code → <strong class="hl">立刻拍照</strong></li>
-                    <li>進入「免稅購買記錄」，看到「待處理」依指示完成登記</li>
+                    <li>用 Email 註冊驗證、設密碼，填護照與上方英文地址</li>
+                    <li>結帳拍下螢幕的 <code>Transaction ID</code> 與 QR Code</li>
+                    <li>進「免稅購買記錄」對「待處理」項目掃碼或輸入序號登記</li>
                 </ol>
-                <div class="note">🔍 <strong>畫面重點：</strong>待處理、Refund Amount（退款金額）、Transaction ID、「請於出境時接受海關確認」。</div>
+                <div class="note">🔍 確認畫面顯示：Refund Amount（退款金額）、Transaction ID、「請於出境時接受海關確認」。</div>
             </div>
 
             <div class="tab-pane" id="tab-jt">
                 🌐 <a href="https://j-taxrefund.com" target="_blank"><strong>j-taxrefund.com</strong></a><br>
-                <span style="font-size:.8rem;color:var(--muted);">配合店家：<strong>札幌藥妝</strong>、Outlet、運動／服飾品牌等</span>
+                <span style="font-size:.86rem;color:var(--muted);">配合店家：<strong>札幌藥妝</strong>、Outlet、運動／服飾品牌等</span>
                 <ol>
-                    <li>購物結帳後取得<strong>明細 QR Code</strong>（可回飯店或於 <strong class="hl">180 日內</strong> 登錄平台）。</li>
-                    <li><strong class="hl">退現金免註冊：</strong>如在<strong>札幌藥妝</strong>等配合店家採<strong>退現金</strong>方式，<strong>無須掃描註冊 QR Code</strong>！</li>
-                    <li>若需線上登錄：用 Email 註冊後，到信箱收「<strong class="hl">登入 ID</strong>」（收不到查垃圾郵件），以「登入 ID＋密碼」登入並填護照／英文地址。</li>
-                    <li>掃描明細／單據上的官方 QR Code，回平台查看「免稅適用金額」與「待退稅」紀錄。</li>
+                    <li><strong class="hl">退現金免掃碼：</strong>在<strong>札幌藥妝</strong>等配合店家選<strong>退現金</strong>者，<strong>無須掃描註冊明細 QR Code</strong>。</li>
+                    <li><strong class="hl">回飯店或 180 日內補登：</strong>若要線上退卡／查紀錄，用信箱收到的「<strong>登入 ID</strong>」＋密碼登入，再掃單據官方 QR Code 即可。</li>
                 </ol>
-                <div class="note">⚠️ <strong>兩大提醒：</strong>① 線上登入是用信箱收到的「<strong>登入 ID</strong>」（不是 Email）；② 未急著現場掃碼沒關係，<strong>180 日內</strong>皆可補登，但若選<strong>退現金則不用掃碼註冊</strong>。</div>
+                <div class="note">⚠️ 是用信箱收到的「<strong>登入 ID</strong>」登入（不是 Email），收不到記得查垃圾郵件。</div>
             </div>
 
             <div class="tab-pane" id="tab-gb">
-                📱 App：<code>Global Blue – Shop Tax Free</code>（僅簡中／英／日文）<br>
-                <span style="font-size:.8rem;color:var(--muted);">合作廣泛：大丸松坂屋、高島屋、三越伊勢丹、友都八喜、EDION 愛電王、SUGI 藥局、JINS/OWNDAYS/Zoff、全家等</span>
+                📱 App：<code>Global Blue – Shop Tax Free</code>（簡中／英／日文）<br>
+                <span style="font-size:.86rem;color:var(--muted);">大丸松坂屋、高島屋、三越伊勢丹、友都八喜、EDION 愛電王、SUGI 藥局、JINS/OWNDAYS/Zoff、全家等</span>
                 <ol>
-                    <li><strong>結帳出示護照，付含稅價：</strong>同店同日未稅滿 ¥5,000，無紙本退稅單，店家直接上傳紀錄（不用事前註冊也能先買／領現）。</li>
-                    <li><strong>設定退款方式：</strong>退現金免註冊直接去機場／友都八喜；若退信用卡，<strong>離境後 3 週內</strong>須設定完畢（3 個月內辦理），否則會寄虛擬預付卡。</li>
-                    <li><strong>出境前至機場實體審查：</strong><span class="hl">托運前</span>、購買 90 天內、商品帶在身上（一筆少一件整筆不退）。</li>
-                    <li><strong>實領退款：</strong>現金／<strong>JCB 信用卡</strong>最划算（詳見下方「退信用卡防匯損必看」）。</li>
+                    <li><strong>免註冊先購買：</strong>同店同日未稅滿 ¥5,000 出示護照，店家直接上傳紀錄（不用事前註冊）。</li>
+                    <li><strong>退現 vs 退卡：</strong>領現金免註冊直接去機場或友都八喜；退信用卡須於 <strong>離境後 3 週內</strong> 設定（3 個月內辦理），否則寄虛擬預付卡。</li>
+                    <li><strong>出境審查：</strong><span class="hl">託運前</span>帶商品過審查（90 天內離境，少一件整筆不退）。</li>
                 </ol>
-                <div class="note">🚨 <strong>Global Blue 退信用卡務必選「JCB 卡」！</strong><br>
-                選 VISA／MasterCard 會用極差匯率轉台幣（實拿約剩 9 成，連 Master 雙幣卡也少 ~5.5%）；選 <strong>JCB 卡（尤其 JCB 日圓雙幣卡）</strong> 可拿回近 100% 日幣！</div>
-                <div class="note blue">🏢 <strong>友都八喜札幌店（市區領現金）：</strong>別家 Global Blue 店（如大丸札幌）買的也能帶<strong>商品＋收據＋護照</strong>去辦。須綁定 <strong>VISA／Master 卡作擔保</strong>，手續費為退稅額 <strong>5%（最低 ¥150、最高 ¥500）</strong>；沒過海關會從卡扣回。</div>
+                <div class="note">🚨 <strong>退信用卡務必選「JCB 卡」：</strong>選 VISA／Master 會被超差匯率轉台幣（約少 10%）；選 <strong>JCB（尤其日圓雙幣卡）</strong> 可拿回近 100% 日幣！</div>
+                <div class="note blue">🏢 <strong>友都八喜札幌店（市區領現）：</strong>別家 Global Blue 店（如大丸札幌）買的也能帶<strong>商品＋收據＋護照</strong>去領。須綁 <strong>VISA／Master 卡擔保</strong>，收退稅額 <strong>5%（¥150～¥500）</strong>；未過海關會從卡扣回。</div>
             </div>
 
             <details class="sub">
-                <summary>📸 結帳後必做＆兩種登記方式</summary>
+                <summary>📸 結帳後兩種登記方式（非退現金時）</summary>
                 <div class="sub-body">
-                    <h4>🚨 買完當下</h4>
                     <ul>
-                        <li>保留並拍清楚<strong>明細／退稅 QR Code</strong>（櫃台螢幕或紙本單據）</li>
-                        <li><strong>Transaction ID／序號</strong>一起拍，QR 模糊時可手動輸入</li>
-                        <li><strong>J-TaxRefund 免趕現場：</strong>可回飯店或於 <strong>180 日內</strong> 登錄；若於札幌藥妝等選<strong>退現金，無須掃描註冊 QR Code</strong></li>
-                        <li>❌ 不要只拍沒有退稅碼的一般消費收據</li>
-                    </ul>
-                    <h4>📲 方式 A｜掃描 QR Code</h4>
-                    <p>打開對應平台 ➜ 掃官方 QR ➜ 核對店家／金額／退稅額 ➜ 送出看狀態</p>
-                    <h4>⌨️ 方式 B｜手動輸入序號</h4>
-                    <p>找到 Transaction ID ➜ 在平台輸入 ➜ 核對資料 ➜ 完成登記</p>
-                    <h4>🔍 登記後確認</h4>
-                    <p>交易有出現、退款金額合理、狀態為「待處理／待退稅／已確認」（出境前顯示<strong>待處理屬正常</strong>）。</p>
-                </div>
-            </details>
-
-            <details class="sub" open>
-                <summary>✈️ 新千歲機場退稅審查＆退現金位置</summary>
-                <div class="sub-body">
-                    <h4>1️⃣ 託運前｜退稅資格審查</h4>
-                    <ul>
-                        <li><strong>地點：</strong><strong class="hl">新千歲機場 國際線航廈 3F 實體審查機台</strong></li>
-                        <li><strong>時機：</strong><strong>行李託運前</strong>先刷護照判定紅綠燈（綠燈可直接託運，紅燈須攜商品至海關人工抽查）。</li>
-                    </ul>
-                    <h4>2️⃣ 安檢後｜退現金機台（Cash JAPAN）</h4>
-                    <ul>
-                        <li><strong>地點：</strong><strong class="hl">安檢後 69 號登機門旁（僅此「CASH JAPAN」機台）</strong></li>
-                        <li><strong>服務時間：</strong>人工櫃台 07:00–20:00 ／ 自助機 <strong>06:00–20:30</strong>；單筆退稅上限 10 萬日圓，只需護照免收據（約 1 分鐘完成）。</li>
-                        <li><strong>支援公司：</strong>僅 4 家（<code>J-TaxRefund</code>、<code>JPrefund</code>、<code>Global Blue</code>、<code>IntaSect</code>；無 PIE VAT）。</li>
-                        <li><strong>機場領現服務費：</strong>另扣退稅額 <strong>10%</strong>（單筆<strong>最低 ¥100、最高 ¥500</strong>，以 ¥50 為單位四捨五入）。</li>
+                        <li><strong>方式 A 掃 QR Code：</strong>打開對應平台 ➜ 掃明細官方 QR ➜ 核對金額送出。</li>
+                        <li><strong>方式 B 手動輸入序號：</strong>輸入單據上的 <code>Transaction ID</code> ➜ 核對資料完成。</li>
+                        <li>出境前狀態顯示「待處理／待退稅」屬正常；切勿只拍無退稅碼的一般收據。</li>
                     </ul>
                 </div>
             </details>
 
             <details class="sub" open>
-                <summary>💳 退信用卡 vs 領現金攻略（必看防匯損！）</summary>
+                <summary>✈️ 新千歲機場退稅審查＆領現金位置</summary>
                 <div class="sub-body">
-                    <h4>🚨 Global Blue 退卡務必選「JCB 卡」</h4>
+                    <h4>1️⃣ 託運前｜國際線 3F 實體審查機台</h4>
+                    <p>帶免稅商品先刷護照判定紅綠燈：<strong>綠燈</strong>可直接去託運行李；<strong>紅燈</strong>須帶商品至海關人工抽查。</p>
+                    <h4>2️⃣ 安檢後｜69 號登機門旁 CASH JAPAN</h4>
                     <ul>
-                        <li><strong>避開 VISA / MasterCard：</strong>Global Blue 退 VISA／Master 會強制以極差匯率轉成台幣（約被扣 10% 匯損；連 Master 日圓雙幣卡也少 ~5.5%）。</li>
-                        <li><strong>首選 JCB（尤其 JCB 日圓雙幣卡）：</strong>以日幣計價退回，JCB 雙幣卡可原封不動退回 100% 日幣。</li>
-                        <li><strong>結帳與退稅可脫鉤：</strong>結帳可用現金／PayPay／任意信用卡，退稅時可另外指定退回 <strong>JCB 卡</strong>（Global Blue 線上設 JCB 卡免安全碼，離境 <strong>3 週內</strong> 須設定）。</li>
+                        <li><strong>僅此一處：</strong>人工櫃台 07:00–20:00 ／ 自助機 <strong>06:00–20:30</strong>（單筆上限 10 萬日圓，只需護照免收據，約 1 分鐘）。</li>
+                        <li><strong>支援 4 家：</strong><code>J-TaxRefund</code>、<code>JPrefund</code>、<code>Global Blue</code>、<code>IntaSect</code>（無 PIE VAT）。</li>
+                        <li><strong>領現服務費：</strong>扣退稅額 <strong>10%</strong>（單筆 <strong>¥100～¥500</strong>，以 ¥50 取整）。</li>
                     </ul>
-                    <h4>💡 達人實戰建議（機場排隊怎麼選？）</h4>
+                </div>
+            </details>
+
+            <details class="sub">
+                <summary>💳 退信用卡 vs 領現金怎麼選最划算？</summary>
+                <div class="sub-body">
                     <ul>
-                        <li><strong>有 JCB 卡：</strong>機場 Cash JAPAN 若不用排隊可先領現；<strong>若大排長龍就果斷放棄，回台灣再線上退回 JCB 卡</strong>，省時又省掉 10% 領現手續費！</li>
-                        <li><strong>只有 VISA / Master 卡：</strong>單筆退稅額超過 <strong>¥5,000</strong>（機場領現 ¥500 封頂）或超過 <strong>¥10,000</strong>（友都八喜 ¥500 封頂），<strong>領現金反而比退卡被吃匯差划算</strong>。</li>
+                        <li><strong>結帳與退稅完全脫鉤：</strong>可用現金／PayPay／任意卡結帳，退稅另外指定退回 <strong>JCB 卡</strong>（Global Blue 設 JCB 卡免安全碼）。</li>
+                        <li><strong>有 JCB 卡（尤其雙幣卡）：</strong>機場 Cash JAPAN 不用排隊可領現；<strong>大排長龍就放棄，回台灣再退 JCB 卡</strong>（省時又省 10% 領現費）。</li>
+                        <li><strong>只有 VISA / Master 卡：</strong>單筆退稅額 <strong>&gt; ¥5,000</strong>（機場 ¥500 封頂）或 <strong>&gt; ¥10,000</strong>（友都八喜 ¥500 封頂），<strong>領現金比退卡被吃匯差划算</strong>。</li>
                     </ul>
                 </div>
             </details>
@@ -1634,19 +1633,16 @@
                     <div class="amt">¥840 / 790</div>
                 </div>
             </div>
-            <p style="font-size:.78rem;color:var(--muted);margin:6px 2px 0;">※ 11 月新制後百貨多由 1.55% 調高至 2.3%；3COINS (JPrefund) 固定扣 ¥320（實退 ¥680）。若再去機場 Cash JAPAN 領現會再扣退稅額 10%（最低 ¥100）。付款方式與退稅方式無關，退回 JCB 卡最不吃匯損。</p>
+            <p style="font-size:.82rem;color:var(--muted);margin:6px 2px 0;">※ 11 月新制後百貨多為 2.3%；3COINS 固定扣 ¥320（實退 ¥680）。若再去機場 Cash JAPAN 領現會再扣退稅額 10%（最低 ¥100）。</p>
 
-            <div class="small-title">☑️ 出境前檢查表 <span style="font-size:.74rem;color:var(--muted);font-weight:normal;">（點擊打勾，會自動記住）</span></div>
+            <div class="small-title">☑️ 出境前檢查表 <span style="font-size:.8rem;color:var(--muted);font-weight:normal;">（點擊打勾，自動記住）</span></div>
             <div class="checklist" id="tax-checklist">
-                <div class="check-item" data-key="c1"><span class="check-box"></span><span class="txt">已完成平台註冊</span></div>
-                <div class="check-item" data-key="c2"><span class="check-box"></span><span class="txt">護照資料填寫正確</span></div>
-                <div class="check-item" data-key="c3"><span class="check-box"></span><span class="txt">英文地址已填好</span></div>
-                <div class="check-item" data-key="c4"><span class="check-box"></span><span class="txt">Email 可正常收信</span></div>
-                <div class="check-item" data-key="c5"><span class="check-box"></span><span class="txt">J-TaxRefund 登入 ID 已保存</span></div>
-                <div class="check-item" data-key="c6"><span class="check-box"></span><span class="txt">每筆 QR Code／序號都拍下了</span></div>
-                <div class="check-item" data-key="c7"><span class="check-box"></span><span class="txt">已在對應平台完成登記（退現金免掃）</span></div>
-                <div class="check-item" data-key="c8"><span class="check-box"></span><span class="txt">託運前 3F 審查・安檢後 69 號門旁領現金</span></div>
-                <div class="check-item" data-key="c9"><span class="check-box"></span><span class="txt">護照、商品、單據保留到離境</span></div>
+                <div class="check-item" data-key="c1"><span class="check-box"></span><span class="txt">平台已註冊＆護照／英文地址填妥</span></div>
+                <div class="check-item" data-key="c2"><span class="check-box"></span><span class="txt">J-TaxRefund 登入 ID 已另存</span></div>
+                <div class="check-item" data-key="c3"><span class="check-box"></span><span class="txt">每筆明細 QR Code／序號都拍妥</span></div>
+                <div class="check-item" data-key="c4"><span class="check-box"></span><span class="txt">非退現金單據已於 180 日內／平台登錄</span></div>
+                <div class="check-item" data-key="c5"><span class="check-box"></span><span class="txt">Global Blue 退卡指定 JCB（離境 3 週內）</span></div>
+                <div class="check-item" data-key="c6"><span class="check-box"></span><span class="txt">託運前國際線 3F 審查・安檢後 69 號門領現</span></div>
             </div>
 
             <div class="disclaimer">實際畫面可能因店家或系統版本略有不同，請以現場與官方平台資訊為準。</div>
@@ -1727,13 +1723,37 @@
 
                 if ($target.hasClass("card")) {
                     setCard($target, true);
-                } else if ($target.is("#sec-shrines")) {
-                    // 神社區塊：展開第一張卡
+                } else if ($target.is("#sec-shrines, #sec-notices")) {
+                    // 神社與注意事項區塊：自動展開第一張卡
                     var $first = $target.find(".card").first();
                     if (!$first.hasClass("open")) setCard($first, true);
                 }
                 scrollToEl($target);
             });
+
+            // ---------- 一鍵複製英文地址 ----------
+            $("#btn-copy-addr").on("click", function () {
+                var $btn = $(this);
+                var text = $btn.data("copy");
+                function done() {
+                    $btn.addClass("copied").text("✅ 已複製");
+                    setTimeout(function () { $btn.removeClass("copied").text("📋 複製"); }, 2000);
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(done, function () {
+                        fallbackCopy(text); done();
+                    });
+                } else {
+                    fallbackCopy(text); done();
+                }
+            });
+
+            function fallbackCopy(str) {
+                var $tmp = $("<textarea>").val(str).css({ position: "fixed", opacity: 0 }).appendTo("body");
+                $tmp[0].select();
+                try { document.execCommand("copy"); } catch (e) { }
+                $tmp.remove();
+            }
 
             // ---------- 底部導覽高亮目前區塊＆回頂端按鈕 ----------
             var sections = ["sec-itinerary", "sec-shrines", "sec-notices", "sec-coupons", "sec-taxrefund"];
