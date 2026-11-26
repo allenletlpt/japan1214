@@ -24,11 +24,16 @@
             --pet-tag-text: #ffffff;
         }
 
+        html {
+            font-size: 100%;
+        }
+
         body {
             font-family: '微軟正黑體', 'Helvetica Neue', Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.75;
+            font-size: 1rem;
             margin: 0;
             padding: 20px;
         }
@@ -231,6 +236,9 @@
         }
 
         @media (max-width: 600px) {
+            html {
+                font-size: 112.5%;
+            }
             body {
                 padding: 10px;
             }
