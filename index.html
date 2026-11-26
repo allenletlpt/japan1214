@@ -27,6 +27,7 @@
 
         html {
             -webkit-text-size-adjust: 100%;
+            font-size: 100%;
         }
 
         body {
@@ -34,7 +35,7 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.72;
-            font-size: 16.5px;
+            font-size: 1rem;
             margin: 0;
             padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom) + 12px);
         }
@@ -776,6 +777,10 @@
         }
 
         /* ===== 平板／桌機（寬螢幕加強排版） ===== */
+        @media (max-width: 639px) {
+            html { font-size: 112.5%; }
+        }
+
         @media (min-width: 640px) {
             body { font-size: 17px; }
             .wrap { padding: 0 20px 30px; }
