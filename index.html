@@ -63,23 +63,24 @@
 
         .hl { color: var(--red); font-weight: 700; }
 
-        /* ===== 右上角動態浮現更新時間徽章 ===== */
+        /* ===== 頁首右上角固定更新時間徽章（往下捲動自動收走，不擋閱讀） ===== */
         .update-badge {
-            position: fixed;
-            top: calc(env(safe-area-inset-top) + 10px);
-            right: 10px;
-            z-index: 1100;
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 3;
             display: inline-flex;
             align-items: center;
             gap: 6px;
             background: rgba(255, 255, 255, .92);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1.5px solid rgba(255, 117, 151, .45);
+            border: 1.5px solid rgba(255, 255, 255, .75);
             border-radius: 999px;
             padding: 5px 11px 5px 9px;
-            box-shadow: 0 6px 18px rgba(91, 142, 244, .22);
+            box-shadow: 0 4px 14px rgba(48, 63, 159, .18);
             color: var(--primary);
+            font-family: inherit;
             font-size: .74rem;
             font-weight: 700;
             line-height: 1.2;
@@ -87,17 +88,12 @@
             user-select: none;
             -webkit-tap-highlight-color: transparent;
             opacity: 0;
-            transform: translate3d(20px, -16px, 0) scale(.82);
-            transition: opacity .55s ease, transform .6s cubic-bezier(.34, 1.56, .64, 1), background .25s, box-shadow .25s;
+            transform: translate3d(16px, -10px, 0) scale(.86);
+            transition: opacity .5s ease, transform .55s cubic-bezier(.34, 1.56, .64, 1), background .2s;
         }
         .update-badge.is-shown {
             opacity: 1;
             transform: translate3d(0, 0, 0) scale(1);
-            animation: badgeFloat 3.6s ease-in-out .8s infinite;
-        }
-        .update-badge.is-scrolled {
-            background: rgba(255, 255, 255, .82);
-            box-shadow: 0 4px 12px rgba(91, 142, 244, .16);
         }
         .update-badge:active { transform: scale(.95); }
         .update-badge .ub-dot {
@@ -1038,18 +1034,17 @@
 </head>
 
 <body>
-    <!-- ===== 右上角動態浮現更新時間（更新頁面內容時，請一併更新此時間） ===== -->
-    <div class="update-badge" id="update-badge" role="button" tabindex="0" title="點擊切換完整更新時間">
-        <span class="ub-dot" aria-hidden="true"></span>
-        <span>🕒</span>
-        <span class="ub-short">更新 <time datetime="2026-11-26T17:07:00+08:00">11/26 17:07</time></span>
-        <span class="ub-full">更新：<time datetime="2026-11-26T17:07:00+08:00">2026/11/26 17:07（台灣時間）</time></span>
-    </div>
-
     <div class="wrap">
 
         <!-- ===== 頁首：標題＋航班 ===== -->
         <header class="hero" id="top">
+            <!-- 頁首右上角更新時間（更新頁面內容時，請一併更新此時間） -->
+            <button type="button" class="update-badge" id="update-badge" title="點擊切換完整更新時間">
+                <span class="ub-dot" aria-hidden="true"></span>
+                <span>🕒</span>
+                <span class="ub-short">更新 <time datetime="2026-11-26T17:15:00+08:00">11/26 17:15</time></span>
+                <span class="ub-full">更新：<time datetime="2026-11-26T17:15:00+08:00">2026/11/26 17:15（台灣時間）</time></span>
+            </button>
             <div class="snowflakes" aria-hidden="true">
                 <span>❄️</span><span>❅</span><span>✦</span><span>❄️</span><span>❆</span><span>✧</span>
             </div>
@@ -2036,7 +2031,6 @@
                 $(".bottom-nav a").removeClass("active");
                 $(".bottom-nav a[data-goto='" + current + "']").addClass("active");
                 $("#to-top").toggle($(window).scrollTop() > 500);
-                $("#update-badge").toggleClass("is-scrolled", $(window).scrollTop() > 80);
                 ticking = false;
             }
 
