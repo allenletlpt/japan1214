@@ -220,6 +220,40 @@
         .flight .lbl { font-weight: 700; font-size: .86rem; }
         .flight .time { font-size: 1.05rem; font-weight: 900; margin: 2px 0; letter-spacing: .3px; }
         .airport-transfer { margin-top: 9px; text-align: left; background: rgba(255, 255, 255, .24); }
+        .transfer-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px;
+            margin-top: 6px;
+        }
+        .transfer-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            background: rgba(255, 255, 255, .92);
+            color: var(--accent-dark);
+            font-weight: 700;
+            font-size: .78rem;
+            padding: 2px 9px;
+            border-radius: 999px;
+            box-shadow: 0 2px 6px rgba(45, 62, 130, .14);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .transfer-link:hover { background: #fff; text-decoration: none; transform: translateY(-1px); }
+        .transfer-code {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 245, 196, .95);
+            color: #7c4a03;
+            font-weight: 900;
+            font-size: .78rem;
+            padding: 2px 8px;
+            border-radius: 999px;
+            letter-spacing: .5px;
+            white-space: nowrap;
+        }
 
         /* ===== 行程總覽 Day Chips（繽紛馬卡龍可橫向滑動） ===== */
         .chips {
@@ -1042,8 +1076,8 @@
             <button type="button" class="update-badge" id="update-badge" title="點擊切換完整更新時間">
                 <span class="ub-dot" aria-hidden="true"></span>
                 <span>🕒</span>
-                <span class="ub-short">更新 <time datetime="2026-11-26T17:15:00+08:00">11/26 17:15</time></span>
-                <span class="ub-full">更新：<time datetime="2026-11-26T17:15:00+08:00">2026/11/26 17:15（台灣時間）</time></span>
+                <span class="ub-short">更新 <time datetime="2026-11-27T15:15:00+08:00">11/27 15:15</time></span>
+                <span class="ub-full">更新：<time datetime="2026-11-27T15:15:00+08:00">2026/11/27 15:15（台灣時間）</time></span>
             </button>
             <div class="snowflakes" aria-hidden="true">
                 <span>❄️</span><span>❅</span><span>✦</span><span>❄️</span><span>❆</span><span>✧</span>
@@ -1064,8 +1098,16 @@
             </div>
             <div class="flight airport-transfer">
                 <div class="lbl">🚗 已安排機場接送</div>
-                <div><time datetime="2026-12-14T09:00">2026-12-14 09:00</time> 搭車：板橋區 ➜ 桃園機場</div>
-                <div><time datetime="2026-12-19T18:15">2026-12-19 18:15</time> 搭車：桃園機場 ➜ 板橋區</div>
+                <div class="transfer-row">
+                    <span><strong>去程</strong> <time datetime="2026-12-14T09:00">12/14 09:00</time> 板橋區 ➜ 桃園機場</span>
+                    <a class="transfer-link" href="https://www.tms.tw/27998E" target="_blank" rel="noopener">🔍 查詢</a>
+                    <span class="transfer-code">驗證碼 1278</span>
+                </div>
+                <div class="transfer-row">
+                    <span><strong>回程</strong> <time datetime="2026-12-19T18:15">12/19 18:15</time> 桃園機場 ➜ 板橋區</span>
+                    <a class="transfer-link" href="https://www.tms.tw/933315" target="_blank" rel="noopener">🔍 查詢</a>
+                    <span class="transfer-code">驗證碼 3600</span>
+                </div>
             </div>
         </header>
 
